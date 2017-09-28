@@ -1,0 +1,410 @@
+{
+  "vcfoSpendAccountCatListDetailsDataList": [{
+    "pncCategoryData": {
+      "categoryId": "2",
+      "categoryName": "Compensation",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "138",
+      "categoryName": "Education expenses",
+      "displayName": "Education expenses",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "135",
+      "categoryName": "Employee Compensation",
+      "displayName": "Employee Compensation",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "147",
+      "categoryName": "Officers Compensation",
+      "displayName": "Officers Compensation",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "1",
+      "categoryName": "Cost of Goods Sold",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "220",
+      "categoryName": "Labor Costs",
+      "displayName": "Labor Costs",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "153",
+      "categoryName": "Overhead",
+      "displayName": "Overhead",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "136",
+      "categoryName": "Products & Materials",
+      "displayName": "Products & Materials",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "3",
+      "categoryName": "Donation and Gifts",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "133",
+      "categoryName": "Charitable Giving/Donations",
+      "displayName": "Charitable Giving/Donations",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "141",
+      "categoryName": "Gifts",
+      "displayName": "Gifts",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "15",
+      "categoryName": "Income",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "221",
+      "categoryName": "Deposit",
+      "displayName": "Deposit",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "165",
+      "categoryName": "Goods & Product Sales",
+      "displayName": "Goods & Product Sales",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "168",
+      "categoryName": "Insurance & Contracts",
+      "displayName": "Insurance & Contracts",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "166",
+      "categoryName": "Investment",
+      "displayName": "Investment",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "169",
+      "categoryName": "Rental & Royalties",
+      "displayName": "Rental & Royalties",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "167",
+      "categoryName": "Services",
+      "displayName": "Services",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "4",
+      "categoryName": "Insurance",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "143",
+      "categoryName": "Insurance",
+      "displayName": "Insurance",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "5",
+      "categoryName": "Loan Repayments",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "144",
+      "categoryName": "Loans",
+      "displayName": "Loans",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "6",
+      "categoryName": "Miscellaneous",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "131",
+      "categoryName": "Miscellaneous",
+      "displayName": "Miscellaneous",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "164",
+      "categoryName": "Personal",
+      "displayName": "Personal",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "7",
+      "categoryName": "Office/Business Expenses",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "128",
+      "categoryName": "Advertising & Marketing",
+      "displayName": "Advertising & Marketing",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "146",
+      "categoryName": "Office Supplies",
+      "displayName": "Office Supplies",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "148",
+      "categoryName": "Postage & Freight",
+      "displayName": "Postage & Freight",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "156",
+      "categoryName": "Research & Development",
+      "displayName": "Research & Development",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "8",
+      "categoryName": "Pension Plans",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "151",
+      "categoryName": "Pension Plans",
+      "displayName": "Pension Plans",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "9",
+      "categoryName": "Professional Services and Fees",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "152",
+      "categoryName": "Bank Fees/Service Charges",
+      "displayName": "Bank Fees/Service Charges",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "137",
+      "categoryName": "Dues & Subscriptions",
+      "displayName": "Dues & Subscriptions",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "217",
+      "categoryName": "Legal & Professional Fees",
+      "displayName": "Legal & Professional Fees",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "160",
+      "categoryName": "Licenses & Regulatory Fees",
+      "displayName": "Licenses & Regulatory Fees",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "158",
+      "categoryName": "Payroll Services",
+      "displayName": "Payroll Services",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "159",
+      "categoryName": "Penalties/Fines",
+      "displayName": "Penalties/Fines",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "10",
+      "categoryName": "Property",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "145",
+      "categoryName": "Property Mortgage",
+      "displayName": "Property Mortgage",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "149",
+      "categoryName": "Property Rental",
+      "displayName": "Property Rental",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "142",
+      "categoryName": "Repairs & Maintenance",
+      "displayName": "Repairs & Maintenance",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "11",
+      "categoryName": "Tax",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "154",
+      "categoryName": "Taxes",
+      "displayName": "Taxes",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "16",
+      "categoryName": "Transfers",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "170",
+      "categoryName": "Credit Card Payments",
+      "displayName": "Credit Card Payments",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "172",
+      "categoryName": "Money Transfer",
+      "displayName": "Money Transfer",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "171",
+      "categoryName": "Security Trades",
+      "displayName": "Security Trades",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "12",
+      "categoryName": "Travel and Entertainment",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "130",
+      "categoryName": "Auto Car & Truck",
+      "displayName": "Auto Car & Truck",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "139",
+      "categoryName": "Entertainment",
+      "displayName": "Entertainment",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "140",
+      "categoryName": "Gasoline & Fuel",
+      "displayName": "Gasoline & Fuel",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "150",
+      "categoryName": "Meals & Dining",
+      "displayName": "Meals & Dining",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "157",
+      "categoryName": "Parking Fees & Tolls",
+      "displayName": "Parking Fees & Tolls",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "155",
+      "categoryName": "Travel",
+      "displayName": "Travel",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "17",
+      "categoryName": "Uncategorized",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "163",
+      "categoryName": "Uncategorized",
+      "displayName": "Uncategorized",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "13",
+      "categoryName": "Utilities",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "162",
+      "categoryName": "Computer & Internet",
+      "displayName": "Computer & Internet",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "161",
+      "categoryName": "Telephone",
+      "displayName": "Telephone",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "132",
+      "categoryName": "Utilities",
+      "displayName": "Utilities",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }, {
+    "pncCategoryData": {
+      "categoryId": "14",
+      "categoryName": "Withdrawals and Checks",
+      "createUpdateDate": null
+    },
+    "yodleeCategoryData": [{
+      "categoryId": "129",
+      "categoryName": "Cash Withdrawal",
+      "displayName": "Cash Withdrawal",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }, {
+      "categoryId": "134",
+      "categoryName": "Checks",
+      "displayName": "Checks",
+      "categoryLevel": null,
+      "createUpdateDate": null
+    }]
+  }]
+}

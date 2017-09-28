@@ -1,0 +1,47 @@
+{
+  "status" : {
+    "statusCode" : "SUCCESS",
+    "errorCode" : "0",
+    "message" : null
+  },
+  "data" : {
+    "accountId" : {
+      "bankId" : "070",
+      "accountNumber" : "00000000004005488736",
+      "accountType" : "DDA",
+      "subProduct" : null,
+      "description" : null,
+      "hashedAccountNumber" : "d7bbe0947866508da89bb4b85371a5ad2e4655cc8736",
+      "depositAccount" : true,
+      "loanAccount" : false,
+      "cdAccount" : false,
+      "iraAccount" : false,
+      "brokerageAccount" : false,
+      "creditCardAccount" : false,
+      "gpraccount" : false,
+      "accountNumberLeadingZeros" : "00000000004005488736",
+      "accountNumberWithoutLeadingZeros" : "4005488736"
+    },
+    "scheduledTransactions" : [ ],
+    "unscheduledTransactions" : [ ],
+    "healthIndicators" : {
+      "isBillPayUnAvailable" : "false",
+      "hasChecksYouWrote" : null,
+      "hasRecurringExternalPayments" : null,
+      "hasScheduledExternalTransfers" : null,
+      "hasAutoDebits" : "true",
+      "hasCategorizationFunction" : "true",
+      "hasAvailableScheduledBills" : "false",
+      "custLevelBillPayStatus" : null,
+      "hasScheduledExternalPayments" : null,
+      "hasBillDotComData" : "true",
+      "hasAvailablePendingTransactions" : "true",
+      "hasAvailablePostedTransactions" : "true",
+      "hasProformasMoneyIn" : "true",
+      "hasCategorizationService" : "true",
+      "hasProformasMoneyOut" : null,
+      "hasRecurringExternalTransfers" : null,
+      "hasAvailableTransfers" : "true"
+    }
+  }
+}

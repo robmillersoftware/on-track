@@ -1,0 +1,55 @@
+{
+  "status" : {
+    "statusCode" : "SUCCESS",
+    "errorCode" : "0",
+    "message" : null
+  },
+  "data" : {
+    "cfoRole" : "OWNER",
+    "dashboardEntitlements" : {
+      "pageAccess" : true,
+      "timelineAccess" : true,
+      "trendAccess" : true,
+      "welcomeAccess" : true,
+      "helpAccess" : true
+    },
+    "timelineEntitlements" : {
+      "pageAccess" : true,
+      "modifyCashCushion" : true,
+      "cashInCustomerViewOnly" : false,
+      "cashInItemsViewOnly" : false,
+      "cashOutPayeeViewOnly" : false,
+      "cashOutItemsViewOnly" : false
+    },
+    "trendEntitlements" : {
+      "pageAccess" : true,
+      "trendGraph" : true,
+      "trendDataViewOnly" : false,
+      "percentageHandleViewOnly" : false,
+      "planDotsViewOnly" : false,
+      "togglePlan" : true,
+      "navigateTabs" : true
+    },
+    "cashInEntitlements" : {
+      "pageAccess" : true,
+      "cashInCustomerViewOnly" : false,
+      "cashInItemsViewOnly" : false
+    },
+    "cashOutEntitlements" : {
+      "pageAccess" : true,
+      "cashOutPayeeViewOnly" : false,
+      "cashOutItemsViewOnly" : false
+    },
+    "activityEntitlements" : {
+      "pageAccess" : true
+    },
+    "billDotComEntitlements" : {
+      "pageAccess" : true
+    },
+    "preferencesEntitlements" : {
+      "pageAccess" : true
+    },
+    "delegationAccountFunctionPrivilege" : [ ],
+    "delegate" : false
+  }
+}

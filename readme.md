@@ -1,158 +1,83 @@
-# Cash Flow Insight
+# Vcfo Mock API
 
-## Tech Stack
+Provides JSON endpoints based on HTTP APIs used by legacy CFI application.
 
-* Angular 1.6
-* Babel
-* Angular Material
-* Angular UI Router
-* Redux
-* ESLint
-* ESDoc
-* Jasmine & Karma
-* Gulp
-* Browserify
+## Getting Started
 
-## Setting Up
+`cd` into this directory, `vcfo-mock-api/`, and do the following:
 
-### Overview
+* If first time, run `npm install`.
 
-1. Install npm packages for Angular app.
-1. Clone `wbb-ui-base` into project root.
-1. Install npm packages for mock backend.
-1. Run the mock backend and Angular app.
+* Spin up the API by running `npm start`.
 
-### Angular App
+The API should be available at `http:localhost:3030/`. (Port number is set in
+`server/config/config.js`.)
 
-Install npm packages by running the following from project root
-directory (where `package.json` resides).
+To test that the API is up click here:
+[VcfoAccountSwitcherRequest](http://localhost:3030/cfo/VcfoAccountSwitcherRequest).
 
-```cli
-npm install
+You should see a chunk of JSON in your browser.
+
+> Note that this mock API is meant to be run in a separate terminal instance
+than the cfi angular app.
+
+If you make changes to the API source while it is running it will auto update.
+
+
+## Available Modes
+
+* `npm run slow` - This will run the mock backend with 800 ms latency per
+request.
+
+* `npm run absurd` - Will run the mock backend with 8 seconds of latency
+per request.
+
+* `npm start -- latency=n` - Will run the mock backend with `n` milliseconds
+of latency, where `n` is a valid integer.
+
+## Data Sources
+
+Data sources are sets of `.json` files corresponding to the API endpoints
+and are located in `server/data/`.
+
+The name of the datasource is the same as the name of its directory.
+
+To use a specific data source pass the `datasource=` argument from the CLI.
+
+E.g.,
+
+```sh
+npm start datasource=QA_052017
 ```
 
-To get the `wbb-ui-base` shared components clone the repo into the current
-directory.
+*Where `QA_052017` is a directory under `server/data/`.*
 
-```cli
-git clone ssh://git@git.pncint.net/~xx67803/wbb-ui-base.git
+You can combine latency and custom datasource.
+
+```sh
+npm start latency=900 datasource=QA_2016
 ```
 
-Your directory structure should be like this:
+The default datasource is `Q8_072017`.
 
-```cli
-{cfi-root}/
-..src/
-....app/
-....and so on
-..wbb-ui-base/
-....assets/
-....and so on
-..vcfo-mock-api/
-....server/
-....and so on
-```
+*Use `QA_2016` for user with just a single CFI account.*
 
-To test that the environment is working properly run the following.
 
-```cli
-npm run build
-```
+## File Structure
 
-Or run `npm start` if you want lint, test, build, and dev server. (Setup the
-mock backend first if you want to view the app.)
+* `api/api.js` - Routes requests to `.json` files within the current datasource.
+* `config/config.js` - Wraps current config including datasource.
+* `data/**/*.json` - The datasources and their `.json` files.
+* `middleware/` - Custom middleware for latency, etc. and application of
+CORS middleware.
+* `util/` - Container custom logger.
+* `server.js` - Ties everything together.
 
-### Mock Backend
+## Note on *real* APIs
 
-To setup the mock backend `cd` into `vcfo-mock-api/` and run `npm install`.
+The real APIs are implemented in the `wbb-app` Java project on Bitbucket.
+For details look under the `vcfo/` directory of `wbb-app`.
+Controllers, etc. are part of the `com.pnc.accountLink.vcfo.client` package.
 
-After that completes start the backend by running `npm start`.
-
-See `./vcfo-mock-api/readme.md` for more info and options.
-
-### Unit Tests
-
-To just run unit tests with Karma:
-
-```cli
-npm test
-```
-
-(Equivalent to `npm run test`)
-
-To run tests in Karma with watch on `.js` files and open browser instance for
-debugging:
-
-```cli
-npm run test:watch
-```
-
-### Other Tasks
-
-* `npm run lint` to run js lint task.
-* `npm start style-lint` to run the `.scss` linter.
-* `npm run docs` to generate docs which will be output to `esdoc/` directory.
-
-*Open `esdocs/index.html` in browser straight from file system to view.*
-
-See `./esdoc-reference.md` for information about adding esdoc comments to
-source files.
-
-#### Adding Images
-
-The default build will not watch for new files in `assets/images/` so if
-you're adding new images you should completely stop and start the build
-for those new files to be copied to `dist/`.
-
-This was done during a build system perf improvement task on the assumption
-that adding images is a very rare thing.
-
-This *does not* apply to the `.svg` icons, which have their own task. See the
-`readme.md` in `app/config/` for info on adding icons.
-
-***
-
-## Git Workflow
-
-Always work off of a feature branch: `feature/us1234_my-feature-name`, or
-a bug fix branch: `bugfix/de1234_my-bug-fix-name`.
-
-Prefix branch names with user story number:
-
-`feature/{Rally story number}_{story description}`
-
-Branch from `develop`, doing a `git pull` first, and submit pull requests
-from your feature branch to `develop` through Bitbucket.
-
-See `./git-reference.md` for the complete guide.
-
-## Deployment
-
-*Circa 07-2017*
-
-### Q8 environment
-
-#### Prerequisites
-
-* Access to the `Rich Koch/OLB_Foundations_wbb-v2-app` repo on Bitbucket.
-* Communication with build master (currently Abhi) for that repo.
-
-#### Steps
-
-* Run `npm run build:q8`
-* Checkout the `feature/cfi-integration-initial` branch of
-`OLB_Foundations_wbb-v2-app` or created a new feature branch
-* Copy the CFI `dist/` artifacts into the `cashflowInsight/` directory on
-`OLB_Foundations_wbb-v2-app`.
-* Commit and push the changes and create a pull request, adding the 
-build master and any other relevant reviewers.
-
-### Mobile-Q7 environment
-
-* Run `npm run build:mobile-q7`
-
-TBD
-
-### Production environment
-
-TBD
+The Java DTOs and underlying domain objects are part of `wbb-lib`, also on
+Bitbucket. Look under `.../pnc/ecommerce/vcfo/*`.

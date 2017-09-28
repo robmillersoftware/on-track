@@ -1,0 +1,41 @@
+{
+    "status": {
+        "statusCode": "SUCCESS",
+        "errorCode": "0",
+        "message": null
+    },
+    "data": {
+        "eligibleAccounts": [{
+            "accountId": "//////////5////6/640,DDA,010",
+            "ledgerBalance": 198100.62,
+            "availableBalance": 198393.62,
+            "maskedAccountNumber": "XXXXXX0751",
+            "accountNumber": "00000000006000070751",
+            "accountDescription": "Business Enterprise Checking",
+            "bankId": null,
+            "currentDate": null,
+            "enrolled": true
+        }, {
+            "accountId": "//////////3//////504,DDA,070",
+            "ledgerBalance": 0,
+            "availableBalance": 0,
+            "maskedAccountNumber": "XXXXXX0615",
+            "accountNumber": "00000000004000000615",
+            "accountDescription": "Free Business Checking",
+            "bankId": null,
+            "currentDate": null,
+            "enrolled": true
+        }, {
+            "accountId": "/////////////0/57/12,DDA,001",
+            "ledgerBalance": 49006.04,
+            "availableBalance": 49167.04,
+            "maskedAccountNumber": "XXX8023",
+            "accountNumber": "00000000000001068023",
+            "accountDescription": "Non-Profit Checking",
+            "bankId": null,
+            "currentDate": null,
+            "enrolled": true
+        }],
+        "sfaAccountId": "/////////////0/57/12,DDA,001"
+    }
+}

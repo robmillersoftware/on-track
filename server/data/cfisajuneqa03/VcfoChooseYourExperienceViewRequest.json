@@ -1,0 +1,46 @@
+{
+  "status" : {
+    "statusCode" : "SUCCESS",
+    "errorCode" : "0",
+    "message" : null
+  },
+  "data" : {
+    "enrolledIntoPRS" : false,
+    "bdcStatusInSync" : false,
+    "comesWithUser" : true,
+    "showFirstTimeUserCYE" : false,
+    "showWelcomeCFIScreen" : false,
+    "newEnrollmentModelTxtDetails" : {
+      "headline" : "Not getting the value you expected from Cash Flow Insight?",
+      "para1_1" : "You are currently using Cash Flow Insight.",
+      "para1_2" : "We offer several online experiences to address different business needs to help you save time, control processes, and gain insight into your cash flow.  Beyond standard Online Banking, Cash Flow Insight offers features that allow you to know your current and projected cash position, stay in control of your payables and receivables, and identify trends to help make informed cash flow management decisions.",
+      "para1_3a" : "",
+      "para1_3" : "",
+      "para1_4a" : "",
+      "para1_4" : "",
+      "paragraph2" : "Review your options below to choose the right experience for your business's needs.",
+      "notReady" : "Not ready to change your experience?",
+      "linkText" : "",
+      "callToActionOLB" : "Select",
+      "callToActionCFI" : "Select",
+      "callToActionCFIPRS" : "Enroll",
+      "priceOLB" : "$0",
+      "priceCFI" : "$0",
+      "priceCFIPRS" : "prsbaseprice",
+      "freeTrialOLB" : "It's free",
+      "freeTrialCFI" : "Free with your checking account",
+      "freeTrialCFIPRS" : "Your fee waiver period has expired",
+      "landingPage" : "ACCOUNT_ACTIVITY",
+      "currExpCFI" : "Current Experience",
+      "disclosure2" : "Free trial offer valid for Cash Flow Insight and additional tools (Receivables, Payables and Accounting Software Sync) and additional sub-users (delegates) for your current statement cycle period and two additional statement cycles. One free trial per customer.Customers with a Business Enterprise Checking, Industry Solutions Checking, Business Checking Preferred, Business Checking Plus, or Retail Businesses Checking account have access to Cash Flow Insight (not including the additional tools: Receivables, Payables, and Accounting Software Sync) at no monthly fee for all of their eligible PNC business checking accounts in Online Banking. Free trial offer valid for the additional tools (Receivables, Payables, and Accounting Software Sync) for your current statement cycle period and two additional statement cycles. during your free trial period, the monthly fee for Cash Flow Insight, monthly fees for the additional tools, and transaction-based fees for Cash Flow Insight transactions that occur during your trial period are all waived. At the end of your trial, unless you un-enroll, you will remain enrolled in Cash Flow Insight and in any additional tools you selected. Following your trial period, you will be charged on a monthly basis for the additional tool(s) you are enrolled in and the transactions completed using the tool(s). If you do not want to continue with Cash Flow Insight, or any of the additional tools, you may opt out of Cash Flow Insight, or opt out of an additional tool or tools, on your Preferences page within Cash Flow Insight.",
+      "disclosure2_a" : "",
+      "disclosure2_1" : "",
+      "disclosure2_2" : "",
+      "showCFIStrikeThrough" : false,
+      "showPRSStrikeThrough" : false
+    },
+    "inGracePeriod" : false,
+    "freeTrialNEMSwitch" : "off",
+    "cfiEnrolled" : true
+  }
+}
