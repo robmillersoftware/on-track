@@ -421,9 +421,9 @@
 	<script src="./bar.js"></script>
 	<script>
 		$(document).ready(function(){
-			$.get('ws://on-track.azurewebsites.net:80/connect', function(data) {
+			/*$.get('ws://on-track.azurewebsites.net:9001/connect', function(data) {
 				console.log(data);
-			});
+			});*/
 			var slideCounter = 1;
 			$('.carousel').carousel({
 			  ride: false,
@@ -451,11 +451,11 @@
 
 	</script>
 	<script>
-		/*(function connect(){
+		(function connect(){
 		    try{
 
 			var socket;
-			var host = "ws://localhost:3030/connect";
+			var host = "ws://on-track.azurewebsites.net:9001/connect";
 		    var socket = new WebSocket(host);
 
 		        $('#socketMessage').append('<p class="event">Socket Status: '+socket.readyState);
@@ -475,7 +475,7 @@
 		    } catch(exception){
 		   		 $('#socketMessage').append('<p>Error'+exception);
 		    }
-		})(); */
+		})();
 	</script>
 <body>
 </body>

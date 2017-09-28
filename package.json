@@ -20,6 +20,8 @@
     "request": "^2.83.0"
   },
   "devDependencies": {
+    "gulp-cli": "^1.4.0",
+    "gulp-connect": "^5.0.0",
     "nodemon": "^1.11.0"
   }
 }
