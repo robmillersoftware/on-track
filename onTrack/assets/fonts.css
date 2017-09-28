@@ -1,0 +1,141 @@
+//
+// Typography
+// --------------------------------------------------
+//
+$font-base: '/fonts';
+
+@font-face {
+  font-family: PNCSans;
+  font-style: normal;
+  font-weight: 100;
+  src:
+    url('fonts/PNCSans-Light.woff2') format('woff2'),
+    url('fonts/PNCSans-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: PNCSans;
+  font-style: italic;
+  font-weight: 100;
+  src:
+    url('fonts/PNCSans-LightItalic.woff2') format('woff2'),
+    url('fonts/PNCSans-LightItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: PNCSans;
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url('fonts/PNCSans-Regular.woff2') format('woff2'),
+    url('fonts/PNCSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: PNCSans;
+  font-style: italic;
+  font-weight: 400;
+  src:
+    url('fonts/PNCSans-RegularItalic.woff2') format('woff2'),
+    url('fonts/PNCSans-RegularItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: PNCSans;
+  font-style: normal;
+  font-weight: 900;
+  src:
+    url('fonts/PNCSans-Bold.woff2') format('woff2'),
+    url('fonts/PNCSans-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: PNCSans;
+  font-style: italic;
+  font-weight: 900;
+  src:
+    url('fonts/PNCSans-BoldItalic.woff2') format('woff2'),
+    url('fonts/PNCSans-BoldItalic.woff') format('woff');
+}
+
+body {
+  color: $gray-23;
+  font-family: PNCSans, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+button, select, html, textarea, input, .md-chips {
+  font-family: PNCSans, Arial, sans-serif;
+}
+
+strong {
+  font-weight: 900;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 100;
+  line-height: 4.4rem;
+}
+
+h2 {
+  font-size: 3.2rem;
+  font-weight: 100;
+  line-height: 3.6rem;
+}
+
+h3 {
+  font-size: 2.8rem;
+  font-weight: 100;
+  line-height: 3.2rem;
+}
+
+h4 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 2.8rem;
+}
+
+h5 {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 2.4rem;
+}
+
+h6 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 2rem;
+}
+
+p, li, input, label {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+a {
+  color: $wbb-blue;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    // hover state was tricky.  We want the underline to go under everything
+    // (text, icons, etc) this preserves color and makes a 0.1rem solid bottom
+    // border.
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
+    color: $wbb-blue;
+    text-decoration: none;
+  }
+}
+
+a.md-button:hover {
+  border-bottom: none;
+}
