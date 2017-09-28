@@ -7,7 +7,7 @@ const datasource = process.argv
 console.log(`\x1b[35m ** Using ${datasource} datasource.`);
 
 module.exports = {
-  port: 3030,
+  port: 80,
   logging: true,
   datasource
 };

@@ -421,7 +421,7 @@
 	<script src="./bar.js"></script>
 	<script>
 		$(document).ready(function(){
-			$.get('http://localhost:3030/transactions/transactionsByAccount', function(data) {
+			$.get('ws://on-track.azurewebsites.net:80/connect', function(data) {
 				console.log(data);
 			});
 			var slideCounter = 1;
