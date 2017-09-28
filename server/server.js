@@ -93,17 +93,20 @@ const calculateCloverData = (paymentsString) => {
 // setup the app middlware
 require('./middleware/middleware')(app);
 
-app.ws('/connect', (ws, req) => {
+/* app.ws('/connect', (ws, req) => {
     ws.on('connect', () => {});
+});*/
+app.get('/connect', (req, res) => {
+    res.json(JSON.stringify(wsData));
 });
 
 setInterval(() => {
     getTransactions();
     getPayments();
 
-    expressWs.getWss('/connect').clients.forEach(client => {
+    /* expressWs.getWss('/connect').clients.forEach(client => {
         client.send(wsData);
-    });
+    });*/
 }, 1000);
 
 // export the app for testing
