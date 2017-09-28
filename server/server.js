@@ -12,6 +12,10 @@ var wsData = {
     transactionList: []
 };
 
+express.use('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '/onTrack/index.html'));
+});
+
 const getTransactions = () => {
     const apiToken = "262663d2-dbf9-38fe-8220-0a421913517f";
     const customerToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJicmlkZ2Vwb2ludDI1OCIsImV4cCI6MTUwNzQ3MjAzOH0.ElfArCyhqBxyw4OiZ6I6CC-8Vz8KIgjdCb89BNWeS6b7bHaxmB3iq7XWfgM5F98NeatHQod5vowskHxlQwnaIA";
