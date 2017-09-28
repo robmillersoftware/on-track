@@ -12,7 +12,7 @@ var wsData = {
     transactionList: []
 };
 
-express.use('/', (req, res) => {
+app.use('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/onTrack/index.html'));
 });
 
