@@ -1,0 +1,55 @@
+@import '_colors';
+
+.timeline-activity-table {
+  clear: both;
+  font-size: 1.6rem;
+  width: 100%;
+
+  th {
+    text-align: left;
+  }
+
+  th,
+  tbody td {
+    border-bottom: 0.1rem solid $gray-cb;
+    padding: 1rem;
+  }
+
+  tr.day td {
+    padding: 3rem 1rem 1rem 0;
+  }
+
+  tr td.description {
+    padding-left: 1.5rem;
+  }
+
+  .committed {
+    color: $wbb-red;
+  }
+
+  .recurring svg {
+    fill: $cfi-gray;
+  }
+
+  .cash-out,
+  .cash-in {
+    padding-left: 2rem;
+  }
+
+  .cash-out:before {
+    content: '-';
+  }
+
+  .cash-in:before {
+    content: '+';
+  }
+
+  .cash-out:empty:before,
+  .cash-in:empty:before {
+    content: none;
+  }
+
+  .null {
+    text-align: center;
+  }
+}

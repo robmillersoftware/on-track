@@ -1,0 +1,85 @@
+<div class="layout-mobile" ng-if="$ctrl.ready">
+
+  <daily-tracker open-detail="$ctrl.openDetail(view)"
+    dailyGoal="$ctrl.dailyGoal"
+    currentRevenue="$ctrl.currentRevenue">
+  </daily-tracker>
+  <mobile-menu open-detail="$ctrl.openDetail(view)"></mobile-menu>
+
+  <div class="transactions-data" ng-if="!$ctrl.detail.isActive">
+    <transactions-table
+      transactions="$ctrl.activity.transactions"
+      total="$ctrl.activity.transactions.length"
+      limit-to="4">
+    </transactions-table>
+  </div>
+  <div class="more-button">
+    <md-button
+      class="md-accent mobile-btn"
+      ng-click="$ctrl.openDetail('transactions')">
+      View More Transactions
+    </md-button>
+  </div>
+  <div class="mobile-data-points" layout="column">
+    <div class="data-point-section">
+      <div layout="row" layout-align="center">
+        <h6>Spend Analysis</h6>
+      </div>
+
+      <div layout="row"
+           layout-align="space-between"
+           class="data-points"
+           ng-repeat="category in $ctrl.preview.totals">
+        <div>{{category.category}}</div>
+        <div class="data">{{category.amount | currency}} - {{category.percent}}%</div>
+      </div>
+    </div>
+
+    <div class="data-point-section">
+      <div layout="row" layout-align="center">
+        <h6>Timeline</h6>
+      </div>
+
+      <div layout="row" layout-align="space-between" class="data-points">
+        <div>Cash Reserves</div>
+        <div class="data">$00,000.00</div>
+      </div>
+
+      <div layout="row" layout-align="space-between" class="data-points">
+        <div>Next Upcoming Shortfall</div>
+        <div class="data">$00,000.00</div>
+      </div>
+
+      <div layout="row" layout-align="space-between" class="data-points">
+        <div>Future Cash Flow Balance - EOW</div>
+        <div class="data">$00,000.00</div>
+      </div>
+
+      <div layout="row" layout-align="space-between" class="data-points">
+        <div>Future Cash Flow Balance - EOM</div>
+        <div class="data">$00,000.00</div>
+      </div>
+    </div>
+
+    <div class="data-point-section">
+      <div layout="row" layout-align="center">
+        <h6>Trend</h6>
+      </div>
+
+      <div layout="row" layout-align="space-between" class="data-points">
+        <div>% Above/Below Plan (YTD)</div>
+        <div class="data">{{$ctrl.summaryTrend.plannedPercent}}%</div>
+      </div>
+
+      <div layout="row" layout-align="space-between" class="data-points">
+        <div>Net/Actual Cash Current Month</div>
+        <div class="data">{{$ctrl.summaryTrend.actualNet | currency}}</div>
+      </div>
+
+      <div layout="row" layout-align="space-between" class="data-points">
+        <div>Planned Cash Current Month</div>
+        <div class="data">{{$ctrl.summaryTrend.plannedReceived | currency}}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.verify-container {
+  display: flex;
+  justify-content: center;
+}
+
+.account-details-container {
+  div {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-account-label {
+  flex: 75;
+}
+
+.full-account-field {
+  flex: 25;
+  margin-left: 2rem;
+  margin-top: 0;
+}
+
+.account-number-close-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

@@ -1,0 +1,37 @@
+<div class="accounts-banner">
+
+  <fab-menu></fab-menu>
+
+  <div class="banner-flex-container" layout-xs="column" layout-align-xs="center">
+
+    <!-- Account labels when only one account present -->
+    <div layout="row" ng-if="$ctrl.accounts.length === 1">
+      <div class="single-account banner-account-name">
+        {{$ctrl.current.description}}
+      </div>
+      <div class="single-account banner-account-number">
+        {{$ctrl.current.numberMasked}}
+      </div>
+    </div>
+
+    <!-- Accounts dropdown -->
+    <accounts-menu
+      ng-if="$ctrl.accounts.length > 1"
+      accounts="$ctrl.accounts"
+      selected-id="$ctrl.current.id"
+      on-select="$ctrl.changeAccount(accountId)">
+    </accounts-menu>
+
+    <div ng-show="$ctrl.current">
+      <div class="banner-account-balance">
+        {{ $ctrl.current.availableBalance | currency:'$' }}
+      </div>
+    </div>
+  </div>
+
+  <div class="show-account-number" hide show-gt-xs flex ng-if="$ctrl.accounts.length >= 1">
+    <label>Account and Routing Number</label>
+    <a class="account-number-link" ui-sref="showRoutingInfo">SHOW</a>
+  </div>
+
+</div>

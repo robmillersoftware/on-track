@@ -1,0 +1,20 @@
+<spending-history
+  history="$ctrl.spending.history"
+  on-select-month="$ctrl.selectMonthWithTransactions(yearMonth)">
+</spending-history>
+
+<spending-totals
+  spending="$ctrl.spending.selected"
+  on-select-category="$ctrl.selectCategory(categoryId)">
+</spending-totals>
+
+<transactions
+  transactions="$ctrl.transactions.all"
+  options="$ctrl.transactions.options"
+  on-sort-change="$ctrl.transactionsSort(sortBy);"
+  on-search="$ctrl.transactionsFilter(query)">
+</transactions>
+
+<categories
+  categories="$ctrl.categories">
+</categories>

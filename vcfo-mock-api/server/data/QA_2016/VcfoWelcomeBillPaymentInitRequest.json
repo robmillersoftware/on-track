@@ -1,0 +1,42 @@
+{
+  "status" : {
+    "statusCode" : "SUCCESS",
+    "errorCode" : "0",
+    "message" : null
+  },
+  "data" : {
+    "billPayStatusCode" : null,
+    "enrolledInBillPayment" : false,
+    "hasMoreAccountsToEnroll" : true,
+    "listOfAccountsToEnroll" : [ {
+      "accountId" : "bf6253b2caf612257ed34d19ad4248a12e94f0cc959cda16ef451051e4842b406d1ffd61004975d0437e1ce59a4a6e79,DDA,070",
+      "ledgerBalance" : null,
+      "availableBalance" : null,
+      "maskedAccountNumber" : "XXXXXX8736",
+      "accountNumber" : "4005488736",
+      "encodedAccountNumber" : null,
+      "accountDescription" : "Analysis Checking",
+      "bankId" : null,
+      "currentDate" : null,
+      "enrolled" : true,
+      "billPayEnrolled" : false,
+      "olsEligible" : false
+    }, {
+      "accountId" : "bf6253b2caf612257ed34d19ad4248a18629a9712901eb14982d8158a743523c6d1ffd61004975d0437e1ce59a4a6e79,DDA,070",
+      "ledgerBalance" : null,
+      "availableBalance" : null,
+      "maskedAccountNumber" : "XXXXXX7597",
+      "accountNumber" : "4007887597",
+      "encodedAccountNumber" : null,
+      "accountDescription" : "Business Checking Preferred",
+      "bankId" : null,
+      "currentDate" : null,
+      "enrolled" : true,
+      "billPayEnrolled" : false,
+      "olsEligible" : false
+    } ],
+    "emailAddress" : "test@pnc.com",
+    "fieldCheck1" : "167266973",
+    "quickenBillPayUser" : false
+  }
+}

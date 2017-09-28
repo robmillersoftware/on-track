@@ -1,0 +1,35 @@
+@import '_colors';
+
+.mobile-data-points {
+  margin: 0 1rem;
+  padding: 1rem;
+}
+
+.mobile-data-points h6 {
+  margin: 2rem;
+  text-transform: uppercase;
+}
+
+.data-point-section {
+  padding-top: 2rem;
+}
+
+.data-points {
+  font-size: 1.6rem;
+  padding-top: 0.5rem;
+}
+
+.data {
+  font-weight: bold;
+}
+
+.mobile-btn {
+  border: 0.2rem solid $cfi-lightest-blue;
+  padding: 0.5rem 2rem;
+
+  &:not([disabled]):hover {
+    background-color: $cfi-blue;
+    border-color: $cfi-blue;
+    color: $white;
+  }
+}

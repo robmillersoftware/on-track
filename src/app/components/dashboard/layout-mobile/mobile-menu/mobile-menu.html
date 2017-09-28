@@ -1,0 +1,23 @@
+<div class="mobile-menu-container" ng-class="{'isOpen': $ctrl.isOpen}">
+  <md-button class="md-raised activity-menu-btn" ng-click="$ctrl.toggleIsOpen()">
+    Activity
+    <md-icon md-svg-icon="chevron-right" aria-label="Activity closed"></md-icon>
+  </md-button>
+  <div>
+    <md-button
+      class="subnav-button md-raised"
+      ng-click="$ctrl.openItem('statements')">
+      Online Statements
+    </md-button>
+    <md-button
+      class="subnav-button md-raised"
+      ng-click="$ctrl.openItem('info')">
+      Additional Info
+    </md-button>
+    <md-button
+      class="subnav-button md-raised"
+      ng-click="$ctrl.openItem('alerts')">
+      Alerts &amp; Preferences
+    </md-button>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+[{
+    "date": "12-Jun-17",
+    "confirmed": 847000
+  },
+  {
+    "date": "13-Jun-17",
+    "confirmed": 827000
+  },
+  {
+    "date": "14-Jun-17",
+    "confirmed": 847000
+  },
+  {
+    "date": "15-Jun-17",
+    "confirmed": 877000
+  },
+  {
+    "date": "21-Jun-17",
+    "confirmed": 947000
+  },
+  {
+    "date": "22-Jun-17",
+    "confirmed": 937000
+  },
+  {
+    "date": "23-Jun-17",
+    "confirmed": 947000
+  },
+  {
+    "date": "24-Jun-17",
+    "confirmed": 927000
+  },
+  {
+    "date": "28-Jun-17",
+    "confirmed": 877000
+  },
+  {
+    "date": "29-Jun-17",
+    "confirmed": 887000
+  },
+  {
+    "date": "30-Jun-17",
+    "confirmed": 857000
+  },
+  {
+    "date": "1-Jul-17",
+    "confirmed": 927000,
+    "forecast": 947000
+  },
+  {
+    "date": "2-Jul-17",
+    "confirmed": 929000,
+    "forecast": 947000
+  },
+  {
+    "date": "3-Jul-17",
+    "confirmed": 937000,
+    "forecast": 957000
+  },
+  {
+    "date": "4-Jul-17",
+    "confirmed": 947000,
+    "forecast": 967000
+  },
+  {
+    "date": "5-Jul-17",
+    "confirmed": 947000,
+    "forecast": 967000
+  },
+  {
+    "date": "6-Jul-17",
+    "confirmed": 947000,
+    "forecast": 967000
+  },
+  {
+    "date": "7-Jul-17",
+    "confirmed": 957000,
+    "forecast": 977000
+  },
+  {
+    "date": "8-Jul-17",
+    "confirmed": 977000,
+    "forecast": 995000
+  },
+  {
+    "date": "14-Jul-17",
+    "confirmed": 907000,
+    "forecast": 967000
+  },
+  {
+    "date": "15-Jul-17",
+    "confirmed": 937000,
+    "forecast": 962000
+  },
+  {
+    "date": "16-Jul-17",
+    "confirmed": 927000,
+    "forecast": 960000
+  },
+  {
+    "date": "18-Jul-17",
+    "confirmed": 937000,
+    "forecast": 977000
+  },
+  {
+    "date": "21-Jul-17",
+    "confirmed": 827000,
+    "forecast": 897000
+  },
+  {
+    "date": "23-Jul-17",
+    "confirmed": 817000,
+    "forecast": 890000
+  }
+]

@@ -1,0 +1,144 @@
+@import '../common/colors';
+@import '../common/variables';
+
+.timeline-chart-container {
+  min-width: 30rem;
+
+  text {
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.confirmed {
+  fill: $chart-green;
+}
+
+.unconfirmed {
+  fill: url('#hatch4_4');
+  opacity: 0.65;
+}
+
+.label-projected {
+  fill: $chart-green;
+  font-family: PNCSans;
+  font-size: $chart-font-size-xl;
+  font-style: italic;
+  text-anchor: middle;
+}
+
+.label-net {
+  fill: $chart-gray-dark;
+  font-family: PNCSans;
+  font-size: $chart-font-size-md;
+}
+
+.today {
+  fill: $chart-black; // #222028;
+  font-family: PNCSans;
+  font-size: $chart-font-size-md;
+  font-weight: bold;
+}
+
+.bottom-lines {
+  fill: transparent;
+  stroke: $chart-gray-dark;
+  stroke-opacity: 0.16;
+  stroke-width: 2;
+}
+
+.left-label,
+.bottom-label {
+  fill: $chart-black;
+  font-family: PNCSans;
+  font-size: $chart-font-size-sm;
+}
+
+.left-label {
+  text-anchor: end;
+}
+
+.bottom-label {
+  text-anchor: middle;
+}
+
+.cash-reserve {
+  stroke: $chart-gray-dark;
+  stroke-dasharray: 12, 4;
+  stroke-width: 2;
+}
+
+.shortfall {
+  stroke: $chart-warn;
+  stroke-dasharray: 12, 4;
+  stroke-width: 2;
+}
+
+.handle {
+  fill: $chart-gray-dark;
+  stroke: $chart-gray-dark;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.handle-text {
+  fill: darken($chart-white, 2%);
+  font-family: PNCSans;
+  font-size: $chart-font-size-sm;
+  text-anchor: middle;
+}
+
+.draggable-handle {
+  cursor: ns-resize;
+  fill: transparent;
+}
+
+.prevnext-button {
+  cursor: pointer;
+
+  path {
+    fill: $chart-gray-light;
+    stroke: $chart-gray-light;
+  }
+
+  rect,
+  path {
+    transition: all 0.2s ease-out;
+  }
+}
+
+.prevnext-button:hover {
+  path {
+    fill: $chart-gray-dark;
+    stroke: $chart-gray-dark;
+  }
+
+  rect {
+    fill: darken($chart-white, 5%);
+  }
+}
+
+.prevnext-button:active {
+  rect {
+    fill: darken($chart-white, 11.5%);
+  }
+}
+
+.selector {
+  path:not(.triangle) {
+    fill: transparent;
+    stroke: $chart-gray-dark;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3;
+  }
+
+  circle {
+    fill: $chart-green;
+  }
+
+  .triangle {
+    fill: $chart-gray-dark;
+  }
+}

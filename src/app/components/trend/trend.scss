@@ -1,0 +1,88 @@
+@import '_colors';
+
+.trend-radio-button-container {
+  margin: 2rem 0.8rem 1.5rem;
+}
+
+.trend-radio-button {
+  padding: 0.5rem;
+}
+
+.editable {
+  border: 0.1rem solid $gray-ab;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+  width: 10rem;
+}
+
+.trend-table {
+  overflow-x: scroll;
+
+  th {
+    border-bottom: 0.2rem solid $black;
+  }
+
+  button {
+    cursor: pointer;
+
+    &:hover {
+      background: $gray-ab;
+    }
+  }
+
+  .flex-20 {
+    padding: 1rem;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  th,
+  td {
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    text-align: right;
+    vertical-align: text-top;
+    width: 8rem;
+  }
+}
+
+.row-label {
+  height: 3rem;
+  overflow: hidden;
+
+  &.isOpen {
+    height: 10rem;
+
+    md-icon {
+      transform: rotate(90deg);
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  span {
+    cursor: pointer;
+    padding-top: 1rem;
+    transition: 0.3s ease-in-out;
+  }
+}
+
+.data-cell {
+  height: 3rem;
+  overflow: hidden;
+
+  span {
+    padding-top: 1rem;
+  }
+
+  &.isOpen {
+    height: 10rem;
+  }
+}
+
+.main-value {
+  font-size: 1.6rem;
+  font-weight: 900;
+}

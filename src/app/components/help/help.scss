@@ -1,0 +1,48 @@
+@import '_variables';
+
+.help-section {
+  padding: 1.5rem;
+
+  h4 {
+    font-size: 1.8rem;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .placeholder {
+    .fpo-image {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  video {
+    height: auto;
+    margin-bottom: 1rem;
+    margin-right: 3%;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    video {
+      width: 100%;
+    }
+  }
+}
+
+.section-title {
+  text-transform: uppercase;
+}
+
+.help-links {
+  text-transform: uppercase;
+}
+
+.video-links {
+  margin-right: 1rem;
+}

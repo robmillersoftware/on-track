@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Language" content="en_US" />
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>PNC Cash Flow Insight</title>
+    <!-- critical css -->
+    <style type="text/css" media="screen">
+      .cs-loader{position:fixed;top:0;left:0;bottom:0;right:0;background-color:#eee;}.cs-loader-inner{transform:translateY(-50%);top:50%;position:absolute;width:calc(100% - 200px);color:#1395d3;padding:0 100px;text-align:center}.cs-loader-inner label{font-size:20px;opacity:0;display:inline-block}@keyframes lol{0%{opacity:0;transform:translateX(-300px)}33%,66%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translateX(300px)}}@-webkit-keyframes lol{0%{opacity:0;-webkit-transform:translateX(-300px)}33%,66%{opacity:1;-webkit-transform:translateX(0)}100%{opacity:0;-webkit-transform:translateX(300px)}}.cs-loader-inner label:nth-child(6){-webkit-animation:lol 3s infinite ease-in-out;animation:lol 3s infinite ease-in-out}.cs-loader-inner label:nth-child(5){-webkit-animation:lol 3s .1s infinite ease-in-out;animation:lol 3s .1s infinite ease-in-out}.cs-loader-inner label:nth-child(4){-webkit-animation:lol 3s .2s infinite ease-in-out;animation:lol 3s .2s infinite ease-in-out}.cs-loader-inner label:nth-child(3){-webkit-animation:lol 3s .3s infinite ease-in-out;animation:lol 3s .3s infinite ease-in-out}.cs-loader-inner label:nth-child(2){-webkit-animation:lol 3s .4s infinite ease-in-out;animation:lol 3s .4s infinite ease-in-out}.cs-loader-inner label:nth-child(1){-webkit-animation:lol 3s .5s infinite ease-in-out;animation:lol 3s .5s infinite ease-in-out}
+    </style>
+    <link rel="stylesheet" href="angular-material.min.css">
+    <link rel="stylesheet" href="app.cfi.bundle.css">
+  </head>
+  <body ng-app="cfi" ng-strict-di>
+
+    <app></app>
+
+    <div class="cs-loader" ng-if="::false">
+      <div class="cs-loader-inner">
+        <label>	●</label><label>	●</label><label>	●</label><label>	●</label><label>	●</label>
+      </div>
+    </div>
+
+    <script src="./env.config.js" charset="utf-8"></script>
+    <script src="./app.cfi.bundle.js" charset="utf-8"></script>
+  </body>
+</html>

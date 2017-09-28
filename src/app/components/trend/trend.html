@@ -1,0 +1,65 @@
+<h5>Trend</h5>
+
+<md-radio-group ng-model="$ctrl.tab" layout="row" class="trend-radio-button-container">
+  <md-radio-button class="trend-radio-button" value="actualNet">Net</md-radio-button>
+  <md-radio-button class="trend-radio-button" value="actualTotalReceived">In</md-radio-button>
+  <md-radio-button class="trend-radio-button" value="actualTotalPay">Out</md-radio-button>
+</md-radio-group>
+
+<md-checkbox ng-model="$ctrl.enableEdit"
+             aria-label="Planner"> Planner
+</md-checkbox>
+
+<div class="trend-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Jan</th>
+        <th>Feb</th>
+        <th>Mar</th>
+        <th>Apr</th>
+        <th>May</th>
+        <th>Jun</th>
+        <th>Jul</th>
+        <th>Aug</th>
+        <th>Sep</th>
+        <th>Oct</th>
+        <th>Nov</th>
+        <th>Dec</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="record in $ctrl.trendTable" class="year">
+      <td ng-click="$ctrl.toggleIsOpen(record)">
+        <div class="row-label" ng-class="{'isOpen': $ctrl.isOpen && $ctrl.toggleYear === record.year}">
+          <span layout="row">
+            <b>{{record.year}}</b>
+            <md-icon md-svg-icon="chevron-right" aria-label="Activity closed"></md-icon>
+          </span>
+          <span layout="row" ng-if="$ctrl.tab !== 'actualTotalPay'">In</span>
+          <span layout="row" ng-if="$ctrl.tab !== 'actualTotalReceived'">Out</span>
+        </div>
+      </td>
+      <td ng-repeat="month in record.months">
+        <div class="data-cell" ng-class="{'isOpen': $ctrl.isOpen && $ctrl.toggleYear === record.year}">
+          <span layout="row" ng-if="!($ctrl.enableEdit && month.isFutureDate) || !$ctrl.enableEdit" class="main-value">
+            {{(month[$ctrl.tab] || 0) | currency}}
+          </span>
+          <span ng-if="($ctrl.enableEdit && month.isFutureYear) || ($ctrl.enableEdit && month.isYearFutureMonth)">
+            <input type="text" class="main-value editable" placeholder="{{(month[$ctrl.tab] || 0) | currency}}">
+          </span>
+          <span layout="row" ng-if="$ctrl.tab === 'actualNet'">{{month.actualTotalReceived | currency}}</span>
+          <span layout="row" ng-if="$ctrl.tab === 'actualNet'">{{month.actualTotalPay | currency}}</span>
+          <span layout="row" ng-if="$ctrl.tab === 'actualTotalPay'">{{month.plannedPay | currency}}</span>
+          <span layout="row" ng-if="$ctrl.tab === 'actualTotalReceived'">{{month.plannedReceived | currency}}</span>
+        </div>
+      </td>
+      <td>
+        <span class="main-value">{{record.total | currency}}</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

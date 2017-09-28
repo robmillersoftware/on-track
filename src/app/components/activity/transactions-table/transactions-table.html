@@ -1,0 +1,42 @@
+<div class="transactions" layout="row" layout-padding layout-wrap layout-fill>
+
+  <table class="table transactions-table">
+    <thead>
+      <tr>
+        <th flex="{{$ctrl.showBalance ? 17 : 20}}" scope="col">Date</th>
+        <th flex="{{$ctrl.showBalance ? 32 : 40}}" scope="col">Description</th>
+        <th flex="{{$ctrl.showBalance ? 17 : 20}}" scope="col" class="text-right">Withdrawals</th>
+        <th flex="{{$ctrl.showBalance ? 17 : 20}}" scope="col" class="text-right">Deposits</th>
+        <th flex="17" scope="col" class="text-right" ng-if="$ctrl.showBalance">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-if="!$ctrl.total && !$ctrl.loading" class="null">
+        <td colspan="{{$ctrl.showBalance ? 5 : 4}}" class="text-center">It seems there are no transactions to display&hellip;</td>
+      </tr>
+      <tr ng-if="!$ctrl.transactions.length && !$ctrl.loading && ($ctrl.transactions.length < $ctrl.total)" class="null">
+        <td colspan="{{$ctrl.showBalance ? 5 : 4}}" class="text-center">It seems no transactions match the search criteria and/or filters&hellip;</td>
+      </tr>
+      <tr ng-repeat="transaction in $ctrl.transactions | limitTo: $ctrl.limitTo"
+          ng-class="{'pending': transaction.isPending}" class="fade-fast">
+        <td data-th="Date">{{transaction.date | date:'MM/dd/yyyy'}}</td>
+        <td data-th="Description" class="description">
+            <span ng-if="transaction.description">{{transaction.description}}</span>
+            <span ng-if="transaction.description2" class="description-2">{{transaction.description2}}</span>
+        </td>
+        <td data-th="Withdrawals" class="text-right">{{transaction.cashOut | currency}}</td>
+        <td data-th="Deposits" class="text-right">{{transaction.cashIn | currency}}</td>
+        <td data-th="Amount" class="text-right" ng-if="$ctrl.showBalance">{{transaction.balance | currency}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="more-button" ng-if="($ctrl.limitTo < $ctrl.transactions.length) && $ctrl.showMore">
+    <md-button
+      class="md-accent"
+      ng-disabled="$ctrl.loading"
+      ng-click="$ctrl.limitTo = $ctrl.limitTo + $ctrl.incrementBy">
+      Load More
+      <md-icon md-svg-icon="chevron-down"></md-icon>
+    </md-button>
+  </div>
+</div>

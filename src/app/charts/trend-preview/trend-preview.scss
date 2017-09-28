@@ -1,0 +1,10 @@
+@import '../common/colors';
+@import '../common/variables';
+
+.trend-preview {
+  text {
+    fill: $chart-black;
+    font-family: PNCSans;
+    font-size: $chart-font-size-lg;
+  }
+}

@@ -1,0 +1,27 @@
+<table class="timeline-activity-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Due Date</th>
+      <th>Description</th>
+      <th></th>
+      <th class="text-right">Cash Out</th>
+      <th class="text-right">Cash In</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-if="$ctrl.transactions.length === 0" class="null">
+      <td colspan="6">No matching records found</td>
+    </tr>
+    <tr ng-repeat="transaction in $ctrl.transactions">
+      <td data-th="Date" class="date">{{transaction.date | date:'M/d/yyyy'}}</td>
+      <td data-th="Due Date" class="due" ng-class="{committed: transaction.statusInfo.text === 'Posted'}">
+        <span ng-if="transaction.dueDate">{{transaction.dueDate | date:'M/d/yyyy'}}</span>
+      </td>
+      <td class="description">{{transaction.description}}</td>
+      <td class="recurring"><md-icon md-svg-icon="replay" ng-if="transaction.recurring"></md-icon></td>
+      <td class="cash-out text-right">{{transaction.cashOut | currency}}</td>
+      <td class="cash-in text-right">{{transaction.cashIn | currency}}</td>
+    </tr>
+  </tbody>
+</table>

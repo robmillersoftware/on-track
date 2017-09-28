@@ -1,0 +1,49 @@
+{
+  "status" : {
+    "statusCode" : "SUCCESS",
+    "errorCode" : "0",
+    "message" : null
+  },
+  "data" : {
+    "eligibleVcfoAccounts" : [ {
+      "accountId" : "bf6253b2caf612257ed34d19ad4248a110e71bb97819840f42fce2d8288c3ca06d1ffd61004975d0437e1ce59a4a6e79,DDA,001",
+      "ledgerBalance" : 35000.0,
+      "availableBalance" : 778587.36,
+      "maskedAccountNumber" : "XXXXXX8463",
+      "accountNumber" : "00000000001134628463",
+      "encodedAccountNumber" : "bf6253b2caf612257ed34d19ad4248a110e71bb97819840f42fce2d8288c3ca06d1ffd61004975d0437e1ce59a4a6e79",
+      "accountDescription" : "Analysis Business Checking",
+      "bankId" : "001",
+      "currentDate" : 1420002000000,
+      "enrolled" : true,
+      "billPayEnrolled" : false,
+      "olsEligible" : true
+    }, {
+      "accountId" : "bf6253b2caf612257ed34d19ad4248a1bb272785c80a66ecb2e60913d61d57006d1ffd61004975d0437e1ce59a4a6e79,DDA,001",
+      "ledgerBalance" : 19310.96,
+      "availableBalance" : 19310.96,
+      "maskedAccountNumber" : "XXXXXX8015",
+      "accountNumber" : "00000000001135658015",
+      "encodedAccountNumber" : "bf6253b2caf612257ed34d19ad4248a1bb272785c80a66ecb2e60913d61d57006d1ffd61004975d0437e1ce59a4a6e79",
+      "accountDescription" : "Business Checking",
+      "bankId" : "001",
+      "currentDate" : 1420002000000,
+      "enrolled" : true,
+      "billPayEnrolled" : false,
+      "olsEligible" : true
+    }, {
+      "accountId" : "bf6253b2caf612257ed34d19ad4248a1bc61a5afd21c29ad529c9c21823175a36d1ffd61004975d0437e1ce59a4a6e79,DDA,001",
+      "ledgerBalance" : 15389.89,
+      "availableBalance" : 106006.45,
+      "maskedAccountNumber" : "XXXXXX7093",
+      "accountNumber" : "00000000001135667093",
+      "encodedAccountNumber" : "bf6253b2caf612257ed34d19ad4248a1bc61a5afd21c29ad529c9c21823175a36d1ffd61004975d0437e1ce59a4a6e79",
+      "accountDescription" : "Business Enterprise Checking",
+      "bankId" : "001",
+      "currentDate" : 1420002000000,
+      "enrolled" : true,
+      "billPayEnrolled" : false,
+      "olsEligible" : true
+    } ]
+  }
+}

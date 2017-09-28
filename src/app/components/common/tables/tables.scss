@@ -1,0 +1,41 @@
+@import '_colors';
+@import '_variables';
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 100%;
+  table-layout: auto;
+  width: 100%;
+
+  tr {
+    border-bottom: 0.1rem solid $gray-cb;
+  }
+
+  td,
+  th {
+    line-height: 2rem;
+    padding: 1.4rem 0.8rem;
+  }
+
+  th {
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  td {
+    vertical-align: top;
+
+    span {
+      margin: 0;
+    }
+
+    @media (max-width: $screen-sm-min) {
+      line-height: 1.8rem;
+      padding: 0.55rem 0.8rem;
+    }
+  }
+}

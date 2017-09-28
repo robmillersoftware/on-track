@@ -1,0 +1,38 @@
+@import '_colors';
+@import '_variables';
+
+body {
+  background-color: $gray-ea;
+}
+
+md-backdrop {
+  z-index: 59;
+}
+
+.container {
+  margin: 0 auto 6rem;
+  max-width: $content-max-width;
+  position: relative;
+  width: 100%;
+}
+
+.text-center,
+table th.text-center {
+  text-align: center;
+}
+
+.text-right,
+table th.text-right {
+  text-align: right;
+}
+
+.ui-view-fade {
+  &.ng-enter {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &.ng-enter-active {
+    opacity: 1;
+  }
+}

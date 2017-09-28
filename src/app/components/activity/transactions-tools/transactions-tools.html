@@ -1,0 +1,124 @@
+<div ng-if="!$ctrl.controller.isShowingAdvancedSearch()">
+  <div class="toggle-advanced-search">
+    <button ng-click="$ctrl.controller.showAdvancedSearch()">
+      <span>Advanced Search</span>
+    </button>
+  </div>
+  <div
+    layout="row"
+    class="search-transactions"
+    ng-class="{focus: $ctrl.searchFocus}">
+    <input
+      flex="95"
+      type="text"
+      name="searchQuery"
+      placeholder="Search Transactions"
+      ng-model="searchQuery"
+      ng-focus="$ctrl.searchFocus = true"
+      ng-blur="$ctrl.searchFocus = false"
+      ng-change="$ctrl.controller.onSearch(searchQuery)"/>
+    <md-icon flex="5" md-svg-icon="search"></md-icon>
+  </div>
+</div>
+
+<form
+  class="advanced-search-transactions"
+  ng-if="$ctrl.controller.isShowingAdvancedSearch()">
+  <div class="toggle-advanced-search">
+    <button ng-click="$ctrl.controller.hideAdvancedSearch()">
+      <span>Simple Search</span>
+    </button>
+  </div>
+  <div layout="column" layout-gt-sm="row" layout-align="center center">
+    <div flex class="advanced-search-box">
+      <h2>Transaction Date</h2>
+      <md-input-container class="md-block">
+        <md-datepicker
+          ng-model="$ctrl.controller.advancedFields.date.from"
+          md-placeholder="From"></md-datepicker>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <md-datepicker
+          ng-model="$ctrl.controller.advancedFields.date.to"
+          md-placeholder="To"></md-datepicker>
+      </md-input-container>
+    </div>
+    <div flex class="advanced-search-box">
+      <h2>Check Number</h2>
+      <md-input-container class="md-block">
+        <label>From</label>
+        <input type="number" ng-model="$ctrl.controller.advancedFields.check.from" />
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>To</label>
+        <input type="number" ng-model="$ctrl.controller.advancedFields.check.to" />
+      </md-input-container>
+    </div>
+    <div flex class="advanced-search-box">
+      <h2>Amount</h2>
+      <md-input-container class="md-block">
+        <label>From</label>
+        <input ng-model="$ctrl.controller.advancedFields.amount.from" />
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label>To</label>
+        <input ng-model="$ctrl.controller.advancedFields.amount.to" />
+      </md-input-container>
+    </div>
+  </div>
+  <div layout="column" layout-gt-sm="row" layout-align-gt-sm="end center" layout-align="center center">
+    <md-button
+      class="md-primary md-raised md-button md-ink-ripple"
+      type="submit"
+      ng-click="$ctrl.controller.onAdvancedSearch()">
+      Search
+    </md-button>
+    <md-button
+      class="md-button md-ink-ripple"
+      ng-click="$ctrl.controller.clearAdvancedSearch()">
+      Clear
+    </md-button>
+  </div>
+</form>
+
+<div
+  class="additional-transactions-tools"
+  layout-gt-xs="row">
+  <div flex-gt-xs="50">
+    <wbb-filter-select
+      all-filters="$ctrl.controller.allFilters"
+      applied-filters="$ctrl.controller.appliedFilters"
+      on-apply-filter="$ctrl.controller.onSelect(filter)"
+      on-remove-filter="$ctrl.controller.onDeselect(filter)">
+    </wbb-filter-select>
+  </div>
+  <div flex-gt-xs="50">
+    <md-select
+      ng-model="$ctrl.controller.exportFormat"
+      placeholder="Export Options"
+      class="transactions-export"
+      md-selected-text="'Export'">
+      <!--md-on-close="$ctrl.controller.onExport()">-->
+      <md-option
+        ng-repeat="format in $ctrl.controller.allFormats track by $index"
+        value="{{format.id}}">{{format.name}}</md-option>
+    </md-select>
+    <md-select
+      ng-model="$ctrl.controller.sortOrder"
+      placeholder="Sort by"
+      class="transactions-sort"
+      md-selected-text="'Sort by ' + $ctrl.controller.sortOrder"
+      md-on-close="$ctrl.controller.onSort()">
+      <md-option selected="selected">Date Ascending</md-option>
+      <md-option>Date Descending</md-option>
+      <md-option>Description Ascending</md-option>
+      <md-option>Description Descending</md-option>
+      <md-option>Withdrawal Ascending</md-option>
+      <md-option>Withdrawal Descending</md-option>
+      <md-option>Deposit Ascending</md-option>
+      <md-option>Deposit Descending</md-option>
+    </md-select>
+  </div>
+</div>
+
+<form class="transactions-export-form" method="post"></form>

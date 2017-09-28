@@ -1,0 +1,19 @@
+<!-- loaded state -->
+<div ng-if="!$ctrl.activity.fetching">
+
+  <transactions-table
+    transactions="$ctrl.activity.transactions"
+    total="$ctrl.activity.transactions.length"
+    limit-to="12"
+    increment-by="$ctrl.incrementBy"
+    show-more="$ctrl.showMore">
+  </transactions-table>
+
+</div>
+
+<!-- skeleton loading state -->
+<div ng-show="$ctrl.activity.fetching">
+  <h3>Loading...</h3>
+  <!-- overlay to hide card actions -->
+  <div class="actions-overlay"></div>
+</div>

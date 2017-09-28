@@ -1,0 +1,58 @@
+.spend-analysis-tools {
+  margin: 2rem 0;
+}
+
+.sort-by {
+  font-size: 1.4rem;
+  font-weight: normal;
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+
+.sort-by-label {
+  align-self: center;
+  font-size: 1.4rem;
+  white-space: nowrap;
+}
+
+md-input-container.sort-by-dropdown {
+  margin: -0.2rem 0 0 0;
+}
+
+@import '_colors';
+@import '_variables';
+
+.spend-analysis-search-transactions {
+  background: $white;
+  border: 0.2rem solid $cfi-lightest-gray;
+  max-height: 5rem;
+
+  input,
+  md-icon {
+    padding: 1rem;
+  }
+
+  input {
+    background: transparent;
+    border: 0;
+    /* This input is wrapped inside of a container div, so we don't want to
+       draw a lot of attention to that by allowing the outline to highlight it
+       without highlighting the icon or surrounding border, which we make to
+       look like the input border. */
+    /* stylelint-disable no-unsupported-browser-features */
+    outline: none;
+    /* stylelint-enable */
+  }
+
+  svg {
+    fill: $cfi-lightest-gray;
+  }
+
+  &.focus {
+    border: 0.2rem solid $cfi-lightest-blue;
+
+    svg {
+      fill: $cfi-blue;
+    }
+  }
+}

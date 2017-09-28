@@ -1,0 +1,27 @@
+@import '_colors';
+@import '_variables';
+
+.dashboard-layout {
+  margin: 0 2rem;
+}
+
+.widget-container {
+  margin: 1rem -1.5rem;
+
+  // The "fourth breakpoint" to avoid need for mini-card
+  @media (max-width: $screen-sm-min) {
+    .flex-sm-50 {
+      max-width: 100%;
+
+      .widget  {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: $md-breakpoint-sm) {
+    .widget  {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

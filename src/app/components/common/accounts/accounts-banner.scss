@@ -1,0 +1,139 @@
+@import '_colors';
+@import '_variables';
+
+accounts-banner {
+  display: block;
+  margin: 0 auto;
+  max-width: $content-max-width;
+  width: 100%;
+}
+
+.accounts-banner {
+  background: $cfi-darkest-blue;
+  color: $white;
+  display: block;
+  margin: -8rem 2rem 2rem;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.account-number-link {
+  color: $wbb-lightest-blue;
+  height: 2rem;
+  margin-left: 0.7rem;
+
+  &:hover {
+    color: $wbb-lightest-blue;
+  }
+}
+
+.banner-flex-container {
+  align-items: center;
+  display: flex;
+  height: 24rem;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: 120rem;
+}
+
+.btn-group.open .dropdown-toggle {
+  box-shadow: none;
+}
+
+.banner-account-activity-label {
+  color: $gray-5a;
+  font-size: 1.4rem;
+}
+
+.banner-account-name {
+  display: inline-block;
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 2.4rem;
+  margin-bottom: -0.5rem;
+  max-width: 45rem;
+  overflow: hidden;
+  padding-bottom: 0.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.banner-account-number {
+  color: $gray-ab;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.single-account.banner-account-number {
+  margin-top: 0.8rem;
+}
+
+.banner-account-balance {
+  font-size: 6.2rem;
+  font-weight: 100;
+  line-height: 6.6rem;
+  margin-left: 1.6rem;
+
+  .super-script {
+    font-size: 3.5rem;
+    top: -0.6rem;
+  }
+
+  .amount {
+    font-weight: 100;
+    margin-left: 2rem;
+  }
+}
+
+.show-account-number {
+  color: $gray-ab;
+  font-size: 1.4rem;
+  margin: -8rem 0 0 2rem;
+  position: absolute;
+}
+
+@media (max-width: $md-breakpoint-sm) {
+  .accounts-banner {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .banner-account-name {
+    font-size: 2rem;
+    font-weight: 500;
+    padding-bottom: 0;
+  }
+
+  .banner-flex-container {
+    height: 21rem;
+
+    accounts-menu .md-text {
+      margin: 0 1rem;
+      padding-top: 3rem;
+    }
+  }
+
+  .show-account-number {
+    margin-top: -7rem;
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: $md-breakpoint-xs) {
+  .accounts-banner {
+    margin: 0;
+  }
+
+  .banner-account-balance {
+    margin-bottom: 2.5rem;
+    margin-left: 0;
+  }
+
+  .banner-flex-container {
+    height: 19rem;
+    padding: 1.25rem 0;
+  }
+}

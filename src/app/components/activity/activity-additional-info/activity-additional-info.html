@@ -1,0 +1,81 @@
+<h2>Additional Info</h2>
+<table class="account-additional-info">
+  <tbody>
+    <tr>
+      <th>Nickname</th>
+      <td ng-if="$ctrl.account.info.nickname">{{$ctrl.account.info.nickname}}</td>
+      <td ng-if="!$ctrl.account.info.nickname">None</td>
+    </tr>
+    <tr>
+      <th>Type</th>
+      <td>{{$ctrl.account.info.type}}</td>
+    </tr>
+    <tr>
+      <th>Text Banking Nickname</th>
+      <td>{{$ctrl.account.info.textBankingNickname}}</td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td class="address">
+        <span>{{$ctrl.account.info.address.line1}}</span>
+        <span>{{$ctrl.account.info.address.line2}}</span>
+        <span>{{$ctrl.account.info.address.line3}}</span>
+        <span>{{$ctrl.account.info.address.line4}}</span>
+        <span>{{$ctrl.account.info.address.line5}}</span>
+        <span>{{$ctrl.account.info.address.city}}, {{$ctrl.account.info.address.state}} {{$ctrl.account.info.address.zipCode | limitTo: 5}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Account Summary</h3>
+<table class="account-additional-info-secondary">
+  <tbody>
+    <tr>
+      <th>Available Balance</th>
+      <td>{{$ctrl.account.info.availableBalance | currency}}</td>
+    </tr>
+    <tr>
+      <th>Ledger/Current Balance</th>
+      <td>{{$ctrl.account.info.ledgerBalance | currency}}</td>
+    </tr>
+    <tr>
+      <th>Last Statement Balance</th>
+      <td>{{$ctrl.account.info.lastStatementBalance | currency}}</td>
+    </tr>
+    <tr>
+      <th>Last Statement Date</th>
+      <td>{{$ctrl.account.info.lastStatementDate | date: "yyyy/MM/dd"}}</td>
+    </tr>
+    <tr>
+      <th>Pending Withdrawals</th>
+      <td>{{$ctrl.account.info.pendingWithdrawals | currency}}</td>
+    </tr>
+    <tr>
+      <th>Pending Deposits</th>
+      <td>{{$ctrl.account.info.pendingDeposits | currency}}</td>
+    </tr>
+    <tr>
+      <th>Last Deposit Amount</th>
+      <td>{{$ctrl.account.info.lastDepositAmount | currency}}</td>
+    </tr>
+    <tr>
+      <th>Last Deposit Date</th>
+      <td>{{$ctrl.account.info.lastDepositDate | date: "yyyy/MM/dd"}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Interest Summary</h3>
+<table class="account-additional-info-secondary">
+  <tbody>
+    <tr>
+      <th>Interest Paid to Date</th>
+      <td>{{$ctrl.account.info.interestThisYear | currency}}</td>
+    </tr>
+    <tr>
+      <th>Interest Paid Last Year</th>
+      <td>{{$ctrl.account.info.interestLastYear | currency}}</td>
+    </tr>
+  </tbody>
+</table>

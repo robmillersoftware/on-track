@@ -1,0 +1,30 @@
+@import '../common/colors';
+@import '../common/variables';
+
+.spending-preview {
+  .bar {
+    fill: $chart-blue-dark;
+  }
+
+  .category-label {
+    font-family: PNCSans;
+    font-size: $chart-font-size-lg;
+  }
+
+  .category-amount {
+    font-family: PNCSans;
+    font-size: $chart-font-size-md;
+    font-weight: bold;
+  }
+
+  .axis {
+    fill: $chart-black;
+    font-family: PNCSans;
+    font-size: $chart-font-size-md;
+    text-anchor: middle;
+
+    g:first-of-type {
+      text-anchor: start;
+    }
+  }
+}

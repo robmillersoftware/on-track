@@ -1,0 +1,9 @@
+{
+  "source": "./src/app",
+  "destination": "./esdoc",
+  "excludes": ["\\.spec\\.js$"],
+  "experimentalProposal": {
+    "classProperties": true,
+    "objectRestSpread": true
+  }
+}

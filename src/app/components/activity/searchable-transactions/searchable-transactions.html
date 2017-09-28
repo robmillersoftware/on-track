@@ -1,0 +1,10 @@
+<transactions-tools controller="$ctrl"></transactions-tools>
+
+<transactions-table
+  transactions="$ctrl.viewActivity.list"
+  total="$ctrl.transactions.length"
+  limit-to="$ctrl.viewActivity.showing"
+  increment-by="$ctrl.incrementBy"
+  show-balance="true"
+  show-more="true">
+</transactions-table>

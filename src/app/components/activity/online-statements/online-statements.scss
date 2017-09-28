@@ -1,0 +1,87 @@
+@import '_colors';
+@import '_variables';
+
+online-statements {
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 6rem;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (min-width: $md-breakpoint-sm) {
+      height: 0;
+      margin-bottom: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+.online-statements {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .open ul {
+    max-height: 72rem;
+    transition: all 0.25s ease-in-out;
+  }
+
+  li {
+    text-transform: uppercase;
+
+    svg {
+      fill: $cfi-lightest-blue;
+    }
+  }
+
+  & > li > div {
+    background: lighten($cfi-lightest-gray, 10%);
+    font-weight: bold;
+    padding: 1.5rem 1rem;
+
+    md-icon {
+      float: right;
+    }
+
+    svg {
+      fill: $black;
+    }
+  }
+
+  a {
+    border-bottom: 0;
+    display: block;
+    font-size: 1.4rem;
+    padding: 1.5rem 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .view-statement {
+    float: right;
+  }
+
+  ul li {
+    border-bottom: 0;
+    border-top: 0.01rem solid $black;
+    text-transform: none;
+
+    &:first-child {
+      border-top: 0;
+    }
+  }
+
+  @media (min-width: $md-breakpoint-sm) {
+    border-top: 0;
+  }
+}

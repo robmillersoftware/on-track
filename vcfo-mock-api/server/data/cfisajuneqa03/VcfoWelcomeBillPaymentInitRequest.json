@@ -1,0 +1,55 @@
+{
+  "status" : {
+    "statusCode" : "SUCCESS",
+    "errorCode" : "0",
+    "message" : null
+  },
+  "data" : {
+    "billPayStatusCode" : "O",
+    "enrolledInBillPayment" : true,
+    "hasMoreAccountsToEnroll" : true,
+    "listOfAccountsToEnroll" : [ {
+      "accountId" : "bf6253b2caf612257ed34d19ad4248a110e71bb97819840f42fce2d8288c3ca06d1ffd61004975d0437e1ce59a4a6e79,DDA,001",
+      "ledgerBalance" : null,
+      "availableBalance" : null,
+      "maskedAccountNumber" : "XXXXXX8463",
+      "accountNumber" : "1134628463",
+      "encodedAccountNumber" : null,
+      "accountDescription" : "JP",
+      "bankId" : null,
+      "currentDate" : null,
+      "enrolled" : true,
+      "billPayEnrolled" : false,
+      "olsEligible" : false
+    }, {
+      "accountId" : "bf6253b2caf612257ed34d19ad4248a1bb272785c80a66ecb2e60913d61d57006d1ffd61004975d0437e1ce59a4a6e79,DDA,001",
+      "ledgerBalance" : null,
+      "availableBalance" : null,
+      "maskedAccountNumber" : "XXXXXX8015",
+      "accountNumber" : "1135658015",
+      "encodedAccountNumber" : null,
+      "accountDescription" : "Business Checking",
+      "bankId" : null,
+      "currentDate" : null,
+      "enrolled" : true,
+      "billPayEnrolled" : false,
+      "olsEligible" : false
+    }, {
+      "accountId" : "bf6253b2caf612257ed34d19ad4248a1bc61a5afd21c29ad529c9c21823175a36d1ffd61004975d0437e1ce59a4a6e79,DDA,001",
+      "ledgerBalance" : null,
+      "availableBalance" : null,
+      "maskedAccountNumber" : "XXXXXX7093",
+      "accountNumber" : "1135667093",
+      "encodedAccountNumber" : null,
+      "accountDescription" : "Business Enterprise Checking",
+      "bankId" : null,
+      "currentDate" : null,
+      "enrolled" : true,
+      "billPayEnrolled" : true,
+      "olsEligible" : false
+    } ],
+    "emailAddress" : "cfisajuneqa03@pnc.com",
+    "fieldCheck1" : "251118619",
+    "quickenBillPayUser" : false
+  }
+}

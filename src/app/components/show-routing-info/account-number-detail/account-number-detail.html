@@ -1,0 +1,28 @@
+<div class="verify-container">
+  <div class="account-details-container">
+    <div>
+      <label class="full-account-label">Account Number:</label>
+      <p class="full-account-field">{{$ctrl.routingInfo.accountNumber}}</p>
+    </div>
+    <div>
+      <label class="full-account-label">Routing Number:</label>
+      <p class="full-account-field">{{$ctrl.routingInfo.routingNumber}}</p>
+    </div>
+    <div>
+      <label class="full-account-label">Domestic Routing Number:</label>
+      <p class="full-account-field">{{$ctrl.routingInfo.domesticRouting}}</p>
+    </div>
+    <div>
+      <label class="full-account-label">International SWIFT Code:</label>
+      <p class="full-account-field">{{$ctrl.routingInfo.swiftCode}}</p>
+    </div>
+    <div class="account-number-close-button">
+      <md-button
+        type="button"
+        class="md-primary md-raised"
+        back-button>
+        Close
+      </md-button>
+    </div>
+  </div>
+</div>
