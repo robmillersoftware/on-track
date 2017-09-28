@@ -1,8 +1,0 @@
-<h5>Spending History</h5>
-
-<md-button class="md-accent"
-  ng-click="$ctrl.onSelectMonth({ yearMonth: month.key })"
-  ng-repeat="month in $ctrl.history track by $index">
-  <strong>{{month.key}}</strong>
-  {{month.amount | currency}}
-</md-button>
