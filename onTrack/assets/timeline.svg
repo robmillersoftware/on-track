@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="66" height="52" viewBox="0 0 66 52">
+  <defs>
+    <filter id="timeline-a" width="103.7%" height="117.1%" x="-1.8%" y="-8.6%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g fill="#484848" fill-rule="evenodd" filter="url(#timeline-a)" transform="translate(4 4)">
+    <path d="M23.3571535,11.0714179 L23.3571535,18.2142836 L19.7857207,18.2142836 L19.7857207,11.0714179 L23.3571535,11.0714179 Z M28.7143027,3.92855227 L28.7143027,18.2142836 L25.1428699,18.2142836 L25.1428699,3.92855227 L28.7143027,3.92855227 Z M43.0000341,20 L43.0000341,21.7857164 L14.4285714,21.7857164 L14.4285714,0.357119441 L16.2142878,0.357119441 L16.2142878,20 L43.0000341,20 Z M34.071452,7.4999851 L34.071452,18.2142836 L30.5000192,18.2142836 L30.5000192,7.4999851 L34.071452,7.4999851 Z M39.4286012,2.14283586 L39.4286012,18.2142836 L35.8571684,18.2142836 L35.8571684,2.14283586 L39.4286012,2.14283586 Z"/>
+    <text font-family="PNCSans-Medium, PNC Sans" font-size="13" font-weight="400">
+      <tspan x=".49" y="44">TIMELINE</tspan>
+    </text>
+  </g>
+</svg>

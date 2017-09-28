@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel='stylesheet' href="assets/fonts.css">
+	<style>
+		html{
+			font-size: 10px;
+		}
+		body{
+			max-width: 500px;
+			margin: auto;
+			border: 1px solid #d1d1d1;
+			position: relative;
+			font-family: PNCSans;
+			min-height: 100vh;
+		}
+		.modal-dialog {
+		    margin: 0 auto;
+		}
+		.modal-body{
+			padding-bottom: 0;
+		}
+		.modal-content{
+			height: 100vh;
+			overflow-y: scroll;
+		}
+		.header{
+			background-color: #f3f3f4;
+			padding: 30px 25px 60px 25px;
+			border-bottom: 1px solid #888;
+		}
+		.header p{
+			padding: 0 30px;
+		}
+		#chartBox{
+			margin: 10px 0 15px 0;
+		}
+		.header, .navbar{
+			text-align: center;
+		}
+		.navbar{
+			max-width: 300px;
+			margin: auto;
+			box-shadow: 0px 0px 8px rgba(0,0,0,.5);
+   			border-radius: 4px;
+   			background-color: #fff;
+    		margin-top: -25px;
+		}
+		.navbar .col-4{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.navbar .col-4:nth-child(2){
+			border-left: 1px solid #aaa;
+			border-right: 1px solid #aaa;
+		}
+		.stats{
+			margin-top: 25px; 
+		}
+		.stat{
+			padding: 20px 5px;
+		}
+		.stat p{
+			margin: 0;
+			padding: 0;
+			font-size: 18px;
+		}
+		.stats .stat .col-6:first-child p{
+			font-weight: bold;
+		}
+		.stats .stat:nth-child(2){
+			border-top: 1px solid #d1d1d1;
+		}
+		.stat .col-6:first-child{
+			text-align: left;
+		}
+		.stat .col-6:last-child{
+			text-align: right;
+		}
+		.update-goal{
+			border: 1px solid #d1d1d1;
+			padding: 20px 25px;
+			text-align: center;
+			margin: 25px;
+		}
+		.modal{
+			text-align: center;
+		}
+		.modal-header{
+			padding: 0;
+		}
+		.modal-footer{
+			border: none;
+			justify-content: space-between;
+		}
+		.modal-header .close{
+			transform: translate(15px,22px);
+			z-index: 10;
+		}
+		.slide-box{
+			border: 1px solid #d1d1d1;
+			box-shadow: 0px 0px 8px rgba(0,0,0,.5);
+			border-radius: 6px;
+			margin-top: 60px;
+		}
+		.slide-box-body{
+			padding: 35px 15px;
+		}
+		.carousel-indicators li{
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: #ccc;
+		}
+		.carousel-indicators li.active{
+			background-color: darkblue;
+		}
+		.carousel-control-next.no-thanks{
+		    position: static;
+		    width: auto;
+		    color: #007bff;
+		    opacity: 1;
+		    font-size: inherit;
+		    font-weight: normal;
+		}
+		.carousel-control-prev-icon{
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M4 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+		}
+		.carousel-control-next-icon {
+		    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M1.5 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+		    color: black;
+		}
+		.achievements{
+			background-color: #f3f3f4;
+			margin: 25px -15px;
+			padding: 30px 20px;
+		}
+		.achievements-header{
+			padding-bottom: 20px;
+		}
+		.achievements .row{
+			border-top: 1px solid #d1d1d1;
+			text-align: left;
+			padding: 25px 5px;
+		}
+		.achievements,.achievements p{
+			margin-bottom: 0;
+		}
+		.achievements .bar-wrapper{
+			display: flex;
+			flex-wrap: nowrap;
+			justify-content: space-around;
+		}
+		.achievements .bar-wrapper .bar{
+			width: 18%;
+		}
+		.achievements .bar{
+			margin: 10px 0;
+			height:15px;
+			background-color:#358DCF;
+		}
+	</style>
+</head>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div id="socketMessage"></div>
+					<h1>DAILY TRACKER</h1>
+					<p>You are on track to reach your goal and extend your streak to 5 days</p>
+					<div id="chartBox">
+
+					</div>
+					<p id="percentMessage" style="display:none;">You've made <span id="currentPercent"></span> of your revenue goal.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row navbar">
+			<div class="col-4">
+				<a data-toggle="modal" data-target="#revenue"><img src="assets/revenue.svg" width="50px" height="auto"></a>
+			</div>
+			<div class="col-4">
+				<a data-toggle="modal" data-target="#suggestions"><img src="assets/suggestions.svg" width="62px" height="auto"></a>
+			</div>
+			<div class="col-4">
+				<a data-toggle="modal" data-target="#timeline"><img src="assets/timeline.svg" width="50px" height="auto"></a>
+			</div>
+		</div>
+	</div>
+	<div class="stats container">
+		<div class="row stat">
+			<div class="col-6">
+				<p>Daily Goal</p>
+			</div>
+			<div class="col-6">
+				<p id="dailyGoal">$3500</p>
+			</div>
+		</div>
+		<div class="row stat">
+			<div class="col-6">
+				<p>Goal Streak</p3>
+			</div>
+			<div class="col-6">
+				<p id="goalStreak">4 days</p>
+			</div>
+		</div>
+		<!--<div class="row stat">
+			<div class="col-6">
+				<p>Monthly Profit</p>
+			</div>
+			<div class="col-6">
+				<p id="dailyGoal">$5920.33</p>
+			</div>
+		</div>-->
+	</div>
+	<div class="update-goal">
+		<h2>Has your situation changed?</h2>
+		<p>Whether it's business or personal, you should always update your gaol settings to account for any changes</p>
+		<br/>
+		<p><strong><a href="/update">Update your goal settings</a></strong></p>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="suggestions" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="border: none;">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<h5 class="modal-title" id="exampleModalLabel">Suggestions</h5>
+	        <p>Kick your business back on track or simply get ahead of the competition with some of our suggestions.</p>
+
+	        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			  <!--<ol class="carousel-indicators">
+			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			  </ol>-->
+			  <div class="carousel-inner">
+			  	<div class="carousel-item active">
+			      <div class='slide-box'>
+			     		<div class="slide-box-header">
+			     			<img class="d-block w-100" src="assets/suggestion-card-2.png" alt="First slide">
+			     		</div>
+			     		<div class="slide-box-body">
+				     		<h3>Step back and look closely at our business practices.</h3>
+				     		<p>What are we doing well? And what can we improve? It's often simple, common sense steps that improve the bottom line, especially for a small business. Even the smallest increase in revenue or reduction in expenses can have an impact on company profitability.</p>
+				     	</div>
+			     	</div>
+			    </div>
+			    <div class="carousel-item">
+			    	<div class='slide-box'>
+			     		<div class="slide-box-header">
+			     			<img class="d-block w-100" src="assets/twitter-card.png" alt="First slide">
+			     		</div>
+			     		<div class="slide-box-body">
+				     		<h3>Join in on weekly hashtag themes like #ThrowbackThrusday.</h3>
+				     		<p>If you want to build your social media following, you need to be an active participant in the community. This means posting regularly, and also joining in on fun weekly social media traditions that already have a loyal audience. Show the kids how hip you can be!</p>
+				     	</div>
+			     	</div>
+			    </div>
+			    <div class="carousel-item">
+			      <div class='slide-box'>
+			     		<div class="slide-box-header">
+			     			<img class="d-block w-100" src="assets/suggestion-card-3.png" alt="First slide">
+			     		</div>
+			     		<div class="slide-box-body">
+				     		<h3>Open a Business Sweep Account and earn interest on your profit.</h3>
+				     		<p>A Business Sweep Account can be a smart business choice if your checking account balance typically significantly exceeds your daily operating expenses. Help ensure your hard-earned money is working for you until it's needed.</p>
+				     	</div>
+			     	</div>
+			    </div>
+			    <div class="carousel-item">
+			      <div class='slide-box'>
+			     		<div class="slide-box-body">
+				     		<h3>You've ran out of suggestions</h3>
+				     		<p>Check back soon for more!</p>
+				     	</div>
+			     	</div>
+			    </div>
+			  </div>
+			  <!--<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>-->
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <a href="#" id="tell-more">Tell me more</a>
+	        <a class="carousel-control-next no-thanks" id="no-thanks" href="#carouselExampleIndicators" role="button" data-slide="next">No Thanks</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="timeline" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="border: none;">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<h5 class="modal-title" id="exampleModalLabel">Timeline</h5>
+	        <p>Kick your business back on track or simply get ahead of the competition with some of our suggestions.</p>
+	        <br/>
+	        <img src="assets/timeline.png" width="365px" height="auto" style="max-width:100%;">
+	        <div class="achievements">
+	        	<div class="achievements-header">
+	        		<h3>Achievements</h3>
+	        		<p>Current Goal Streak: 3 days</p>
+	        	</div>
+		        <div class="row" style="margin:0;">
+		        	<div class="col-4">
+		        		<img src="assets/made-it.svg" width="100%" height="auto">
+		        	</div>
+		        	<div class="col-8">
+		        		<h3 style="color:#358DCF;">Made It!</h3>
+		        		<p>Use a suggestion to break even.</p>
+		        		<div class="bar"></div>
+		        		<p>Last Achieved Sep 25th 2017</p>
+		        	</div>
+		        </div>
+		        <div class="row" style="margin:0;">
+		        	<div class="col-4">
+		        		<img src="assets/good-week.svg" width="100%" height="auto">
+		        	</div>
+		        	<div class="col-8">
+		        		<h3 style="color:#358DCF;">A good week</h3>
+		        		<p>Break even 5 days in a row.</p>
+		        		<div class="bar-wrapper">
+		        			<div class="bar"></div>
+		        			<div class="bar"></div>
+		        			<div class="bar"></div>
+		        			<div class="bar" style="background-color:#D2E5F4"></div>
+		        			<div class="bar" style="background-color:#D2E5F4"></div>
+		        		</div>
+		        		<p>Last Achieved Sep 23rd 2017</p>
+		        	</div>
+		        </div>
+		        <div class="row" style="margin:0;">
+		        	<div class="col-4">
+		        		<img src="assets/one-month.svg" width="100%" height="auto">
+		        	</div>
+		        	<div class="col-8">
+		        		<h3 style="color:#358DCF;">One month at a time.</h3>
+		        		<p>Earn profit at the end of the month.</p>
+		        		<div class="bar-wrapper" style="background-color:#ccc;justify-content: flex-start;margin:10px 0">
+		        			<div class="bar" style="width:68%;margin:0"></div>
+		        		</div>
+		        		<p>Last Achieved August 2017</p>
+		        	</div>
+		        </div>
+		    </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="revenue" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="border: none;">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<h5 class="modal-title" id="exampleModalLabel">Today's Revenue</h5>
+	        <br/>
+	        <div class="revenue-rows">
+		        <div class="row" style="margin:0;">
+		        	<div class="col-8">
+		        		<p><strong>Total Revenue Today</strong></p>
+		        	</div>
+		        	<div class="col-4">
+		        		<p id="total-revenue-today">$0</p>
+		        	</div>
+		        </div>
+		        <div class="row" style="margin:0;">
+		        	<div class="col-8">
+		        		<p><strong>Total Revenue Today</strong></p>
+		        	</div>
+		        	<div class="col-4">
+		        		<p id="total-revenue-today">$0</p>
+		        	</div>
+		        </div>
+		        <div class="row" style="margin:0;">
+		        	<div class="col-8">
+		        		<p><strong>Total Revenue Today</strong></p>
+		        	</div>
+		        	<div class="col-4">
+		        		<p id="total-revenue-today">$0</p>
+		        	</div>
+		        </div>
+		        <div id="todays-transactions">
+		        	
+		        </div>
+		    </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/1178efcb60.js"></script>	
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="./bar.js"></script>
+	<script>
+		$(document).ready(function(){
+			$.get('http://localhost:3030/transactions/transactionsByAccount', function(data) {
+				console.log(data);
+			});
+			var slideCounter = 1;
+			$('.carousel').carousel({
+			  ride: false,
+			  interval: 0,
+			  wrap: false,
+			});
+			
+			$('.carousel').on('slide.bs.carousel', function () {
+			  	slideCounter++;
+
+				if(slideCounter === 4) {
+					$('.carousel-indicators').hide();
+					$('.no-thanks').hide();
+					$('#tell-more').hide();
+				}
+			});
+
+			var date = new Date();
+			var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getTime();
+			var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getTime();
+
+			console.log(firstDay);
+			console.log(lastDay);
+		});
+
+	</script>
+	<script>
+		/*(function connect(){
+		    try{
+
+			var socket;
+			var host = "ws://localhost:3030/connect";
+		    var socket = new WebSocket(host);
+
+		        $('#socketMessage').append('<p class="event">Socket Status: '+socket.readyState);
+
+		        socket.onopen = function(){
+		       		 $('#socketMessage').append('<p class="event">Socket Status: '+socket.readyState+' (open)');
+		        }
+
+		        socket.onmessage = function(msg){
+		       		 $('#socketMessage').append('<p class="message">Received: '+msg.data);
+		        }
+
+		        socket.onclose = function(){
+		       		$('#socketMessage').append('<p class="event">Socket Status: '+socket.readyState+' (Closed)');
+		        }			
+
+		    } catch(exception){
+		   		 $('#socketMessage').append('<p>Error'+exception);
+		    }
+		})(); */
+	</script>
+<body>
+</body>
+</html>
