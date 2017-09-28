@@ -1,0 +1,377 @@
+{
+    "elements": [
+      {
+        "id": "5TQ93TAGVWBYY",
+        "order": {
+          "id": "0DMV611JFGWY0"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-486 1-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHETBJW8BA/tenders/1RA4ZR5 M1EWF2",
+          "id": "1RA4ZR5M1EWF2"
+        },
+        "amount": 8,
+        "taxAmount": 0,
+        "cashbackAmount": 0,
+        "employee": {
+          "id": "GQ5Z8 XEJZ8E3J"
+        },
+        "createdTime": 1506626321000,
+        "clientCreatedTime": 1506626322000,
+        "modifiedTime": 1506626321000,
+        "offline": false,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "MEXNM3DANGZVR",
+        "order": {
+          "id": "JTKYGVGWCQ1AR"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants/KZ4 PHETBJW8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 1400,
+        "taxAmount": 0,
+        "cashTendered": 1400,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506626311000,
+        "clientCreatedTime": 1506626300000,
+        "modifiedTime": 1506626310000,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "HD5H1E8F4BJME",
+        "order": {
+          "id": "72X3VWE2SG3SC"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/m erchants/KZ4PHETBJW8BA/tenders/V9F23SH8RHR18",
+          "id": "V9F23SH8RHR18"
+        },
+        "amount": 2263,
+        "taxAmount": 0,
+        "cash backAmount": 0,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506626271000,
+        "clientCreatedTime": 1506626271000,
+        "modifiedTime": 1506626271000,
+        "offline": true,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "EAFGCYMMNPXTP",
+        "or der": {
+          "id": "0ABK7T58WH9NA"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHETBJW8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 1874,
+        "taxAmount": 0,
+        "cashTendered": 1874,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506626247000,
+        "clientCreatedTime": 1506626247000,
+        "modifiedTime": 1506626247000,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "GS53Y9H 6RNGX4",
+        "order": {
+          "id": "63BAPWX5X7HA2"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender ": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHETBJW8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 1000,
+        "taxAmount": 0,
+        "cashTendered": 1000,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506626242000,
+        "clientCreatedTime": 1506626240000,
+        "modifiedTime": 1506626242000,
+        "result": "SUCCESS"
+      },
+      {
+        "i d": "C5BCKANYV3474",
+        "order": {
+          "id": "VR2VC60R8C16P"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95 e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHETBJW8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MF NXH9Y0JPMEC"
+        },
+        "amount": 800,
+        "taxAmount": 0,
+        "cashTendered": 800,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "cre atedTime": 1506626241000,
+        "clientCreatedTime": 1506626229000,
+        "modifiedTime": 1506626241000,
+        "result": "SUCC ESS"
+      },
+      {
+        "id": "YBH5SJHBA92DM",
+        "order": {
+          "id": "PCE3JTXVE1MY8"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-b ceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHETBJW8BA/tenders/V9F23SH8RHR18",
+          "id": "V9F23SH8RHR18"
+        },
+        "amount": 750,
+        "taxAmount": 0,
+        "cashbackAmount": 0,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E 3J"
+        },
+        "createdTime": 1506626198000,
+        "clientCreatedTime": 1506626198000,
+        "modifiedTime": 1506626198000,
+        "offl ine": false,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "7EKSZ6Y7G5CPE",
+        "order": {
+          "id": "WHDEJC23K8D7C"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHETBJ W8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 800,
+        "taxAmount": 0,
+        "cashTendered": 800,
+        "em ployee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506625842000,
+        "clientCreatedTime": 1506625842000,
+        "modifie dTime": 1506625842000,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "ZK6T0B4PF7WQ6",
+        "order": {
+          "id": "YTG75CPTV7RK8"
+        },
+        "devi ce": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants /KZ4PHETBJW8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 1000,
+        "taxAmount": 0,
+        "cashTendered ": 1000,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506457839000,
+        "clientCreatedTime": 1506457839000,
+        "modifiedTime": 1506457839000,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "GK1RZGP79NGTT",
+        "order": {
+          "id": "QGK44HTB8D 5C6"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/ v3/merchants/KZ4PHETBJW8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 2300,
+        "taxAmount": 0,
+        " cashTendered": 2300,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506457806000,
+        "clientCreatedTime": 1506457806000,
+        "modifiedTime": 1506457805000,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "ATE6EXJ1S4EJ4",
+        "order": {
+          "id": "945KFJSHX7K52"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www .clover.com/v3/merchants/KZ4PHETBJW8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 5500,
+        "taxA mount": 0,
+        "cashTendered": 5500,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506457790000,
+        "clientC reatedTime": 1506457789000,
+        "modifiedTime": 1506457789000,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "MRB9ZYW8MKZVA",
+        "or der": {
+          "id": "0PJH3CQYFSAER"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHETBJW8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 5500,
+        "taxAmount": 0,
+        "cashTendered": 5500,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506457772000,
+        "clientCreatedTime": 1506457772000,
+        "modifiedTime": 1506457772000,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "RVSE6C3 TR4H6W",
+        "order": {
+          "id": "8PG1DWZHF6KXG"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender ": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHETBJW8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 1000,
+        "taxAmount": 0,
+        "cashTendered": 1000,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506457744000,
+        "clientCreatedTime": 1506457744000,
+        "modifiedTime": 1506457743000,
+        "result": "SUCCESS"
+      },
+      {
+        "i d": "AN47C63CH5TD8",
+        "order": {
+          "id": "CXREHJZQZ6JPG"
+        },
+        "device": {
+          "id": "2a15feaa-dcc2-4861-b610-bceeef48a95 e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHETBJW8BA/tenders/V9F23SH8RHR18",
+          "id": "V9 F23SH8RHR18"
+        },
+        "amount": 2300,
+        "taxAmount": 0,
+        "cashbackAmount": 0,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "cr eatedTime": 1506454523000,
+        "clientCreatedTime": 1506454523000,
+        "modifiedTime": 1506454523000,
+        "offline": false,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "9QHWQTQ4MEM5E",
+        "order": {
+          "id": "JTS9BQTFSNCWA"
+        },
+        "device": {
+          "id": "2a15fe aa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHETBJW8BA/tend ers/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 1000,
+        "taxAmount": 0,
+        "cashTendered": 1000,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506454490000,
+        "clientCreatedTime": 1506454490000,
+        "modifiedTime": 1506454489000,
+        "result": "SUCCESS"
+      },
+      {
+        "id": "T0MW6G96906FA",
+        "order": {
+          "id": "5ZGCV74V921BJ"
+        },
+        "device": {
+          " id": "2a15feaa-dcc2-4861-b610-bceeef48a95e"
+        },
+        "tender": {
+          "href": "https://www.clover.com/v3/merchants/KZ4PHE TBJW8BA/tenders/MFNXH9Y0JPMEC",
+          "id": "MFNXH9Y0JPMEC"
+        },
+        "amount": 2300,
+        "taxAmount": 0,
+        "cashTendered": 2300,
+        "employee": {
+          "id": "GQ5Z8XEJZ8E3J"
+        },
+        "createdTime": 1506446029000,
+        "clientCreatedTime": 1506446028000,
+        "mo difiedTime": 1506446028000,
+        "result": "SUCCESS"
+      }
+    ],
+    "href": "http://api.clover.com/v3/merchants/KZ4PHETBJW8BA /payments?limit=100"
+  }
