@@ -455,7 +455,7 @@
 		    try{
 
 			var socket;
-			var host = "ws://on-track.azurewebsites.net:9001/connect";
+			var host = "wss://on-track.azurewebsites.net:9001/connect";
 		    var socket = new WebSocket(host);
 
 		        $('#socketMessage').append('<p class="event">Socket Status: '+socket.readyState);
