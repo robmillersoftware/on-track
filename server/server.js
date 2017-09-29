@@ -84,7 +84,7 @@ const calculateDailyGoal = (transString) => {
         });
     }
 
-    wsData.dailyGoal = parseFloat(Number(totalDebits * 50 / 26 * 1.1).toFixed(2));
+    wsData.dailyGoal = parseFloat(Number(totalDebits * 50 / 26).toFixed(2));
 };
 
 const calculateCloverData = (paymentsString) => {
