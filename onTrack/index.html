@@ -756,7 +756,11 @@
 	<script src="./bar.js"></script>
 	<script>
 		$(document).ready(function(){
-			
+			setInterval(() => {
+				$.get('http://localhost:9001/connect', function(data) {
+					console.log(data);
+				});
+			}, 3000);
 			var slideCounter = 1;
 			var suggestions = 3;
 			$('#suggestion-badge').text(suggestions); 

@@ -10,7 +10,7 @@ setInterval(function() {
 function updateTransactions(setItems) {
 	$.get('http://localhost:9001/connect', function(string){
 		var html = "";
-		var data = JSON.parse(string); 
+		var data = JSON.parse(string);
 		console.log(data);
 		$.each(data.transactionList,function(i,d) {
 			html += "<div class='transaction row'>";
@@ -20,7 +20,11 @@ function updateTransactions(setItems) {
 			html += "$"+d.amount;
 			html += "</strong></p></div></div>"
 		});
-		html += "<br/><br/><p><small>End of Transactions</small></p>"; 
+		if(data.transactionList.length > 0) {
+			html += "<br/><br/><p><small>End of Transactions</small></p>"; 
+		} else {
+			html += "<br/><br/><p><small>No transaction yet today.</small></p>";	
+		}
 		$('#todays-transactions').html(html); 
 		$('.total-revenue-today').text('$'+data.currentRevenue); 
 		$('#total-customers-today').text(data.transactionCount);
@@ -40,7 +44,11 @@ $(document).ready(function(){
 			html += "$"+d.amount;
 			html += "</strong></p></div></div>"
 		});
-		html += "<br/><br/><p><small>End of Transactions</small></p>"; 
+		if(data.transactionList.length > 0) {
+			html += "<br/><br/><p><small>End of Transactions</small></p>"; 
+		} else {
+			html += "<br/><br/><p><small>No transaction yet today.</small></p>";	
+		}
 		$('#todays-transactions').html(html); 
 		$('.total-revenue-today').text('$'+data.currentRevenue); 
 		$('#total-customers-today').text(data.transactionCount);
