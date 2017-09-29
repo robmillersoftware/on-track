@@ -49,20 +49,18 @@ $(document).ready(function(){
 		} else {
 			html += "<br/><br/><p><small>No transaction yet today.</small></p>";	
 		}
-		$('#todays-transactions').html(html); 
-		$('.total-revenue-today').text('$'+data.currentRevenue); 
-		$('#total-customers-today').text(data.transactionCount);
-		$('#average-charge-customer').text('$'+data.transactionAvg); 
-		$('.dailyGoal').text('$'+data.dailyGoal); 
+		
 
 		var chartBox = document.getElementById('chartBox');
 		var boxWidth = $('#chartBox').width();
-		var goal = [data.dailyGoal];
+		var goal = (data.dailyGoal !== 'null') ? [data.dailyGoal] : [0];
 		var max = goal[0];
 		var formatPercent = d3.format(".4r");
 		var current = data.currentRevenue;
-		var currentPercent = Math.ceil((current/goal)*100);
+		var currentPercent = (goal != 0) ? Math.ceil((current/goal)*100) : 0;
 		var introMessage = ""
+		var currentProfit = goal - 712; 
+		$('#currentProfit').text('$'+currentProfit);
 		if(currentPercent > 100) {
 			introMessage = "<br/><strong>Congratulations!</strong><br/>you have reached your daily goal."
 		} else if(currentPercent >= 60) {
@@ -72,6 +70,11 @@ $(document).ready(function(){
 		}
 
 		$('#intro-message').html(introMessage); 
+		$('#todays-transactions').html(html); 
+		$('.total-revenue-today').text('$'+current); 
+		$('#total-customers-today').text(data.transactionCount);
+		$('#average-charge-customer').text('$'+data.transactionAvg); 
+		$('.dailyGoal').text('$'+goal); 
 
 		var xScale = d3.scaleLinear()
 		    .domain([0, max])
@@ -160,6 +163,9 @@ $(document).ready(function(){
 		}, 1500);
 
 	});
+
+
+	
 });
 
 

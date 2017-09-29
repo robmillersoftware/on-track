@@ -286,6 +286,38 @@
 		    background-color: maroon;
 		    color: #fff;
 		}
+		.twitter-point{
+			padding: 15px 5px;
+			border-bottom: 1px solid #d1d1d1;
+			cursor: pointer;
+		}
+		.twitter-point .twitter-text{
+			height: 0;
+			overflow: hidden;
+			transition: all .5s;
+			padding-top: 0;
+		}
+		.twitter-point .twitter-text p{
+			color: #000;
+			font-weight: normal;
+		}
+		.twitter-point.open .twitter-text{
+			height: 80px;
+			overflow: hidden;
+			transition: all .5s;
+			padding-top: 15px;
+		}
+		.twitter-point i{
+			float: right;
+			color: #2A9FD8;
+			font-size: 24px;
+		}
+		.twitter-point p{
+			color: #2A9FD8;
+			text-align: left; 
+			font-weight: bold;
+			margin: 0;
+		}
 	</style>
 </head>
 	<div class="header">
@@ -293,7 +325,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div id="socketMessage"></div>
-					<h1>DAILY TRACKER</h1>
+					<h2><strong>DAILY TRACKER</strong></h2>
 					<p id="intro-message"></p>
 					<div id="chartBox">
 
@@ -313,7 +345,7 @@
 				<a data-toggle="modal" data-target="#suggestions"><img src="assets/suggestions.svg" width="62px" height="auto"></a>
 			</div>
 			<div class="col-4">
-				<a data-toggle="modal" data-target="#timeline"><img src="assets/timeline.svg" width="50px" height="auto"></a>
+				<a data-toggle="modal" data-target="#timeline" id="timeline-init"><img src="assets/timeline.svg" width="50px" height="auto"></a>
 			</div>
 		</div>
 	</div>
@@ -395,7 +427,7 @@
 				     		<p>If you want to build your social media following, you need to be an active participant in the community. This means posting regularly, and also joining in on fun social media traditions that already have a loyal audience. Show the kids how hip you can be!</p>
 				     	</div>
 				     	<div style="display:flex;justify-content:space-between;padding:25px;">
-				     		<a href="#" id="tell-more" data-toggle="modal" data-target="#twitter-detail">Tell me more</a>
+				     		<a href="#" id="open-twitter-detail">Tell me more</a>
 	       					<a class="carousel-control-next no-thanks" id="no-thanks" href="#carouselExampleIndicators" role="button" data-slide="next">No Thanks</a>
 	       				</div>
 			     	</div>
@@ -453,12 +485,101 @@
 	        <br/>
 	        <div id="timeline-switch">
 	        	<div class="timeline-switch-nav" style="display:flex;justify-content:space-around;">
-	        		<p><a href="#week" class="switch-timeline bold">WEEK</a></p>
+	        		<p><a href="#week" class="switch-timeline reset-timeline bold">WEEK</a></p>
 	        		<p><a href="#month" class="switch-timeline">MONTH</a></p>
 	        		<p><a href="#year" class="switch-timeline">YEAR</a></p>
 	        	</div><br/><br/>
 	        	<div id="week" class="hide-graph" style="display:block;">
-	        		<img src="assets/timeline-week.png" width="365px" height="auto" style="max-width:100%;">
+	        		<!--<img src="assets/timeline-week.png" width="365px" height="auto" style="max-width:100%;">-->
+	        		<style>
+		        		#timeline{
+		        			margin: 25px auto;
+		        		}
+	        			.timeline-row{
+	        				display: flex;
+	        				justify-content: space-around;
+	        				width: 350px;
+	        				margin: auto;
+	        			}
+	        			.timeline-row.bottom span{
+	        				font-size: 16px;
+	        				font-weight: bold;
+	        			}
+	        			.timeline-row.top span{
+	        				font-weight: bold;
+	        				color: #d1d1d1;
+	        			}
+	        			.timeline-row.graph{
+	        				border-bottom: 1px solid #888;
+	        				margin: 0 auto 5px auto;
+	        			}
+	        			.outer-bar{
+	        				height: 150px;
+	        				width: 25px;
+	        				background-color: #f3f3f4;
+	        				border-top-left-radius: 10px;
+	        				border-top-right-radius: 10px;
+	        				overflow: hidden;
+	        				display: flex;
+	        				align-items: flex-end;
+	        				justify-content: center;
+	        			}
+	        			.timeline-row .inner-bar{
+	        				height: 0;
+	        				transition: height 1s;
+	        				width: 100%;
+	        			}
+	        			.timeline-row .outer-bar.active:first-child .inner-bar{
+	        				height: 40px;
+	        			}
+	        			.timeline-row .outer-bar.active:nth-child(2) .inner-bar{
+	        				height: 60px;
+	        			}
+	        			.timeline-row .outer-bar.active:nth-child(3) .inner-bar{
+	        				height: 132px;
+	        			}
+	        			.timeline-row .outer-bar.active:nth-child(4) .inner-bar{
+	        				height: 100px;
+	        			}
+	        			.timeline-row .outer-bar.active:nth-child(5) .inner-bar{
+	        				height: 123px;
+	        			}
+	        			.timeline-row .outer-bar.active:nth-child(6) .inner-bar{
+	        				height: 87px;
+	        			}
+	        			.timeline-row span:nth-child(6) {
+	        				color: #2A9FD8;
+	        			}
+	        		</style>
+	        		<div id="timeline">
+	        			<div class="timeline-row top">
+	        				<span><strong>SUN</strong></span>
+	        				<span><strong>MON</strong></span>
+	        				<span><strong>TUE</strong></span>
+	        				<span><strong>WED</strong></span>
+	        				<span><strong>THU</strong></span>
+	        				<span><strong>FRI</strong></span>
+	        				<span><strong>SAT</strong></span>
+	        			</div>
+	        			<div class="timeline-row graph">
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:orange;"></div></div>
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:orange;"></div></div>
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:green;"></div></div>
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:green;"></div></div>
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:green;"></div></div>
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:#2A9FD8;"></div></div>
+	        				<div class="outer-bar"></div>
+	        			</div>
+	        			<div class="timeline-row bottom">
+	        				<span><strong><small>SEP</small><br/>24</strong></span>
+	        				<span><strong><small>SEP</small><br/>25</strong></span>
+	        				<span><strong><small>SEP</small><br/>26</strong></span>
+	        				<span><strong><small>SEP</small><br/>27</strong></span>
+	        				<span><strong><small>SEP</small><br/>28</strong></span>
+	        				<span><strong><small>SEP</small><br/>29</strong></span>
+	        				<span><strong><small>SEP</small><br/>30</strong></span>
+	        			</div>
+	        		</div>
 	        	</div>
 	        	<div id="month" class="hide-graph">
 	        		<img src="assets/timelime-month.png" width="365px" height="auto" style="max-width:100%;">
@@ -584,6 +705,7 @@
 		        <br/>
 		        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#onBoarding" style="border-radius:0;background-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;">Get Started</button>
 		    </div>
+	      </div>
 	    </div>
 	  </div>
 	</div>
@@ -621,7 +743,7 @@
 			    <div class="carousel-item">
 			    	<div class='slide-box'>
 			     		<div class="slide-box-header" style="background-color:#2A9FD8;min-height:250px;display:flex;align-items:flex-end;justify-content:center;flex-wrap:wrap;border:1px solid #2A9FD8;">
-			     			<h3 style="width:100%;color:#fff;">Review Your Current Expenses</h3>
+			     			<h3 style="width:100%;color:#fff;">Review Your Monthly Expenses</h3>
 			     			<img src="assets/onboarding-step2.svg">
 			     		</div>
 			     		<div class="slide-box-body">
@@ -734,7 +856,7 @@
 				     				<p><strong>Profit</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p class="total-revenue-today"></p>
+				     				<p id="currentProfit"></p>
 				     			</div>
 				     		</div><br/>
 				     		<a class="btn btn-primary btn-lg carousel-2-next close reset-onboard" data-dismiss="modal" aria-label="Close" style="opacity:1;float:none;border-radius:0;background-color:#fff;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">
@@ -744,6 +866,111 @@
 			    </div>
 			  </div>
 			</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="twitter-detail">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="border: none;height:0;">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+	        </button>
+	      </div>
+	      <div class="modal-body" style="padding:0;">
+	      	<img src="assets/suggestion card detail.png" style="width:100%;"><br/>
+	      	<div style="padding: 25px;">
+		      	<h5 class="modal-title" id="exampleModalLabel">Create a Hashtag for Your Business</h5>
+		        <p>Creating a hashtag is easy, but difficult at the same time. It takes creativity, after all, to come up with amemorable phrase that packs a punch within a few words.</p><br/>
+
+		        <p>As you start brainstorming, keep the following points in mind:</p>
+
+		        <div class="twitter-points">
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Research Hashtags</p>
+		        		<div class="twitter-text">
+		        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+		        		</div>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i>
+		        		<p>Keep Hashtags Short and Obvious</p> 
+		        		<div class="twitter-text">
+		        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+		        		</div>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Make it Catchy</p>
+		        		<div class="twitter-text">
+		        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+		        		</div>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Integrate your Business Name</p>
+		        		<div class="twitter-text">
+		        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+		        		</div>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Proofread the Hashtag</p>
+		        		<div class="twitter-text">
+		        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+		        		</div>
+		        	</div>
+		        </div>
+		        <br/>
+		        <a class="btn btn-primary btn-lg carousel-2-next close reset-onboard" data-dismiss="modal" aria-label="Close" style="opacity:1;float:none;border-radius:0;background-color:#2A9FD8;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#fff;border:1px solid #2A9FD8;">Get Started</a>
+		      </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="send-tweet">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="border: none;height:0;">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+	        </button>
+	      </div>
+	      <div class="modal-body" style="padding:0;">
+	      	<img src="assets/suggestion card detail.png" style="width:100%;"><br/>
+	      	<div style="padding: 25px;">
+		      	<h5 class="modal-title" id="exampleModalLabel">Create a Hashtag for Your Business</h5>
+		        <p>Creating a hashtag is easy, but difficult at the same time. It takes creativity, after all, to come up with amemorable phrase that packs a punch within a few words.</p><br/>
+
+		        <p>As you start brainstorming, keep the following points in mind:</p>
+
+		        <div class="twitter-points">
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Research Hashtags</p>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i>
+		        		<p>Keep Hashtags Short and Obvious</p> 
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Make it Catchy</p>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Integrate your Business Name</p>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Proofread the Hashtag</p>
+		        	</div>
+		        </div>
+		        <br/>
+		        <a class="btn btn-primary btn-lg carousel-2-next close reset-onboard" data-dismiss="modal" aria-label="Close" style="opacity:1;float:none;border-radius:0;background-color:#2A9FD8;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#fff;border:1px solid #2A9FD8;">Get Started</a>
+		      </div>
 	      </div>
 	    </div>
 	  </div>
@@ -815,6 +1042,27 @@
 				$('.hide-graph').hide();
 				$(target).show();
 			});	
+
+			$('#open-twitter-detail').click(function(e){
+				e.preventDefault();
+				$('.modal').modal('hide');
+				$('#twitter-detail').modal('show'); 
+			});
+
+			$('.twitter-point').click(function(){
+				$(this).toggleClass('open');
+			});
+
+			$('#timeline-init').click(function(){
+				setTimeout(function() {
+					$('.timeline-row.graph .outer-bar').addClass('active');
+				}, 1000);
+				
+			});
+
+			$('.close').click(function(){
+				$('.outer-bar').removeClass('active');
+			});
 		});
 
 	</script>
