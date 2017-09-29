@@ -3,12 +3,16 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<link rel='stylesheet' href="assets/fonts.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		html{
 			font-size: 10px;
 		}
+		html, body{
+			max-width: 100vw;
+		}
 		body{
-			max-width: 500px;
+			width: 500px;
 			margin: auto;
 			border: 1px solid #d1d1d1;
 			position: relative;
@@ -16,6 +20,7 @@
 			min-height: 100vh;
 			padding: 0 !important;
 		}
+
 		.modal-dialog {
 		    margin: 0 auto;
 		}
@@ -497,7 +502,7 @@
 	        		<!--<img src="assets/timeline-week.png" width="365px" height="auto" style="max-width:100%;">-->
 	        		<style>
 		        		#timeline{
-		        			margin: 25px auto;
+		        			margin:0 auto;
 		        		}
 	        			.timeline-row{
 	        				display: flex;
@@ -709,7 +714,7 @@
 		        <br/>
 		        <p>Also keep in mind you can change your goal at anytime.</p>
 		        <br/>
-		        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#onBoarding" style="border-radius:0;background-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;">Get Started</button>
+		        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#onBoarding" id="reset-dailyTacker" style="border-radius:0;background-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;">Get Started</button>
 		    </div>
 	      </div>
 	    </div>
@@ -796,7 +801,7 @@
 				     					<p><strong>Keep my business steady</strong></p>
 				     				</div>
 				     				<div class="col-2">
-				     					<span class="check"></span>
+				     					<span class="check" data-attr-multiplier="1"></span>
 				     				</div>
 				     			</div>
 				     			<div class="row goal">
@@ -804,7 +809,7 @@
 				     					<p><strong>Set aside money for the future</strong></p>
 				     				</div>
 				     				<div class="col-2">
-				     					<span class="check fa fa-check"></span>
+				     					<span class="check fa fa-check" data-attr-multiplier="1.1"></span>
 				     				</div>
 				     			</div>
 				     			<div class="row goal">
@@ -812,11 +817,11 @@
 				     					<p><strong>Focus on profit</strong></p>
 				     				</div>
 				     				<div class="col-2">
-				     					<span class="check"></span>
+				     					<span class="check" data-attr-multiplier="1.3"></span>
 				     				</div>
 				     			</div>
 				     		</div><br/>
-				     		<a class="btn btn-primary btn-lg carousel-2-next" href="#onboarding-slider" role="button" data-slide="next" style="border-radius:0;background-color:#fff;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">
+				     		<a class="btn btn-primary btn-lg carousel-2-next" href="#onboarding-slider" role="button" data-slide="next" id="calculate-your-goal" style="border-radius:0;background-color:#fff;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">
 				     		Calculate your goal</a>
 				     	</div>
 			     	</div>
@@ -838,7 +843,7 @@
 				     				<p><strong>Bills &amp; Utilities</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$284</p>
+				     				<p id="bills-and-utilities">$285</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
@@ -846,7 +851,7 @@
 				     				<p><strong>Wages</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$248</p>
+				     				<p id="bills-and-utilities">$249</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
@@ -854,7 +859,7 @@
 				     				<p><strong>Goods</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$177</p>
+				     				<p id="bills-and-utilities">$178</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
@@ -968,11 +973,6 @@
 	<script src="./bar.js"></script>
 	<script>
 		$(document).ready(function(){
-			setInterval(() => {
-				$.get('http://localhost:9001/connect', function(data) {
-					console.log(data);
-				});
-			}, 3000);
 			var slideCounter = 1;
 			var suggestions = 3;
 			$('#suggestion-badge').text(suggestions); 
@@ -1048,35 +1048,20 @@
 			$('.close').click(function(){
 				$('.outer-bar').removeClass('active');
 			});
+
+			$('#reset-dailyTacker').click(function(){
+				$('#dailyTracker').modal('hide'); 	
+			});
+
+			$('#calculate-your-goal').click(function(e){
+				var multiplier = $('.goal .fa-check').attr('data-attr-multiplier');
+				console.log(multiplier)
+				localStorage.setItem('cfiGoalMultiplier', multiplier); 
+				updateTransactions(); 
+			});
+			
 		});
 
-	</script>
-	<script>
-		/*(function connect(){
-		    try{
-
-			var socket;
-			var host = "ws://on-track.azurewebsites.net:9001/connect";
-		    var socket = new WebSocket(host);
-
-		        $('#socketMessage').append('<p class="event">Socket Status: '+socket.readyState);
-
-		        socket.onopen = function(){
-		       		 console.log(socket.readyState);
-		        }
-
-		        socket.onmessage = function(msg){
-		       		console.log(msg);
-		        }
-
-		        socket.onclose = function(){
-		       		console.log(socket.readyState);
-		        }			
-
-		    } catch(exception){
-		   		 console.log(exception);
-		    }
-		})();*/
 	</script>
 <body>
 </body>

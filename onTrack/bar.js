@@ -1,17 +1,17 @@
 
 $(document).ready(function(){
 	updateTransactions();
+	localStorage.removeItem('cfiGoalMultiplier');
 });
 setInterval(function() {
 	//http://on-track.azurewebsites.net:9001
 	updateTransactions();
 }, 15000);
-
-function updateTransactions(setItems) {
+function updateTransactions() {
 	$.get('http://localhost:9001/connect', function(string){
 		var html = "";
 		var data = JSON.parse(string);
-		console.log(data);
+		
 		$.each(data.transactionList,function(i,d) {
 			html += "<div class='transaction row'>";
 			html += "<div class='col-6' style='text-align:left;'><p><strong>";
@@ -25,17 +25,29 @@ function updateTransactions(setItems) {
 		} else {
 			html += "<br/><br/><p><small>No transactions yet today.</small></p>";	
 		}
+		var cfiDailyGoal = data.dailyGoal;
+		localStorage.setItem('cfiDailyGoal',data.dailyGoal);
+		var dailyGoalMultiplier = localStorage.getItem('cfiGoalMultiplier') || 1.1;
+		var dailyGoalFormatted = (Math.ceil(cfiDailyGoal * dailyGoalMultiplier)).toFixed(2);
+		console.log(dailyGoalFormatted);
 		$('#todays-transactions').html(html); 
 		$('.total-revenue-today').text('$'+data.currentRevenue); 
 		$('#total-customers-today').text(data.transactionCount);
 		$('#average-charge-customer').text('$'+data.transactionAvg); 
+		$('.dailyGoal').text('$'+dailyGoalFormatted);
+		$('#currentProfit').text('$'+(dailyGoalFormatted-710));
+		buildBar(); 
 	});
 }
 $(document).ready(function(){
+	buildBar();
+});
+
+function buildBar() {
 	$.get('http://localhost:9001/connect', function(string){
 		var html = "";
 		var data = JSON.parse(string); 
-		console.log(data);
+		console.log(data); 
 		$.each(data.transactionList,function(i,d) {
 			html += "<div class='transaction row'>";
 			html += "<div class='col-6' style='text-align:left;'><p><strong>";
@@ -50,16 +62,19 @@ $(document).ready(function(){
 			html += "<br/><br/><p><small>No transactions yet today.</small></p>";	
 		}
 		
-
+		$('#chartBox').html(''); 
 		var chartBox = document.getElementById('chartBox');
 		var boxWidth = $('#chartBox').width();
-		var goal = (data.dailyGoal !== 'null') ? [data.dailyGoal] : [0];
+		var dailyGoal = localStorage.getItem('cfiDailyGoal') || data.dailyGoal;
+		var cfiGoalMultiplier = localStorage.getItem('cfiGoalMultiplier') || 1.1;
+		goalFormatted = parseInt(dailyGoal * cfiGoalMultiplier).toFixed(0);
+		goal = [goalFormatted];
 		var max = goal[0];
 		var formatPercent = d3.format(".4r");
 		var current = data.currentRevenue;
-		var currentPercent = (goal != 0) ? Math.ceil((current/goal)*100) : 0;
+		var currentPercent = (goal != 0) ? Math.ceil((current/goalFormatted)*100) : 0;
 		var introMessage = ""
-		var currentProfit = goal - 712; 
+		var currentProfit = goalFormatted - 710; 
 		$('#currentProfit').text('$'+currentProfit);
 		if(currentPercent > 100) {
 			introMessage = "<br/><strong>Congratulations!</strong><br/>you have reached your daily goal."
@@ -74,7 +89,7 @@ $(document).ready(function(){
 		$('.total-revenue-today').text('$'+current); 
 		$('#total-customers-today').text(data.transactionCount);
 		$('#average-charge-customer').text('$'+data.transactionAvg); 
-		$('.dailyGoal').text('$'+goal); 
+		$('.dailyGoal').text('$'+goalFormatted); 
 
 		var xScale = d3.scaleLinear()
 		    .domain([0, max])
@@ -163,11 +178,7 @@ $(document).ready(function(){
 		}, 1500);
 
 	});
-
-
-
-});
-
+}
 
 
 //////////////////////////////////////////////////////
