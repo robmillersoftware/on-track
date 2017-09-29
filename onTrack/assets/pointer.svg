@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="136px" height="56px" viewBox="0 0 136 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>pointer</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M72.9705627,39 L125,39 C126.656854,39 128,37.6568542 128,36 L128,3 C128,1.34314575 126.656854,-3.04359188e-16 125,0 L3,0 L3,0 C1.34314575,3.04359188e-16 -2.02906125e-16,1.34314575 0,3 L0,3 L0,36 C2.02906125e-16,37.6568542 1.34314575,39 3,39 L55.0294373,39 L64,47.9705627 L72.9705627,39 Z" id="path-1"></path>
+        <filter x="-5.1%" y="-11.5%" width="110.2%" height="127.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tracker" transform="translate(-120.000000, -195.000000)">
+            <g id="pointer" transform="translate(124.000000, 198.000000)">
+                <g id="revenue-cursor">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <text id="chevron-right---FontAwesome-Copy" font-family="FontAwesome" font-size="16" font-weight="normal" fill="#358DCF">
+                    <tspan x="109" y="26"></tspan>
+                </text>
+                <text id="$370.39" font-family="PNCSans-Bold, PNC Sans" font-size="20" font-weight="bold" fill="#358DCF">
+                    <tspan x="20.77" y="26">$370.39</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

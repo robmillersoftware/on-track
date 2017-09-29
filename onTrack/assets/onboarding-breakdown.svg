@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="164px" height="162px" viewBox="0 0 164 162" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>onboarding-breakdown</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Onboarding-5" transform="translate(-104.000000, -264.000000)">
+            <g id="onboarding-breakdown" transform="translate(104.000000, 264.000000)">
+                <g id="Group">
+                    <g id="expenses-&amp;-profit-goals" transform="translate(84.000000, 80.000000) scale(-1, -1) translate(-84.000000, -80.000000) translate(14.000000, 10.000000)" stroke-width="20">
+                        <circle id="red" stroke="#FF6213" stroke-linejoin="round" cx="70" cy="70" r="70"></circle>
+                        <circle id="orange" stroke="#FFAC4F" stroke-dasharray="262.5,291.6666666666666" cx="70" cy="70" r="70"></circle>
+                        <circle id="yellow" stroke="#FFE08B" stroke-dasharray="191.0416666666667,408.3333333333333" cx="70" cy="70" r="70"></circle>
+                        <circle id="green" stroke="#5FBE5F" stroke-dasharray="103.5410563151042,349.388427734375" cx="70" cy="70" r="70"></circle>
+                    </g>
+                    <rect id="Rectangle-3" fill="#FFFFFF" x="82" y="0" width="6" height="21"></rect>
+                    <rect id="Rectangle-3-Copy" fill="#FFFFFF" transform="translate(12.727922, 148.727922) rotate(-315.000000) translate(-12.727922, -148.727922) " x="9.72792206" y="133.727922" width="6" height="30"></rect>
+                    <rect id="Rectangle-3-Copy-3" fill="#FFFFFF" transform="translate(15.889327, 72.116094) rotate(-263.000000) translate(-15.889327, -72.116094) " x="12.8893267" y="60.30124" width="6" height="23.6297075"></rect>
+                    <rect id="Rectangle-3-Copy-4" fill="#FFFFFF" transform="translate(57.577953, 143.728817) rotate(-337.000000) translate(-57.577953, -143.728817) " x="54.5779526" y="131.174159" width="6" height="25.1093164"></rect>
+                    <rect id="Rectangle-3-Copy-5" fill="#FFFFFF" transform="translate(126.191164, 135.080343) rotate(-397.000000) translate(-126.191164, -135.080343) " x="123.191164" y="122.458678" width="6" height="25.24333"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

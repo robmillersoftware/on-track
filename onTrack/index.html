@@ -14,16 +14,26 @@
 			position: relative;
 			font-family: PNCSans;
 			min-height: 100vh;
+			padding: 0 !important;
 		}
 		.modal-dialog {
 		    margin: 0 auto;
 		}
+		.modal-dialog a{
+		    font-size: 19px !important;
+		    font-weight: bold !important;
+		}
+		.modal-dialog .fa-chevron-left{
+			font-size: 24px;
+		}
 		.modal-body{
 			padding-bottom: 0;
+			flex: 0;
 		}
 		.modal-content{
 			height: 100vh;
 			overflow-y: scroll;
+			position: relative;
 		}
 		.header{
 			background-color: #f3f3f4;
@@ -161,6 +171,88 @@
 			height:15px;
 			background-color:#358DCF;
 		}
+		.onboarding-slider .carousel-indicators{
+			top: 35px;
+			max-height: 30px;
+		}
+		.onboarding-slider .carousel-indicators li{
+			width: 26px !important;
+    		height: 26px !important;
+    		color: #fff;
+    		background-color: rgba(0,0,0,.25);
+    		text-indent: 0;
+		    color: #fff;
+		    display: inline-flex;
+		    justify-content: center;
+		    align-items: center;
+		    margin: 0 10px;
+		}
+		.onboarding-slider .carousel-indicators li.active{
+			color: #2A9FD8;
+    		background-color: #fff;
+		}
+		.onboarding-slider .slide-box{
+			margin-top: 0;
+		}
+		.expense:first-child{
+			border-top: 1px solid #d1d1d1;
+		}
+		.expense{
+			padding: 10px 5px;
+			border-bottom: 1px solid #d1d1d1;
+		}
+		.expense:last-child{
+			border-bottom: none;
+		}
+		.expense .col-6:first-child{
+			text-align: left;
+		}
+		.expense .col-6:last-child{
+			text-align: right;
+		}
+		.set-goals{
+			cursor: pointer;
+			font-size: 19px;
+		}
+		.set-goals .goal{
+			padding: 15px 5px;
+		}
+		.set-goals .goal p{
+			margin: 0;
+		}
+		.set-goals .goal:nth-child(2){
+			border-top: 1px solid #d1d1d1;
+			border-bottom: 1px solid #d1d1d1;
+		}
+		.set-goals .col-10{
+			text-align: left;
+		}
+		.set-goals .col-2{
+			text-align: right;
+		}
+		.set-goals .col-2 .check{
+			color: #1a78d8;
+		}
+		.pie-and-total{
+			position: relative;
+		}
+		.pie-and-total p{
+			position: absolute;
+		    top: 70px;
+		    bottom: 0;
+		    left: 0;
+		    right: 0;
+		    margin-left: 0;
+		    margin-right: 0;
+		    margin-top: auto;
+		    font-size: 24px;
+		    margin-bottom: auto;
+		    font-weight: bold;
+		}
+		#onBoarding .modal-body{
+			padding-left: 25px;
+			padding-right: 25px;
+		}
 	</style>
 </head>
 	<div class="header">
@@ -221,7 +313,7 @@
 		<h2>Has your situation changed?</h2>
 		<p>Whether it's business or personal, you should always update your gaol settings to account for any changes</p>
 		<br/>
-		<p><strong><a href="/update">Update your goal settings</a></strong></p>
+		<p><strong><a href="" data-toggle="modal" data-target="#dailyTracker">Update your goal settings</a></strong></p>
 	</div>
 
 	<!-- Modal -->
@@ -391,24 +483,217 @@
 		        </div>
 		        <div class="row" style="margin:0;">
 		        	<div class="col-8">
-		        		<p><strong>Total Revenue Today</strong></p>
+		        		<p><strong>Total Customers</strong></p>
 		        	</div>
 		        	<div class="col-4">
-		        		<p id="total-revenue-today">$0</p>
+		        		<p id="total-customers-today">11</p>
 		        	</div>
 		        </div>
 		        <div class="row" style="margin:0;">
 		        	<div class="col-8">
-		        		<p><strong>Total Revenue Today</strong></p>
+		        		<p><strong>Average Per Customer</strong></p>
 		        	</div>
 		        	<div class="col-4">
-		        		<p id="total-revenue-today">$0</p>
+		        		<p id="average-charge-customer">$0</p>
 		        	</div>
 		        </div>
 		        <div id="todays-transactions">
-		        	
+
 		        </div>
 		    </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="dailyTracker" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="border: none;">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="getStarted" style="padding:25px 50px">
+	      		<img src="assets/onboarding-landing-icon.svg"><br/><br/>
+		      	<h1 class="modal-title" id="exampleModalLabel">Daily Tracker</h1><br/>
+		        <p>Your daily tracker will monitor your revenue every day to help you break even every month.</p>
+		        <br/>
+		        <p>Setting up your goal is pretty easy. We'll crunch the numbers for you and guide along the way.</p>
+		        <br/>
+		        <p>Also keep in mind you can change your goal at anytime.</p>
+		        <br/>
+		        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#onBoarding" style="border-radius:0;background-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;">Get Started</button>
+		    </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="onBoarding" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="border: none;">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <div id="onboarding-slider" class="onboarding-slider slide" data-ride="onboarding-slider">
+			  <ol class="carousel-indicators">
+			    <li data-target="#onboarding-slider" data-slide-to="0" class="active">1</li>
+			    <li data-target="#onboarding-slider" data-slide-to="1">2</li>
+			    <li data-target="#onboarding-slider" data-slide-to="2">3</li>
+			    <li data-target="#onboarding-slider" data-slide-to="3">4</li>
+			  </ol>
+			  <div class="carousel-inner">
+			  	<div class="carousel-item active">
+			      <div class='slide-box'>
+			     		<div class="slide-box-header" style="background-color:#2A9FD8;min-height:250px;display:flex;align-items:flex-end;justify-content:center;flex-wrap:wrap;">
+			     			<h3 style="width:100%;color:#fff;">Your Daily Goal</h3>
+			     			<img src="assets/onboarding-step1.svg">
+			     		</div>
+			     		<div class="slide-box-body">
+				     		<p>Your goal is defined by your expense, to break-even and a little profit to balance the off days.</p><br/>
+				     		<img src="assets/onboarding-expense-profit.png"><br/><br/>
+				     		<p>Let's go ahead and define your expenses.</p><br/>
+				     		<a class="btn btn-primary btn-lg carousel-2-next" href="#onboarding-slider" role="button" data-slide="next" style="border-radius:0;background-color:#fff;border-color:#2A9FD8;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">Continue</a>
+				     	</div>
+			     	</div>
+			    </div>
+			    <div class="carousel-item">
+			    	<div class='slide-box'>
+			     		<div class="slide-box-header" style="background-color:#2A9FD8;min-height:250px;display:flex;align-items:flex-end;justify-content:center;flex-wrap:wrap;border:1px solid #2A9FD8;">
+			     			<h3 style="width:100%;color:#fff;">Review Your Current Expenses</h3>
+			     			<img src="assets/onboarding-step2.svg">
+			     		</div>
+			     		<div class="slide-box-body">
+				     		<div class="row expense">
+				     			<div class="col-6">
+				     				<p><strong>Bills &amp; Utilities</strong></p>
+				     			</div>
+				     			<div class="col-6">
+				     				<p id="bills-and-utilities">$4900.23</p>
+				     			</div>
+				     		</div>
+				     		<div class="row expense">
+				     			<div class="col-6">
+				     				<p><strong>Wages</strong></p>
+				     			</div>
+				     			<div class="col-6">
+				     				<p id="bills-and-utilities">$3200</p>
+				     			</div>
+				     		</div>
+				     		<div class="row expense">
+				     			<div class="col-6">
+				     				<p><strong>Goods</strong></p>
+				     			</div>
+				     			<div class="col-6">
+				     				<p id="bills-and-utilities">$1891.23</p>
+				     			</div>
+				     		</div>
+				     		<div class="row expense">
+				     			<div class="col-6">
+				     				<p><strong>Other</strong></p>
+				     			</div>
+				     			<div class="col-6">
+				     				<p id="bills-and-utilities">$62.59</p>
+				     			</div>
+				     		</div>
+				     		<br/>
+				     		<a class="btn btn-primary btn-lg carousel-2-next" href="#onboarding-slider" role="button" data-slide="next" style="border-radius:0;background-color:#fff;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">Continue</a>
+				     	</div>
+			     	</div>
+			    </div>
+			    <div class="carousel-item">
+			      <div class='slide-box'>
+			     		<div class="slide-box-header" style="background-color:#2A9FD8;min-height:250px;display:flex;align-items:flex-end;justify-content:center;flex-wrap:wrap;">
+			     			<h3 style="width:100%;color:#fff;">Set Your Profit Strategy</h3>
+			     			<img src="assets/onboarding-step3.svg">
+			     		</div>
+			     		<div class="slide-box-body">
+				     		<p>To go beyond just break-even, your goal will include a small daily profit or cushion to account for off days.</p><br/>
+				     		<div class="set-goals">
+				     			<div class="row goal">
+				     				<div class="col-10">
+				     					<p><strong>Just Break Even</strong></p>
+				     				</div>
+				     				<div class="col-2">
+				     					<span class="check"></span>
+				     				</div>
+				     			</div>
+				     			<div class="row goal">
+				     				<div class="col-10">
+				     					<p><strong>Account for off days</strong></p>
+				     				</div>
+				     				<div class="col-2">
+				     					<span class="check fa fa-check"></span>
+				     				</div>
+				     			</div>
+				     			<div class="row goal">
+				     				<div class="col-10">
+				     					<p><strong>Focus on profit</strong></p>
+				     				</div>
+				     				<div class="col-2">
+				     					<span class="check"></span>
+				     				</div>
+				     			</div>
+				     		</div><br/>
+				     		<a class="btn btn-primary btn-lg carousel-2-next" href="#onboarding-slider" role="button" data-slide="next" style="border-radius:0;background-color:#fff;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">
+				     		Calculate your goal</a>
+				     	</div>
+			     	</div>
+			    </div>
+			    <div class="carousel-item">
+			      <div class='slide-box'>
+			     		<div class="slide-box-body"><br/><br/>
+			     			<h3 style="width:100%;color:#000;">Your Daily Goal</h3>
+			     			<br/>
+			     			<p>You're all set!</p><br/>
+			     			<p>Your daily tracker will monitor your revenue and help you stay on track with your daily goal.</p><br/>
+			     			<div class="pie-and-total">
+			     				<img src="assets/onboarding-breakdown.svg">
+			     				<p id="pie-and-total">$3000</p>
+			     			</div><br/>
+				     		<p>We estimated your daily goal for today to be <strong>$3,000</strong> based on your expenses and your profit strategy.</p><br/><br/>
+				     		<div class="row expense">
+				     			<div class="col-6">
+				     				<p><strong>Bills &amp; Utilities</strong></p>
+				     			</div>
+				     			<div class="col-6">
+				     				<p id="bills-and-utilities">$4900.23</p>
+				     			</div>
+				     		</div>
+				     		<div class="row expense">
+				     			<div class="col-6">
+				     				<p><strong>Wages</strong></p>
+				     			</div>
+				     			<div class="col-6">
+				     				<p id="bills-and-utilities">$3200</p>
+				     			</div>
+				     		</div>
+				     		<div class="row expense">
+				     			<div class="col-6">
+				     				<p><strong>Goods</strong></p>
+				     			</div>
+				     			<div class="col-6">
+				     				<p id="bills-and-utilities">$1891.23</p>
+				     			</div>
+				     		</div>
+				     		<div class="row expense">
+				     			<div class="col-6">
+				     				<p><strong>Other</strong></p>
+				     			</div>
+				     			<div class="col-6">
+				     				<p id="bills-and-utilities">$62.59</p>
+				     			</div>
+				     		</div><br/>
+				     		<a class="btn btn-primary btn-lg carousel-2-next close" id="reset-onboard" data-dismiss="modal" aria-label="Close" style="opacity:1;float:none;border-radius:0;background-color:#fff;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">
+				     		Open Daily Tracker</a>
+				     	</div>
+			     	</div>
+			    </div>
+			  </div>
+			</div>
 	      </div>
 	    </div>
 	  </div>
@@ -421,14 +706,21 @@
 	<script src="./bar.js"></script>
 	<script>
 		$(document).ready(function(){
-			$.get('http://localhost:3030/transactions/transactionsByAccount', function(data) {
-				console.log(data);
-			});
 			var slideCounter = 1;
 			$('.carousel').carousel({
 			  ride: false,
 			  interval: 0,
 			  wrap: false,
+			});
+
+			$('.onboarding-slider').carousel({
+			 	ride: false,
+				interval: 0,
+				wrap: false,
+			});
+
+			$('.carousel-2-next').click(function(){
+				$('.onboarding-slider').carousel('next');
 			});
 			
 			$('.carousel').on('slide.bs.carousel', function () {
@@ -441,16 +733,24 @@
 				}
 			});
 
-			var date = new Date();
-			var firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getTime();
-			var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getTime();
+			$('.set-goals .goal').click(function(e){
+				$('.check').removeClass('fa').removeClass('fa-check');
+				$(this).find('.check').addClass('fa').addClass('fa-check');
+			});
 
-			console.log(firstDay);
-			console.log(lastDay);
+			$('#reset-onboard').click(function(e){
+				$('.onboarding-slider').carousel(0);
+				$(body).style('padding',0);
+			});
 		});
 
 	</script>
 	<script>
+		/*setInterval(function() {
+			$.get('http://on-track.azurewebsites.net:9001/connect', function(data){
+				console.log(data);
+			});
+		}, 3000); */
 		/*(function connect(){
 		    try{
 
@@ -461,19 +761,19 @@
 		        $('#socketMessage').append('<p class="event">Socket Status: '+socket.readyState);
 
 		        socket.onopen = function(){
-		       		 $('#socketMessage').append('<p class="event">Socket Status: '+socket.readyState+' (open)');
+		       		 console.log(socket.readyState);
 		        }
 
 		        socket.onmessage = function(msg){
-		       		 $('#socketMessage').append('<p class="message">Received: '+msg.data);
+		       		console.log(msg);
 		        }
 
 		        socket.onclose = function(){
-		       		$('#socketMessage').append('<p class="event">Socket Status: '+socket.readyState+' (Closed)');
+		       		console.log(socket.readyState);
 		        }			
 
 		    } catch(exception){
-		   		 $('#socketMessage').append('<p>Error'+exception);
+		   		 console.log(exception);
 		    }
 		})(); */
 	</script>

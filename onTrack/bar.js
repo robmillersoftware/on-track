@@ -3,7 +3,7 @@ var boxWidth = $('#chartBox').width();
 var goal = localStorage.getItem('currentGoal') || [3500];
 var max = goal[0] * 1.25;
 var formatPercent = d3.format(".4r");
-var current = 2200;
+var current = 1299;
 var currentPercent = Math.ceil((current/goal)*100);
 
 var xScale = d3.scaleLinear()
@@ -22,7 +22,7 @@ bar.append('rect')
     .attr('stroke-width', 1)
     .attr('height', 40)
     .attr('width', boxWidth)
-    .attr('fill', '#777')
+    .attr('fill', '#d2e5f4')
     .style('z-index', 0);
 
 var innerBar = main.append('g');
@@ -33,7 +33,13 @@ innerBar.selectAll('rect')
     .append('rect')
     .attr('width', 0)
     .attr('height', 40)
-    .attr('fill', '#1a78d8')
+    .attr('fill', function(d, i) {
+    	if((goal[0]/current) >= 1) {
+    		return '#1a78d8';
+    	} else {
+    		return '#5fb35f';
+    	}
+    })
     .attr('x', 0)
     .attr('y', 25)
     .attr('stroke', '#d1d1d1')
@@ -41,8 +47,7 @@ innerBar.selectAll('rect')
     .style('z-index',10)
     .transition()
     .attr('width', d => {
-        console.log(d);
-        return xScale(d);
+        return xScale(current);
     })
     .duration(1500);
 

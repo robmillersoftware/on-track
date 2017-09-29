@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>close button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tracker" transform="translate(-328.000000, -60.000000)" fill="#757677">
+            <polygon id="close-button" points="339.5 68.625 330.875 60 328 62.875 336.625 71.5 328 80.125 330.875 83 339.5 74.375 348.125 83 351 80.125 342.375 71.5 351 62.875 348.125 60"></polygon>
+        </g>
+    </g>
+</svg>

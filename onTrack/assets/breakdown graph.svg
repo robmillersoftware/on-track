@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="211px" height="225px" viewBox="0 0 211 225" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>breakdown graph</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="100" cy="118" r="100"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-6.60000014" y="-6.60000014" width="213.2" height="213.2">
+            <rect x="-6.60000014" y="11.3999999" width="213.2" height="213.2" fill="white"></rect>
+            <use xlink:href="#path-1" fill="black"></use>
+        </mask>
+        <circle id="path-3" cx="100" cy="118" r="100"></circle>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-3.30000007" y="-3.30000007" width="206.6" height="206.6">
+            <rect x="-3.30000007" y="14.6999999" width="206.6" height="206.6" fill="white"></rect>
+            <use xlink:href="#path-3" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Goal-Breakdown" transform="translate(-84.000000, -106.000000)">
+            <g id="breakdown-graph" transform="translate(88.000000, 106.000000)">
+                <g id="expenses-&amp;-profit-goals" transform="translate(100.000000, 118.000000) scale(-1, -1) translate(-100.000000, -118.000000) translate(30.000000, 48.000000)" stroke-width="20">
+                    <circle id="red" stroke="#FF6213" stroke-linejoin="round" cx="70" cy="70" r="70"></circle>
+                    <circle id="orange" stroke="#FFAC4F" stroke-dasharray="262.5,291.6666666666666" cx="70" cy="70" r="70"></circle>
+                    <circle id="yellow" stroke="#FFE08B" stroke-dasharray="191.0416666666667,408.3333333333333" cx="70" cy="70" r="70"></circle>
+                    <circle id="green" stroke="#5FBE5F" stroke-dasharray="103.5410563151042,349.388427734375" cx="70" cy="70" r="70"></circle>
+                </g>
+                <g id="revenue" stroke-dasharray="396.0000085830688,1320.000028610229" transform="translate(100.000000, 118.000000) scale(1, -1) translate(-100.000000, -118.000000) ">
+                    <use stroke="#FFFFFF" stroke-width="4.4000001" xlink:href="#path-1"></use>
+                    <use stroke="#358DCF" mask="url(#mask-2)" stroke-width="13.2000003" xlink:href="#path-1"></use>
+                </g>
+                <g id="revenue-goal" stroke-dasharray="237.6000219345096,13200.00028610229" transform="translate(100.000000, 118.000000) scale(-1, -1) translate(-100.000000, -118.000000) ">
+                    <use stroke="#FFFFFF" stroke-width="4.4000001" xlink:href="#path-3"></use>
+                    <use stroke="#D2E5F4" mask="url(#mask-4)" stroke-width="6.60000014" xlink:href="#path-3"></use>
+                </g>
+                <rect id="Rectangle-3" fill="#FFFFFF" x="98" y="0" width="6" height="59"></rect>
+                <rect id="Rectangle-3-Copy" fill="#FFFFFF" transform="translate(28.727922, 186.727922) rotate(-315.000000) translate(-28.727922, -186.727922) " x="25.7279221" y="171.727922" width="6" height="30"></rect>
+                <rect id="Rectangle-3-Copy-3" fill="#FFFFFF" transform="translate(28.727922, 109.727922) rotate(-263.000000) translate(-28.727922, -109.727922) " x="25.7279221" y="94.7279221" width="6" height="30"></rect>
+                <rect id="Rectangle-3-Copy-4" fill="#FFFFFF" transform="translate(72.622481, 183.979766) rotate(-337.000000) translate(-72.622481, -183.979766) " x="69.6224815" y="168.979766" width="6" height="30"></rect>
+                <rect id="Rectangle-3-Copy-5" fill="#FFFFFF" transform="translate(143.622481, 174.979766) rotate(-397.000000) translate(-143.622481, -174.979766) " x="140.622481" y="159.979766" width="6" height="30"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#358DCF" transform="translate(27.500000, 194.500000) rotate(-315.000000) translate(-27.500000, -194.500000) " x="25" y="189" width="5" height="11"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

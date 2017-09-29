@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="85px" viewBox="0 0 88 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>badge-1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M49.7227113,1.54365506 L85.7228759,27.8735244 L85.7228759,27.8735244 C88.5081781,29.910644 89.6733691,33.5041553 88.6134127,36.7880946 L74.8410743,79.4573264 L74.8410743,79.4573264 C73.7747335,82.7610457 70.6993739,85 67.2278262,85 L22.7721738,85 L22.7721738,85 C19.3006261,85 16.2252665,82.7610457 15.1589257,79.4573264 L1.38658729,36.7880946 L1.38658729,36.7880946 C0.326630941,33.5041553 1.4918219,29.910644 4.27712407,27.8735244 L40.2772887,1.54365506 L40.2772887,1.54365506 C43.089784,-0.513353198 46.910216,-0.513353198 49.7227113,1.54365506 Z" id="path-1"></path>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Timeline---year" transform="translate(-29.000000, -489.000000)">
+            <g id="badge-1" transform="translate(28.000000, 489.000000)">
+                <g id="Polygon-Copy-2">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <path stroke="#358DCF" stroke-width="2" d="M49.1323724,2.35081053 C46.671439,0.55092831 43.328561,0.55092831 40.8676276,2.35081053 L4.86746298,28.6806798 C2.43032359,30.4631595 1.4107815,33.6074819 2.3382433,36.4809288 L16.1105817,79.1501606 C17.0436299,82.040915 19.7345696,84 22.7721738,84 L67.2278262,84 C70.2654304,84 72.9563701,82.040915 73.8894183,79.1501606 L87.6617567,36.4809288 C88.5892185,33.6074819 87.5696764,30.4631595 85.132537,28.6806798 L49.1323724,2.35081053 Z"></path>
+                </g>
+                <text id="lightbulb-o---FontAwesome" transform="translate(45.000000, 37.087834) rotate(50.000000) translate(-45.000000, -37.087834) " font-family="FontAwesome" font-size="37" font-weight="normal" fill="#358DCF">
+                    <tspan x="34.8571429" y="50.5878338"></tspan>
+                </text>
+                <text id="MADE-IT" font-family="PNCSans-Bold, PNC Sans" font-size="12" font-weight="bold" line-spacing="16" fill="#358DCF">
+                    <tspan x="21.574" y="75">MADE IT</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
