@@ -17,7 +17,8 @@
     "express-ws": "^3.0.0",
     "lodash": "^4.17.4",
     "morgan": "^1.8.1",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "twitter": "^1.7.1"
   },
   "devDependencies": {
     "gulp-cli": "^1.4.0",
