@@ -256,6 +256,36 @@
 		.hide-graph{
 			display: none;
 		}
+		.switch-timeline.bold{
+			text-decoration: underline;
+		}
+		#todays-transactions{
+			padding: 50px 25px;
+		}
+		#todays-transactions .row{
+			border-bottom: 1px solid #d1d1d1;
+			padding: 10px 5px;
+		}
+		.revenue-rows .col-8{
+			text-align: left;
+		}
+		.revenue-rows .col-4{
+			text-align: right;
+		}
+		.suggestion-badge-wrapper{
+			position: relative;
+		}
+		#suggestion-badge{
+			position: absolute;
+		    top: -8px;
+		    right: 10px;
+		    height: 20px;
+		    width: 15px;
+		    border-bottom-left-radius: 3px;
+		    border-bottom-right-radius: 3px;
+		    background-color: maroon;
+		    color: #fff;
+		}
 	</style>
 </head>
 	<div class="header">
@@ -264,7 +294,7 @@
 				<div class="col-12">
 					<div id="socketMessage"></div>
 					<h1>DAILY TRACKER</h1>
-					<p>You are on track to reach your goal and extend your streak to 5 days</p>
+					<p id="intro-message"></p>
 					<div id="chartBox">
 
 					</div>
@@ -278,7 +308,8 @@
 			<div class="col-4">
 				<a data-toggle="modal" data-target="#revenue"><img src="assets/revenue.svg" width="50px" height="auto"></a>
 			</div>
-			<div class="col-4">
+			<div class="col-4 suggestion-badge-wrapper">
+				<span id="suggestion-badge">3</span>
 				<a data-toggle="modal" data-target="#suggestions"><img src="assets/suggestions.svg" width="62px" height="auto"></a>
 			</div>
 			<div class="col-4">
@@ -292,7 +323,7 @@
 				<p>Daily Goal</p>
 			</div>
 			<div class="col-6">
-				<p id="dailyGoal">$3500</p>
+				<p class="dailyGoal"></p>
 			</div>
 		</div>
 		<div class="row stat">
@@ -300,7 +331,7 @@
 				<p>Goal Streak</p3>
 			</div>
 			<div class="col-6">
-				<p id="goalStreak">4 days</p>
+				<p id="goalStreak">3 days</p>
 			</div>
 		</div>
 		<!--<div class="row stat">
@@ -314,7 +345,7 @@
 	</div>
 	<div class="update-goal">
 		<h2>Has your situation changed?</h2>
-		<p>Whether it's business or personal, you should always update your gaol settings to account for any changes</p>
+		<p>Whether it's business or personal, you should always update your goal settings to account for any changes</p>
 		<br/>
 		<p><strong><a href="" data-toggle="modal" data-target="#dailyTracker">Update your goal settings</a></strong></p>
 	</div>
@@ -348,6 +379,10 @@
 				     		<h3>Step back and look closely at our business practices.</h3>
 				     		<p>What are we doing well? And what can we improve? It's often simple, common sense steps that improve the bottom line, especially for a small business. Even the smallest increase in revenue or reduction in expenses can have an impact on company profitability.</p>
 				     	</div>
+				     	<div style="display:flex;justify-content:space-between;padding:25px;">
+				     		<a href="#" id="tell-more">Tell me more</a>
+	       					<a class="carousel-control-next no-thanks" id="no-thanks" href="#carouselExampleIndicators" role="button" data-slide="next">No Thanks</a>
+	       				</div>
 			     	</div>
 			    </div>
 			    <div class="carousel-item">
@@ -356,9 +391,13 @@
 			     			<img class="d-block w-100" src="assets/twitter-card.png" alt="First slide">
 			     		</div>
 			     		<div class="slide-box-body">
-				     		<h3>Join in on weekly hashtag themes like #ThrowbackThrusday.</h3>
-				     		<p>If you want to build your social media following, you need to be an active participant in the community. This means posting regularly, and also joining in on fun weekly social media traditions that already have a loyal audience. Show the kids how hip you can be!</p>
+				     		<h3>Take advantage of trending #hashtags to reach customers.</h3>
+				     		<p>If you want to build your social media following, you need to be an active participant in the community. This means posting regularly, and also joining in on fun social media traditions that already have a loyal audience. Show the kids how hip you can be!</p>
 				     	</div>
+				     	<div style="display:flex;justify-content:space-between;padding:25px;">
+				     		<a href="#" id="tell-more" data-toggle="modal" data-target="#twitter-detail">Tell me more</a>
+	       					<a class="carousel-control-next no-thanks" id="no-thanks" href="#carouselExampleIndicators" role="button" data-slide="next">No Thanks</a>
+	       				</div>
 			     	</div>
 			    </div>
 			    <div class="carousel-item">
@@ -367,9 +406,14 @@
 			     			<img class="d-block w-100" src="assets/suggestion-card-3.png" alt="First slide">
 			     		</div>
 			     		<div class="slide-box-body">
-				     		<h3>Open a Business Sweep Account and earn interest on your profit.</h3>
-				     		<p>A Business Sweep Account can be a smart business choice if your checking account balance typically significantly exceeds your daily operating expenses. Help ensure your hard-earned money is working for you until it's needed.</p>
+				     		<h3>Keep the lights on.</h3>
+				     		<p>With PNC's Choice Credit<sup>SM</sup> you could have access to $20,000 to solve for this month's expenses and help you prepare for the changing needs of your business.</p>
+				     		<p>Get your funds quickly with easy access through online banking.</p>
 				     	</div>
+				     	<div style="display:flex;justify-content:space-between;padding:25px;">
+				     		<a href="http://pnc.com/en/apps/welcome-pages/business-lending-choice-credit-line-of-credit.html" target="_blank">Apply Now</a>
+	       					<a class="carousel-control-next no-thanks" id="no-thanks" href="#carouselExampleIndicators" role="button" data-slide="next">No Thanks</a>
+	       				</div>
 			     	</div>
 			    </div>
 			    <div class="carousel-item">
@@ -391,10 +435,6 @@
 			  </a>-->
 			</div>
 	      </div>
-	      <div class="modal-footer">
-	        <a href="#" id="tell-more">Tell me more</a>
-	        <a class="carousel-control-next no-thanks" id="no-thanks" href="#carouselExampleIndicators" role="button" data-slide="next">No Thanks</a>
-	      </div>
 	    </div>
 	  </div>
 	</div>
@@ -413,7 +453,7 @@
 	        <br/>
 	        <div id="timeline-switch">
 	        	<div class="timeline-switch-nav" style="display:flex;justify-content:space-around;">
-	        		<p><a href="#week" class="switch-timeline">WEEK</a></p>
+	        		<p><a href="#week" class="switch-timeline bold">WEEK</a></p>
 	        		<p><a href="#month" class="switch-timeline">MONTH</a></p>
 	        		<p><a href="#year" class="switch-timeline">YEAR</a></p>
 	        	</div><br/><br/>
@@ -496,7 +536,7 @@
 		        		<p><strong>Total Revenue Today</strong></p>
 		        	</div>
 		        	<div class="col-4">
-		        		<p id="total-revenue-today">$0</p>
+		        		<p class="total-revenue-today">$0</p>
 		        	</div>
 		        </div>
 		        <div class="row" style="margin:0;">
@@ -504,7 +544,7 @@
 		        		<p><strong>Total Customers</strong></p>
 		        	</div>
 		        	<div class="col-4">
-		        		<p id="total-customers-today">11</p>
+		        		<p id="total-customers-today">0</p>
 		        	</div>
 		        </div>
 		        <div class="row" style="margin:0;">
@@ -551,7 +591,7 @@
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header" style="border: none;">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <button type="button" class="close reset-onboard" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
 	        </button>
 	      </div>
@@ -598,7 +638,7 @@
 				     				<p><strong>Wages</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$3200</p>
+				     				<p id="bills-and-utilities">$6466.25</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
@@ -607,14 +647,6 @@
 				     			</div>
 				     			<div class="col-6">
 				     				<p id="bills-and-utilities">$1891.23</p>
-				     			</div>
-				     		</div>
-				     		<div class="row expense">
-				     			<div class="col-6">
-				     				<p><strong>Other</strong></p>
-				     			</div>
-				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$62.59</p>
 				     			</div>
 				     		</div>
 				     		<br/>
@@ -629,11 +661,11 @@
 			     			<img src="assets/onboarding-step3.svg">
 			     		</div>
 			     		<div class="slide-box-body">
-				     		<p>To go beyond just break-even, your goal will include a small daily profit or cushion to account for off days.</p><br/>
+				     		<p>I want to...</p><br/>
 				     		<div class="set-goals">
 				     			<div class="row goal">
 				     				<div class="col-10">
-				     					<p><strong>Just Break Even</strong></p>
+				     					<p><strong>Keep my business steady</strong></p>
 				     				</div>
 				     				<div class="col-2">
 				     					<span class="check"></span>
@@ -641,7 +673,7 @@
 				     			</div>
 				     			<div class="row goal">
 				     				<div class="col-10">
-				     					<p><strong>Account for off days</strong></p>
+				     					<p><strong>Set aside money for the future</strong></p>
 				     				</div>
 				     				<div class="col-2">
 				     					<span class="check fa fa-check"></span>
@@ -670,15 +702,15 @@
 			     			<p>Your daily tracker will monitor your revenue and help you stay on track with your daily goal.</p><br/>
 			     			<div class="pie-and-total">
 			     				<img src="assets/onboarding-breakdown.svg">
-			     				<p id="pie-and-total">$3000</p>
+			     				<p class="dailyGoal"></p>
 			     			</div><br/>
-				     		<p>We estimated your daily goal for today to be <strong>$3,000</strong> based on your expenses and your profit strategy.</p><br/><br/>
+				     		<p>We estimated your daily goal for today to be <strong><span class="dailyGoal"></span></strong> based on your expenses and your profit strategy.</p><br/><br/>
 				     		<div class="row expense">
 				     			<div class="col-6">
 				     				<p><strong>Bills &amp; Utilities</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$4900.23</p>
+				     				<p id="bills-and-utilities">$284</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
@@ -686,7 +718,7 @@
 				     				<p><strong>Wages</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$3200</p>
+				     				<p id="bills-and-utilities">$248</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
@@ -694,18 +726,18 @@
 				     				<p><strong>Goods</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$1891.23</p>
+				     				<p id="bills-and-utilities">$177</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
 				     			<div class="col-6">
-				     				<p><strong>Other</strong></p>
+				     				<p><strong>Profit</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$62.59</p>
+				     				<p class="total-revenue-today"></p>
 				     			</div>
 				     		</div><br/>
-				     		<a class="btn btn-primary btn-lg carousel-2-next close" id="reset-onboard" data-dismiss="modal" aria-label="Close" style="opacity:1;float:none;border-radius:0;background-color:#fff;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">
+				     		<a class="btn btn-primary btn-lg carousel-2-next close reset-onboard" data-dismiss="modal" aria-label="Close" style="opacity:1;float:none;border-radius:0;background-color:#fff;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">
 				     		Open Daily Tracker</a>
 				     	</div>
 			     	</div>
@@ -726,6 +758,8 @@
 		$(document).ready(function(){
 			
 			var slideCounter = 1;
+			var suggestions = 3;
+			$('#suggestion-badge').text(suggestions); 
 			$('.carousel').carousel({
 			  ride: false,
 			  interval: 0,
@@ -745,6 +779,13 @@
 			$('.carousel').on('slide.bs.carousel', function () {
 			  	slideCounter++;
 
+			  	suggestions--;
+				$('#suggestion-badge').text(suggestions); 
+
+				if(suggestions === 0) {
+					$('#suggestion-badge').remove();					
+				}
+
 				if(slideCounter === 4) {
 					$('.carousel-indicators').hide();
 					$('.no-thanks').hide();
@@ -757,13 +798,15 @@
 				$(this).find('.check').addClass('fa').addClass('fa-check');
 			});
 
-			$('#reset-onboard').click(function(e){
+			$('.reset-onboard').click(function(e){
 				$('.onboarding-slider').carousel(0);
 				$(body).style('padding',0);
 			});
 
 			$('.switch-timeline').click(function(e) {
 				e.preventDefault();
+				$('.switch-timeline').removeClass('bold');
+				$(this).addClass('bold');
 				var target = $(this).attr('href');
 				$('.hide-graph').hide();
 				$(target).show();
@@ -772,11 +815,6 @@
 
 	</script>
 	<script>
-		/*setInterval(function() {
-			$.get('http://on-track.azurewebsites.net:9001/connect', function(data){
-				console.log(data);
-			});
-		}, 3000); */
 		/*(function connect(){
 		    try{
 
