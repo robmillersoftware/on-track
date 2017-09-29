@@ -253,6 +253,9 @@
 			padding-left: 25px;
 			padding-right: 25px;
 		}
+		.hide-graph{
+			display: none;
+		}
 	</style>
 </head>
 	<div class="header">
@@ -408,7 +411,22 @@
 	      	<h5 class="modal-title" id="exampleModalLabel">Timeline</h5>
 	        <p>Kick your business back on track or simply get ahead of the competition with some of our suggestions.</p>
 	        <br/>
-	        <img src="assets/timeline.png" width="365px" height="auto" style="max-width:100%;">
+	        <div id="timeline-switch">
+	        	<div class="timeline-switch-nav" style="display:flex;justify-content:space-around;">
+	        		<p><a href="#week" class="switch-timeline">WEEK</a></p>
+	        		<p><a href="#month" class="switch-timeline">MONTH</a></p>
+	        		<p><a href="#year" class="switch-timeline">YEAR</a></p>
+	        	</div><br/><br/>
+	        	<div id="week" class="hide-graph" style="display:block;">
+	        		<img src="assets/timeline-week.png" width="365px" height="auto" style="max-width:100%;">
+	        	</div>
+	        	<div id="month" class="hide-graph">
+	        		<img src="assets/timelime-month.png" width="365px" height="auto" style="max-width:100%;">
+	        	</div>
+	        	<div id="year" class="hide-graph">
+	        		<img src="assets/timeline-year.png" width="365px" height="auto" style="max-width:100%;">
+	        	</div>
+	        </div><br/>
 	        <div class="achievements">
 	        	<div class="achievements-header">
 	        		<h3>Achievements</h3>
@@ -706,6 +724,7 @@
 	<script src="./bar.js"></script>
 	<script>
 		$(document).ready(function(){
+			
 			var slideCounter = 1;
 			$('.carousel').carousel({
 			  ride: false,
@@ -742,6 +761,13 @@
 				$('.onboarding-slider').carousel(0);
 				$(body).style('padding',0);
 			});
+
+			$('.switch-timeline').click(function(e) {
+				e.preventDefault();
+				var target = $(this).attr('href');
+				$('.hide-graph').hide();
+				$(target).show();
+			});	
 		});
 
 	</script>
@@ -755,7 +781,7 @@
 		    try{
 
 			var socket;
-			var host = "ws://localhost:3030/connect";
+			var host = "ws://on-track.azurewebsites.net:9001/connect";
 		    var socket = new WebSocket(host);
 
 		        $('#socketMessage').append('<p class="event">Socket Status: '+socket.readyState);
@@ -775,7 +801,7 @@
 		    } catch(exception){
 		   		 console.log(exception);
 		    }
-		})(); */
+		})();*/
 	</script>
 <body>
 </body>
