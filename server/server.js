@@ -4,6 +4,12 @@ const app = express();
 const expressWs = require('express-ws')(app);
 const Twitter = require('twitter');
 const path = require('path');
+const Nexmo = require('nexmo');
+
+var nexmoClient = new Nexmo({
+    apiKey: '01111a8b',
+    apiSecret: '563a722f67638930'
+});
 
 var twitterClient = new Twitter({
     consumer_key: 'lDievw6wZlydilQEWqoidb7Q0',
@@ -22,6 +28,21 @@ var wsData = {
 };
 
 var twitterStatus = 'Stop by for #CoffeePowerHour: 1/2 off espresso drinks & pastries for the next hour! #DailyGrind #shoplocal #CoffeeAllDayEveryday';
+var smsText1 = 'Congratulations, you\'re halfway to your daily goal! Login to PNC Online Banking to see any suggestions to hit your goal';
+var smsText2 = 'Congratulations, you reached your daily goal! But, looks like you might be short for the month. Login to PNC Online Banking to see suggestions';
+var sms50Sent = false;
+var sms100Sent = false;
+
+const sendText = text => {
+    nexmo.message.sendSms('12028529309', '13307195468', text, 
+        (err, responseData) => {
+            if (err) {
+            console.log(err);
+            } else {
+            console.dir(responseData);
+            }
+        });
+}
 
 const postToTwitter = () => {
     twitterClient.post('statuses/update', {status: twitterStatus},  (error, tweet, response) => {
@@ -133,6 +154,20 @@ app.get('/connect', (req, res) => {
 
 app.post('/tweet', (req, res) => {
     postToTwitter();
+});
+
+app.post('/sms50', (req, res) => {
+    if (!sms50Sent) {
+        sms50Sent = true;
+        sendText(smsText1);
+    }
+});
+
+app.post('/sms100', (req, res) => {
+    if (!sms100Sent) {
+        sms100Sent = true;
+        sendText(smsText2);
+    }
 });
 
 setInterval(() => {
