@@ -232,6 +232,10 @@
 		}
 		.set-goals .col-2 .check{
 			color: #1a78d8;
+			border: 1px solid #d1d1d1;
+		    width: 20px;
+		    height: 20px;
+		    display: block;
 		}
 		.pie-and-total{
 			position: relative;
@@ -256,6 +260,68 @@
 		.hide-graph{
 			display: none;
 		}
+		.switch-timeline.bold{
+			text-decoration: underline;
+		}
+		#todays-transactions{
+			padding: 50px 25px;
+		}
+		#todays-transactions .row{
+			border-bottom: 1px solid #d1d1d1;
+			padding: 10px 5px;
+		}
+		.revenue-rows .col-8{
+			text-align: left;
+		}
+		.revenue-rows .col-4{
+			text-align: right;
+		}
+		.suggestion-badge-wrapper{
+			position: relative;
+		}
+		#suggestion-badge{
+			position: absolute;
+		    top: -8px;
+		    right: 10px;
+		    height: 20px;
+		    width: 15px;
+		    border-bottom-left-radius: 3px;
+		    border-bottom-right-radius: 3px;
+		    background-color: maroon;
+		    color: #fff;
+		}
+		.twitter-point{
+			padding: 15px 5px;
+			border-bottom: 1px solid #d1d1d1;
+			cursor: pointer;
+		}
+		.twitter-point .twitter-text{
+			height: 0;
+			overflow: hidden;
+			transition: all .5s;
+			padding-top: 0;
+		}
+		.twitter-point .twitter-text p{
+			color: #000;
+			font-weight: normal;
+		}
+		.twitter-point.open .twitter-text{
+			height: 80px;
+			overflow: hidden;
+			transition: all .5s;
+			padding-top: 15px;
+		}
+		.twitter-point i{
+			float: right;
+			color: #2A9FD8;
+			font-size: 24px;
+		}
+		.twitter-point p{
+			color: #2A9FD8;
+			text-align: left; 
+			font-weight: bold;
+			margin: 0;
+		}
 	</style>
 </head>
 	<div class="header">
@@ -263,8 +329,8 @@
 			<div class="row">
 				<div class="col-12">
 					<div id="socketMessage"></div>
-					<h1>DAILY TRACKER</h1>
-					<p>You are on track to reach your goal and extend your streak to 5 days</p>
+					<h2><strong>DAILY TRACKER</strong></h2>
+					<p id="intro-message"></p>
 					<div id="chartBox">
 
 					</div>
@@ -278,11 +344,12 @@
 			<div class="col-4">
 				<a data-toggle="modal" data-target="#revenue"><img src="assets/revenue.svg" width="50px" height="auto"></a>
 			</div>
-			<div class="col-4">
+			<div class="col-4 suggestion-badge-wrapper">
+				<span id="suggestion-badge">3</span>
 				<a data-toggle="modal" data-target="#suggestions"><img src="assets/suggestions.svg" width="62px" height="auto"></a>
 			</div>
 			<div class="col-4">
-				<a data-toggle="modal" data-target="#timeline"><img src="assets/timeline.svg" width="50px" height="auto"></a>
+				<a data-toggle="modal" data-target="#timeline" id="timeline-init"><img src="assets/timeline.svg" width="50px" height="auto"></a>
 			</div>
 		</div>
 	</div>
@@ -292,7 +359,7 @@
 				<p>Daily Goal</p>
 			</div>
 			<div class="col-6">
-				<p id="dailyGoal">$3500</p>
+				<p class="dailyGoal"></p>
 			</div>
 		</div>
 		<div class="row stat">
@@ -300,7 +367,7 @@
 				<p>Goal Streak</p3>
 			</div>
 			<div class="col-6">
-				<p id="goalStreak">4 days</p>
+				<p id="goalStreak">3 days</p>
 			</div>
 		</div>
 		<!--<div class="row stat">
@@ -314,7 +381,7 @@
 	</div>
 	<div class="update-goal">
 		<h2>Has your situation changed?</h2>
-		<p>Whether it's business or personal, you should always update your gaol settings to account for any changes</p>
+		<p>Whether it's business or personal, you should always update your goal settings to account for any changes</p>
 		<br/>
 		<p><strong><a href="" data-toggle="modal" data-target="#dailyTracker">Update your goal settings</a></strong></p>
 	</div>
@@ -348,6 +415,10 @@
 				     		<h3>Step back and look closely at our business practices.</h3>
 				     		<p>What are we doing well? And what can we improve? It's often simple, common sense steps that improve the bottom line, especially for a small business. Even the smallest increase in revenue or reduction in expenses can have an impact on company profitability.</p>
 				     	</div>
+				     	<div style="display:flex;justify-content:space-between;padding:25px;">
+				     		<a href="#" id="tell-more">Tell me more</a>
+	       					<a class="carousel-control-next no-thanks" id="no-thanks" href="#carouselExampleIndicators" role="button" data-slide="next">No Thanks</a>
+	       				</div>
 			     	</div>
 			    </div>
 			    <div class="carousel-item">
@@ -356,9 +427,13 @@
 			     			<img class="d-block w-100" src="assets/twitter-card.png" alt="First slide">
 			     		</div>
 			     		<div class="slide-box-body">
-				     		<h3>Join in on weekly hashtag themes like #ThrowbackThrusday.</h3>
-				     		<p>If you want to build your social media following, you need to be an active participant in the community. This means posting regularly, and also joining in on fun weekly social media traditions that already have a loyal audience. Show the kids how hip you can be!</p>
+				     		<h3>Take advantage of trending #hashtags to reach customers.</h3>
+				     		<p>If you want to build your social media following, you need to be an active participant in the community. This means posting regularly, and also joining in on fun social media traditions that already have a loyal audience. Show the kids how hip you can be!</p>
 				     	</div>
+				     	<div style="display:flex;justify-content:space-between;padding:25px;">
+				     		<a href="#" id="open-twitter-detail">Tell me more</a>
+	       					<a class="carousel-control-next no-thanks" id="no-thanks" href="#carouselExampleIndicators" role="button" data-slide="next">No Thanks</a>
+	       				</div>
 			     	</div>
 			    </div>
 			    <div class="carousel-item">
@@ -367,9 +442,14 @@
 			     			<img class="d-block w-100" src="assets/suggestion-card-3.png" alt="First slide">
 			     		</div>
 			     		<div class="slide-box-body">
-				     		<h3>Open a Business Sweep Account and earn interest on your profit.</h3>
-				     		<p>A Business Sweep Account can be a smart business choice if your checking account balance typically significantly exceeds your daily operating expenses. Help ensure your hard-earned money is working for you until it's needed.</p>
+				     		<h3>Keep the lights on.</h3>
+				     		<p>With PNC's Choice Credit<sup>SM</sup> you could have access to $20,000 to solve for this month's expenses and help you prepare for the changing needs of your business.</p>
+				     		<p>Get your funds quickly with easy access through online banking.</p>
 				     	</div>
+				     	<div style="display:flex;justify-content:space-between;padding:25px;">
+				     		<a href="http://pnc.com/en/apps/welcome-pages/business-lending-choice-credit-line-of-credit.html" target="_blank">Apply Now</a>
+	       					<a class="carousel-control-next no-thanks" id="no-thanks" href="#carouselExampleIndicators" role="button" data-slide="next">No Thanks</a>
+	       				</div>
 			     	</div>
 			    </div>
 			    <div class="carousel-item">
@@ -391,10 +471,6 @@
 			  </a>-->
 			</div>
 	      </div>
-	      <div class="modal-footer">
-	        <a href="#" id="tell-more">Tell me more</a>
-	        <a class="carousel-control-next no-thanks" id="no-thanks" href="#carouselExampleIndicators" role="button" data-slide="next">No Thanks</a>
-	      </div>
 	    </div>
 	  </div>
 	</div>
@@ -413,12 +489,101 @@
 	        <br/>
 	        <div id="timeline-switch">
 	        	<div class="timeline-switch-nav" style="display:flex;justify-content:space-around;">
-	        		<p><a href="#week" class="switch-timeline">WEEK</a></p>
+	        		<p><a href="#week" class="switch-timeline reset-timeline bold">WEEK</a></p>
 	        		<p><a href="#month" class="switch-timeline">MONTH</a></p>
 	        		<p><a href="#year" class="switch-timeline">YEAR</a></p>
 	        	</div><br/><br/>
 	        	<div id="week" class="hide-graph" style="display:block;">
-	        		<img src="assets/timeline-week.png" width="365px" height="auto" style="max-width:100%;">
+	        		<!--<img src="assets/timeline-week.png" width="365px" height="auto" style="max-width:100%;">-->
+	        		<style>
+		        		#timeline{
+		        			margin: 25px auto;
+		        		}
+	        			.timeline-row{
+	        				display: flex;
+	        				justify-content: space-around;
+	        				width: 350px;
+	        				margin: auto;
+	        			}
+	        			.timeline-row.bottom span{
+	        				font-size: 16px;
+	        				font-weight: bold;
+	        			}
+	        			.timeline-row.top span{
+	        				font-weight: bold;
+	        				color: #d1d1d1;
+	        			}
+	        			.timeline-row.graph{
+	        				border-bottom: 1px solid #888;
+	        				margin: 0 auto 5px auto;
+	        			}
+	        			.outer-bar{
+	        				height: 150px;
+	        				width: 25px;
+	        				background-color: #f3f3f4;
+	        				border-top-left-radius: 10px;
+	        				border-top-right-radius: 10px;
+	        				overflow: hidden;
+	        				display: flex;
+	        				align-items: flex-end;
+	        				justify-content: center;
+	        			}
+	        			.timeline-row .inner-bar{
+	        				height: 0;
+	        				transition: height 1s;
+	        				width: 100%;
+	        			}
+	        			.timeline-row .outer-bar.active:first-child .inner-bar{
+	        				height: 40px;
+	        			}
+	        			.timeline-row .outer-bar.active:nth-child(2) .inner-bar{
+	        				height: 60px;
+	        			}
+	        			.timeline-row .outer-bar.active:nth-child(3) .inner-bar{
+	        				height: 132px;
+	        			}
+	        			.timeline-row .outer-bar.active:nth-child(4) .inner-bar{
+	        				height: 100px;
+	        			}
+	        			.timeline-row .outer-bar.active:nth-child(5) .inner-bar{
+	        				height: 123px;
+	        			}
+	        			.timeline-row .outer-bar.active:nth-child(6) .inner-bar{
+	        				height: 87px;
+	        			}
+	        			.timeline-row span:nth-child(6) {
+	        				color: #2A9FD8;
+	        			}
+	        		</style>
+	        		<div id="timeline">
+	        			<div class="timeline-row top">
+	        				<span><strong>SUN</strong></span>
+	        				<span><strong>MON</strong></span>
+	        				<span><strong>TUE</strong></span>
+	        				<span><strong>WED</strong></span>
+	        				<span><strong>THU</strong></span>
+	        				<span><strong>FRI</strong></span>
+	        				<span><strong>SAT</strong></span>
+	        			</div>
+	        			<div class="timeline-row graph">
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:orange;"></div></div>
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:orange;"></div></div>
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:green;"></div></div>
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:green;"></div></div>
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:green;"></div></div>
+	        				<div class="outer-bar"><div class="inner-bar" style="background-color:#2A9FD8;"></div></div>
+	        				<div class="outer-bar"></div>
+	        			</div>
+	        			<div class="timeline-row bottom">
+	        				<span><strong><small>SEP</small><br/>24</strong></span>
+	        				<span><strong><small>SEP</small><br/>25</strong></span>
+	        				<span><strong><small>SEP</small><br/>26</strong></span>
+	        				<span><strong><small>SEP</small><br/>27</strong></span>
+	        				<span><strong><small>SEP</small><br/>28</strong></span>
+	        				<span><strong><small>SEP</small><br/>29</strong></span>
+	        				<span><strong><small>SEP</small><br/>30</strong></span>
+	        			</div>
+	        		</div>
 	        	</div>
 	        	<div id="month" class="hide-graph">
 	        		<img src="assets/timelime-month.png" width="365px" height="auto" style="max-width:100%;">
@@ -482,39 +647,41 @@
 	<div class="modal fade" id="revenue" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
-	      <div class="modal-header" style="border: none;">
+	      <div class="modal-header" style="border: none;height:0">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
 	        </button>
 	      </div>
-	      <div class="modal-body">
+	      <div class="modal-body" style="padding:0;">
+	      	<img class="d-block w-100" src="assets/suggestion-card-3.png" alt="First slide" style="width:100%;">
 	      	<h5 class="modal-title" id="exampleModalLabel">Today's Revenue</h5>
-	        <br/>
-	        <div class="revenue-rows">
-		        <div class="row" style="margin:0;">
-		        	<div class="col-8">
-		        		<p><strong>Total Revenue Today</strong></p>
-		        	</div>
-		        	<div class="col-4">
-		        		<p id="total-revenue-today">$0</p>
-		        	</div>
-		        </div>
-		        <div class="row" style="margin:0;">
-		        	<div class="col-8">
-		        		<p><strong>Total Customers</strong></p>
-		        	</div>
-		        	<div class="col-4">
-		        		<p id="total-customers-today">11</p>
-		        	</div>
-		        </div>
-		        <div class="row" style="margin:0;">
-		        	<div class="col-8">
-		        		<p><strong>Average Per Customer</strong></p>
-		        	</div>
-		        	<div class="col-4">
-		        		<p id="average-charge-customer">$0</p>
-		        	</div>
-		        </div>
+	        <div class="revenue-rows" style="padding:15px 50px;">
+		        <div style="border:1px solid #d1d1d1;padding: 25px;">
+			        <div class="row" style="margin:0;">
+			        	<div class="col-8">
+			        		<p><strong>Total Revenue Today</strong></p>
+			        	</div>
+			        	<div class="col-4">
+			        		<p class="total-revenue-today">$0</p>
+			        	</div>
+			        </div>
+			        <div class="row" style="margin:0;">
+			        	<div class="col-8">
+			        		<p><strong>Total Customers</strong></p>
+			        	</div>
+			        	<div class="col-4">
+			        		<p id="total-customers-today">0</p>
+			        	</div>
+			        </div>
+			        <div class="row" style="margin:0;">
+			        	<div class="col-8">
+			        		<p><strong>Average Per Customer</strong></p>
+			        	</div>
+			        	<div class="col-4">
+			        		<p id="average-charge-customer">$0</p>
+			        	</div>
+			        </div>
+			    </div>
 		        <div id="todays-transactions">
 
 		        </div>
@@ -544,6 +711,7 @@
 		        <br/>
 		        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#onBoarding" style="border-radius:0;background-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;">Get Started</button>
 		    </div>
+	      </div>
 	    </div>
 	  </div>
 	</div>
@@ -551,7 +719,7 @@
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header" style="border: none;">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <button type="button" class="close reset-onboard" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
 	        </button>
 	      </div>
@@ -581,40 +749,32 @@
 			    <div class="carousel-item">
 			    	<div class='slide-box'>
 			     		<div class="slide-box-header" style="background-color:#2A9FD8;min-height:250px;display:flex;align-items:flex-end;justify-content:center;flex-wrap:wrap;border:1px solid #2A9FD8;">
-			     			<h3 style="width:100%;color:#fff;">Review Your Current Expenses</h3>
+			     			<h3 style="width:100%;color:#fff;">Review Your Monthly Expenses</h3>
 			     			<img src="assets/onboarding-step2.svg">
 			     		</div>
 			     		<div class="slide-box-body">
 				     		<div class="row expense">
 				     			<div class="col-6">
-				     				<p><strong>Bills &amp; Utilities</strong></p>
+				     				<p style="margin:0;"><strong>Bills &amp; Utilities</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$4900.23</p>
-				     			</div>
-				     		</div>
-				     		<div class="row expense">
-				     			<div class="col-6">
-				     				<p><strong>Wages</strong></p>
-				     			</div>
-				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$3200</p>
+				     				<p style="margin:0;" id="bills-and-utilities">$4900.23</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
 				     			<div class="col-6">
-				     				<p><strong>Goods</strong></p>
+				     				<p style="margin:0;"><strong>Wages</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$1891.23</p>
+				     				<p style="margin:0;" id="bills-and-utilities">$6466.25</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
 				     			<div class="col-6">
-				     				<p><strong>Other</strong></p>
+				     				<p style="margin:0;"><strong>Goods</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$62.59</p>
+				     				<p style="margin:0;" id="bills-and-utilities">$1891.23</p>
 				     			</div>
 				     		</div>
 				     		<br/>
@@ -629,11 +789,11 @@
 			     			<img src="assets/onboarding-step3.svg">
 			     		</div>
 			     		<div class="slide-box-body">
-				     		<p>To go beyond just break-even, your goal will include a small daily profit or cushion to account for off days.</p><br/>
+				     		<p>I want to...</p><br/>
 				     		<div class="set-goals">
 				     			<div class="row goal">
 				     				<div class="col-10">
-				     					<p><strong>Just Break Even</strong></p>
+				     					<p><strong>Keep my business steady</strong></p>
 				     				</div>
 				     				<div class="col-2">
 				     					<span class="check"></span>
@@ -641,7 +801,7 @@
 				     			</div>
 				     			<div class="row goal">
 				     				<div class="col-10">
-				     					<p><strong>Account for off days</strong></p>
+				     					<p><strong>Set aside money for the future</strong></p>
 				     				</div>
 				     				<div class="col-2">
 				     					<span class="check fa fa-check"></span>
@@ -670,15 +830,15 @@
 			     			<p>Your daily tracker will monitor your revenue and help you stay on track with your daily goal.</p><br/>
 			     			<div class="pie-and-total">
 			     				<img src="assets/onboarding-breakdown.svg">
-			     				<p id="pie-and-total">$3000</p>
+			     				<p class="dailyGoal"></p>
 			     			</div><br/>
-				     		<p>We estimated your daily goal for today to be <strong>$3,000</strong> based on your expenses and your profit strategy.</p><br/><br/>
+				     		<p>We estimated your daily goal for today to be <strong><span class="dailyGoal"></span></strong> based on your expenses and your profit strategy.</p><br/><br/>
 				     		<div class="row expense">
 				     			<div class="col-6">
 				     				<p><strong>Bills &amp; Utilities</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$4900.23</p>
+				     				<p id="bills-and-utilities">$284</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
@@ -686,7 +846,7 @@
 				     				<p><strong>Wages</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$3200</p>
+				     				<p id="bills-and-utilities">$248</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
@@ -694,24 +854,108 @@
 				     				<p><strong>Goods</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$1891.23</p>
+				     				<p id="bills-and-utilities">$177</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
 				     			<div class="col-6">
-				     				<p><strong>Other</strong></p>
+				     				<p><strong>Profit</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$62.59</p>
+				     				<p id="currentProfit"></p>
 				     			</div>
 				     		</div><br/>
-				     		<a class="btn btn-primary btn-lg carousel-2-next close" id="reset-onboard" data-dismiss="modal" aria-label="Close" style="opacity:1;float:none;border-radius:0;background-color:#fff;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">
+				     		<a class="btn btn-primary btn-lg carousel-2-next close reset-onboard" data-dismiss="modal" aria-label="Close" style="opacity:1;float:none;border-radius:0;background-color:#fff;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#2A9FD8;border:1px solid #2A9FD8;">
 				     		Open Daily Tracker</a>
 				     	</div>
 			     	</div>
 			    </div>
 			  </div>
 			</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="twitter-detail">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="border: none;height:0;">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+	        </button>
+	      </div>
+	      <div class="modal-body" style="padding:0;">
+	      	<img src="assets/suggestion card detail.png" style="width:100%;"><br/>
+	      	<div style="padding: 25px;">
+		      	<h5 class="modal-title" id="exampleModalLabel">Create a Hashtag for Your Business</h5>
+		        <p>Creating a hashtag is easy, but difficult at the same time. It takes creativity, after all, to come up with amemorable phrase that packs a punch within a few words.</p><br/>
+
+		        <p>As you start brainstorming, keep the following points in mind:</p>
+
+		        <div class="twitter-points">
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Research Hashtags</p>
+		        		<div class="twitter-text">
+		        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+		        		</div>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i>
+		        		<p>Keep Hashtags Short and Obvious</p> 
+		        		<div class="twitter-text">
+		        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+		        		</div>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Make it Catchy</p>
+		        		<div class="twitter-text">
+		        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+		        		</div>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Integrate your Business Name</p>
+		        		<div class="twitter-text">
+		        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+		        		</div>
+		        	</div>
+		        	<div class="twitter-point">
+		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
+		        		<p>Proofread the Hashtag</p>
+		        		<div class="twitter-text">
+		        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+		        		</div>
+		        	</div>
+		        </div>
+		        <br/>
+		        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#send-tweet" style="border-radius:0;background-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;">Get Started</button>
+		      </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="send-tweet">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header" style="border: none;height:0;">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+	        </button>
+	      </div>
+	      <div class="modal-body" style="padding:0;">
+	      	<img src="assets/suggestion card detail.png" style="width:100%;"><br/>
+	      	<div style="padding: 25px;">
+		      	<h5 class="modal-title" id="exampleModalLabel">What's happening?</h5>
+		      	<p>Send a tweet to your followers to spin up some quick business or tell them about a sale.</p> 
+		        <form action="/tweet" method="post" style="display:flex;flex-direction:column;margin-top: 25px;">
+		        	<textarea name="tweet-text" style="width:100%;" rows="5">
+
+		        	</textarea><br/>
+		        	<button type=="submit" class="btn btn-primary btn-lg carousel-2-next close reset-onboard" data-dismiss="modal" aria-label="Close" style="max-width:100px;opacity:1;float:none;border-radius:0;background-color:#2A9FD8;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#fff;border:1px solid #2A9FD8;border-radius:12px">Tweet</a>
+		        </form>
+		      </div>
 	      </div>
 	    </div>
 	  </div>
@@ -730,6 +974,8 @@
 				});
 			}, 3000);
 			var slideCounter = 1;
+			var suggestions = 3;
+			$('#suggestion-badge').text(suggestions); 
 			$('.carousel').carousel({
 			  ride: false,
 			  interval: 0,
@@ -749,6 +995,13 @@
 			$('.carousel').on('slide.bs.carousel', function () {
 			  	slideCounter++;
 
+			  	suggestions--;
+				$('#suggestion-badge').text(suggestions); 
+
+				if(suggestions === 0) {
+					$('#suggestion-badge').remove();					
+				}
+
 				if(slideCounter === 4) {
 					$('.carousel-indicators').hide();
 					$('.no-thanks').hide();
@@ -761,26 +1014,44 @@
 				$(this).find('.check').addClass('fa').addClass('fa-check');
 			});
 
-			$('#reset-onboard').click(function(e){
+			$('.reset-onboard').click(function(e){
 				$('.onboarding-slider').carousel(0);
 				$(body).style('padding',0);
 			});
 
 			$('.switch-timeline').click(function(e) {
 				e.preventDefault();
+				$('.switch-timeline').removeClass('bold');
+				$(this).addClass('bold');
 				var target = $(this).attr('href');
 				$('.hide-graph').hide();
 				$(target).show();
 			});	
+
+			$('#open-twitter-detail').click(function(e){
+				e.preventDefault();
+				$('.modal').modal('hide');
+				$('#twitter-detail').modal('show'); 
+			});
+
+			$('.twitter-point').click(function(){
+				$(this).toggleClass('open');
+			});
+
+			$('#timeline-init').click(function(){
+				setTimeout(function() {
+					$('.timeline-row.graph .outer-bar').addClass('active');
+				}, 1000);
+				
+			});
+
+			$('.close').click(function(){
+				$('.outer-bar').removeClass('active');
+			});
 		});
 
 	</script>
 	<script>
-		/*setInterval(function() {
-			$.get('http://on-track.azurewebsites.net:9001/connect', function(data){
-				console.log(data);
-			});
-		}, 3000); */
 		/*(function connect(){
 		    try{
 
