@@ -23,7 +23,7 @@ function updateTransactions(setItems) {
 		if(data.transactionList.length > 0) {
 			html += "<br/><br/><p><small>End of Transactions</small></p>"; 
 		} else {
-			html += "<br/><br/><p><small>No transaction yet today.</small></p>";	
+			html += "<br/><br/><p><small>No transactions yet today.</small></p>";	
 		}
 		$('#todays-transactions').html(html); 
 		$('.total-revenue-today').text('$'+data.currentRevenue); 
@@ -47,7 +47,7 @@ $(document).ready(function(){
 		if(data.transactionList.length > 0) {
 			html += "<br/><br/><p><small>End of Transactions</small></p>"; 
 		} else {
-			html += "<br/><br/><p><small>No transaction yet today.</small></p>";	
+			html += "<br/><br/><p><small>No transactions yet today.</small></p>";	
 		}
 		
 
@@ -165,7 +165,7 @@ $(document).ready(function(){
 	});
 
 
-	
+
 });
 
 

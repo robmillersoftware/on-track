@@ -232,6 +232,10 @@
 		}
 		.set-goals .col-2 .check{
 			color: #1a78d8;
+			border: 1px solid #d1d1d1;
+		    width: 20px;
+		    height: 20px;
+		    display: block;
 		}
 		.pie-and-total{
 			position: relative;
@@ -643,39 +647,41 @@
 	<div class="modal fade" id="revenue" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
-	      <div class="modal-header" style="border: none;">
+	      <div class="modal-header" style="border: none;height:0">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
 	        </button>
 	      </div>
-	      <div class="modal-body">
+	      <div class="modal-body" style="padding:0;">
+	      	<img class="d-block w-100" src="assets/suggestion-card-3.png" alt="First slide" style="width:100%;">
 	      	<h5 class="modal-title" id="exampleModalLabel">Today's Revenue</h5>
-	        <br/>
-	        <div class="revenue-rows">
-		        <div class="row" style="margin:0;">
-		        	<div class="col-8">
-		        		<p><strong>Total Revenue Today</strong></p>
-		        	</div>
-		        	<div class="col-4">
-		        		<p class="total-revenue-today">$0</p>
-		        	</div>
-		        </div>
-		        <div class="row" style="margin:0;">
-		        	<div class="col-8">
-		        		<p><strong>Total Customers</strong></p>
-		        	</div>
-		        	<div class="col-4">
-		        		<p id="total-customers-today">0</p>
-		        	</div>
-		        </div>
-		        <div class="row" style="margin:0;">
-		        	<div class="col-8">
-		        		<p><strong>Average Per Customer</strong></p>
-		        	</div>
-		        	<div class="col-4">
-		        		<p id="average-charge-customer">$0</p>
-		        	</div>
-		        </div>
+	        <div class="revenue-rows" style="padding:15px 50px;">
+		        <div style="border:1px solid #d1d1d1;padding: 25px;">
+			        <div class="row" style="margin:0;">
+			        	<div class="col-8">
+			        		<p><strong>Total Revenue Today</strong></p>
+			        	</div>
+			        	<div class="col-4">
+			        		<p class="total-revenue-today">$0</p>
+			        	</div>
+			        </div>
+			        <div class="row" style="margin:0;">
+			        	<div class="col-8">
+			        		<p><strong>Total Customers</strong></p>
+			        	</div>
+			        	<div class="col-4">
+			        		<p id="total-customers-today">0</p>
+			        	</div>
+			        </div>
+			        <div class="row" style="margin:0;">
+			        	<div class="col-8">
+			        		<p><strong>Average Per Customer</strong></p>
+			        	</div>
+			        	<div class="col-4">
+			        		<p id="average-charge-customer">$0</p>
+			        	</div>
+			        </div>
+			    </div>
 		        <div id="todays-transactions">
 
 		        </div>
@@ -749,26 +755,26 @@
 			     		<div class="slide-box-body">
 				     		<div class="row expense">
 				     			<div class="col-6">
-				     				<p><strong>Bills &amp; Utilities</strong></p>
+				     				<p style="margin:0;"><strong>Bills &amp; Utilities</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$4900.23</p>
-				     			</div>
-				     		</div>
-				     		<div class="row expense">
-				     			<div class="col-6">
-				     				<p><strong>Wages</strong></p>
-				     			</div>
-				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$6466.25</p>
+				     				<p style="margin:0;" id="bills-and-utilities">$4900.23</p>
 				     			</div>
 				     		</div>
 				     		<div class="row expense">
 				     			<div class="col-6">
-				     				<p><strong>Goods</strong></p>
+				     				<p style="margin:0;"><strong>Wages</strong></p>
 				     			</div>
 				     			<div class="col-6">
-				     				<p id="bills-and-utilities">$1891.23</p>
+				     				<p style="margin:0;" id="bills-and-utilities">$6466.25</p>
+				     			</div>
+				     		</div>
+				     		<div class="row expense">
+				     			<div class="col-6">
+				     				<p style="margin:0;"><strong>Goods</strong></p>
+				     			</div>
+				     			<div class="col-6">
+				     				<p style="margin:0;" id="bills-and-utilities">$1891.23</p>
 				     			</div>
 				     		</div>
 				     		<br/>
@@ -924,7 +930,7 @@
 		        	</div>
 		        </div>
 		        <br/>
-		        <a class="btn btn-primary btn-lg carousel-2-next close reset-onboard" data-dismiss="modal" aria-label="Close" style="opacity:1;float:none;border-radius:0;background-color:#2A9FD8;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#fff;border:1px solid #2A9FD8;">Get Started</a>
+		        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#send-tweet" style="border-radius:0;background-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;">Get Started</button>
 		      </div>
 	      </div>
 	    </div>
@@ -941,35 +947,14 @@
 	      <div class="modal-body" style="padding:0;">
 	      	<img src="assets/suggestion card detail.png" style="width:100%;"><br/>
 	      	<div style="padding: 25px;">
-		      	<h5 class="modal-title" id="exampleModalLabel">Create a Hashtag for Your Business</h5>
-		        <p>Creating a hashtag is easy, but difficult at the same time. It takes creativity, after all, to come up with amemorable phrase that packs a punch within a few words.</p><br/>
+		      	<h5 class="modal-title" id="exampleModalLabel">What's happening?</h5>
+		      	<p>Send a tweet to your followers to spin up some quick business or tell them about a sale.</p> 
+		        <form action="/tweet" method="post" style="display:flex;flex-direction:column;margin-top: 25px;">
+		        	<textarea name="tweet-text" style="width:100%;" rows="5">
 
-		        <p>As you start brainstorming, keep the following points in mind:</p>
-
-		        <div class="twitter-points">
-		        	<div class="twitter-point">
-		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
-		        		<p>Research Hashtags</p>
-		        	</div>
-		        	<div class="twitter-point">
-		        		<i class="fa fa-caret-down" aria-hidden="true"></i>
-		        		<p>Keep Hashtags Short and Obvious</p> 
-		        	</div>
-		        	<div class="twitter-point">
-		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
-		        		<p>Make it Catchy</p>
-		        	</div>
-		        	<div class="twitter-point">
-		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
-		        		<p>Integrate your Business Name</p>
-		        	</div>
-		        	<div class="twitter-point">
-		        		<i class="fa fa-caret-down" aria-hidden="true"></i> 
-		        		<p>Proofread the Hashtag</p>
-		        	</div>
-		        </div>
-		        <br/>
-		        <a class="btn btn-primary btn-lg carousel-2-next close reset-onboard" data-dismiss="modal" aria-label="Close" style="opacity:1;float:none;border-radius:0;background-color:#2A9FD8;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#fff;border:1px solid #2A9FD8;">Get Started</a>
+		        	</textarea><br/>
+		        	<button type=="submit" class="btn btn-primary btn-lg carousel-2-next close reset-onboard" data-dismiss="modal" aria-label="Close" style="max-width:100px;opacity:1;float:none;border-radius:0;background-color:#2A9FD8;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#fff;border:1px solid #2A9FD8;border-radius:12px">Tweet</a>
+		        </form>
 		      </div>
 	      </div>
 	    </div>
