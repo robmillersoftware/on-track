@@ -3,7 +3,7 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<link rel='stylesheet' href="assets/fonts.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no;">
 	<style>
 		html{
 			font-size: 10px;
@@ -955,10 +955,8 @@
 		      	<h5 class="modal-title" id="exampleModalLabel">What's happening?</h5>
 		      	<p>Send a tweet to your followers to spin up some quick business or tell them about a sale.</p> 
 		        <form action="/tweet" method="post" style="display:flex;flex-direction:column;margin-top: 25px;">
-		        	<textarea name="tweet-text" style="width:100%;" rows="5">
-
-		        	</textarea><br/>
-		        	<button type=="submit" class="btn btn-primary btn-lg carousel-2-next close reset-onboard" data-dismiss="modal" aria-label="Close" style="max-width:100px;opacity:1;float:none;border-radius:0;background-color:#2A9FD8;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#fff;border:1px solid #2A9FD8;border-radius:12px">Tweet</a>
+		        	<textarea name="tweet-text" style="width:100%;font-size:16px;padding:5px;" rows="5">Stop by for #CoffeePowerHour: 1/2 off espresso drinks & pastries for the next hour! #DailyGrind #shoplocal #coffeeAllDayEveryday</textarea><br/>
+		        	<button type=="submit" class="btn btn-primary btn-lg close" id="tweet-submit" data-dismiss="modal" aria-label="Close" style="max-width:100px;opacity:1;float:none;border-radius:0;background-color:#2A9FD8;border-color:#2A9FD8;border:none;font-size:19px;padding:6px 15px;color:#fff;border:1px solid #2A9FD8;border-radius:12px">Tweet</a>
 		        </form>
 		      </div>
 	      </div>
@@ -1059,6 +1057,14 @@
 				localStorage.setItem('cfiGoalMultiplier', multiplier); 
 				updateTransactions(); 
 			});
+
+			$('#tweet-submit').click(function(e){
+				e.preventDefault();
+				$('.modal').modal('hide');
+				$.post('http://localhost:9001/tweet', function(data){
+					console.log(data);
+				});
+			})
 			
 		});
 

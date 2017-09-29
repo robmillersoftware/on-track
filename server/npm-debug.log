@@ -9,8 +9,8 @@
 6 silly lifecycle cfi-mock-api@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle cfi-mock-api@1.0.0~start: cfi-mock-api@1.0.0
 8 verbose lifecycle cfi-mock-api@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle cfi-mock-api@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\pl18164\repos\on-track\node_modules\.bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\pl18164\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\1E\NomadBranch;C:\Program Files\Dell\Dell Data Protection\Encryption;C:\Program Files\nodejs;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\BlueZone\7.1;C:\Users\pl18164\AppData\Roaming\npm;C:\Users\pl18164\Documents\apache-maven-3.5.0-bin\apache-maven-3.5.0\bin;C:\Users\pl18164\tools\jdk1.8.0_121\bin
-10 verbose lifecycle cfi-mock-api@1.0.0~start: CWD: C:\Users\pl18164\repos\on-track
+9 verbose lifecycle cfi-mock-api@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\PL42002\Desktop\app-prototype\on-track\node_modules\.bin;C:\Users\PL42002\bin;C:\Users\PL42002\AppData\Local\Programs\Git\mingw64\bin;C:\Users\PL42002\AppData\Local\Programs\Git\usr\local\bin;C:\Users\PL42002\AppData\Local\Programs\Git\usr\bin;C:\Users\PL42002\AppData\Local\Programs\Git\usr\bin;C:\Users\PL42002\AppData\Local\Programs\Git\mingw64\bin;C:\Users\PL42002\AppData\Local\Programs\Git\usr\bin;C:\Users\PL42002\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\1E\NomadBranch;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\nodejs;C:\Users\PL42002\tools\apache-maven-3.5.0;C:\Users\PL42002\tools\apache-maven-3.5.0\bin;C:\Users\PL42002\tools\apache-maven-3.5.0;C:\Users\Public\IBM\SDP\jdk;C:\Users\Public\IBM\SDP\jdk\bin;%npm%;C:\Users\PL42002\AppData\Roaming\npm;C:\Users\PL42002\AppData\Local\Programs\Git\usr\bin\vendor_perl;C:\Users\PL42002\AppData\Local\Programs\Git\usr\bin\core_perl
+10 verbose lifecycle cfi-mock-api@1.0.0~start: CWD: C:\Users\PL42002\Desktop\app-prototype\on-track
 11 silly lifecycle cfi-mock-api@1.0.0~start: Args: [ '/d /s /c', 'node index.js' ]
 12 silly lifecycle cfi-mock-api@1.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle cfi-mock-api@1.0.0~start: Failed to exec start script
@@ -25,7 +25,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid cfi-mock-api@1.0.0
-16 verbose cwd C:\Users\pl18164\repos\on-track
+16 verbose cwd C:\Users\PL42002\Desktop\app-prototype\on-track\server
 17 error Windows_NT 6.1.7601
 18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
 19 error node v6.10.0

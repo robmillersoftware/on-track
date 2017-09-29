@@ -29,12 +29,12 @@ var wsData = {
 
 var twitterStatus = 'Stop by for #CoffeePowerHour: 1/2 off espresso drinks & pastries for the next hour! #DailyGrind #shoplocal #CoffeeAllDayEveryday';
 var smsText1 = 'Congratulations, you\'re halfway to your daily goal! Login to PNC Online Banking to see any suggestions to hit your goal';
-var smsText2 = 'Congratulations, you reached your daily goal! But, looks like you might be short for the month. Login to PNC Online Banking to see suggestions';
+var smsText2 = 'Congratulations, you reached your daily goal! But, looks like you might be short for the month. Login to PNC Online Banking to see suggestions..';
 var sms50Sent = false;
 var sms100Sent = false;
 
 const sendText = text => {
-    nexmo.message.sendSms('12028529309', '13307195468', text, 
+    nexmoClient.message.sendSms('12028529309', '13307195468', text, 
         (err, responseData) => {
             if (err) {
             console.log(err);

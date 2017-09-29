@@ -15,7 +15,7 @@ function updateTransactions() {
 		$.each(data.transactionList,function(i,d) {
 			html += "<div class='transaction row'>";
 			html += "<div class='col-6' style='text-align:left;'><p><strong>";
-			html += d.date;
+			html += '<p>Sept 29</p>';
 			html += "</strong></p></div><div class='col-6' style='text-align:right;'><p><strong>"
 			html += "$"+d.amount;
 			html += "</strong></p></div></div>"
@@ -25,13 +25,23 @@ function updateTransactions() {
 		} else {
 			html += "<br/><br/><p><small>No transactions yet today.</small></p>";	
 		}
-		var cfiDailyGoal = data.dailyGoal;
+		var cfiDailyGoal = Math.round(parseInt(data.dailyGoal));
 		localStorage.setItem('cfiDailyGoal',data.dailyGoal);
-		var dailyGoalMultiplier = localStorage.getItem('cfiGoalMultiplier') || 1.1;
-		var dailyGoalFormatted = (Math.ceil(cfiDailyGoal * dailyGoalMultiplier)).toFixed(2);
-		console.log(dailyGoalFormatted);
+		var dailyGoalMultiplier = parseInt(localStorage.getItem('cfiGoalMultiplier')) || 1.1;
+		var dailyGoalFormatted = (Math.round(cfiDailyGoal * dailyGoalMultiplier)).toFixed(2);
+		var currentRevenue = Math.round(parseInt(data.currentRevenue)); 
+		console.log(currentRevenue/dailyGoalFormatted);	
+		if(currentRevenue/dailyGoalFormatted >= .5) {
+			$.post('http://localhost:9001/sms50', function() {
+				//
+			});
+		} else if (currentRevenue/dailyGoalFormatted >= 1) {
+			$.post('http://localhost:9001/sms100', function() {
+				//
+			});
+		}
 		$('#todays-transactions').html(html); 
-		$('.total-revenue-today').text('$'+data.currentRevenue); 
+		$('.total-revenue-today').text('$'+parseInt(data.currentRevenue).toFixed()); 
 		$('#total-customers-today').text(data.transactionCount);
 		$('#average-charge-customer').text('$'+data.transactionAvg); 
 		$('.dailyGoal').text('$'+dailyGoalFormatted);
@@ -47,11 +57,10 @@ function buildBar() {
 	$.get('http://localhost:9001/connect', function(string){
 		var html = "";
 		var data = JSON.parse(string); 
-		console.log(data); 
 		$.each(data.transactionList,function(i,d) {
 			html += "<div class='transaction row'>";
 			html += "<div class='col-6' style='text-align:left;'><p><strong>";
-			html += d.date;
+			html += '<p>Sept 29</p>'
 			html += "</strong></p></div><div class='col-6' style='text-align:right;'><p><strong>"
 			html += "$"+d.amount;
 			html += "</strong></p></div></div>"
@@ -67,21 +76,21 @@ function buildBar() {
 		var boxWidth = $('#chartBox').width();
 		var dailyGoal = localStorage.getItem('cfiDailyGoal') || data.dailyGoal;
 		var cfiGoalMultiplier = localStorage.getItem('cfiGoalMultiplier') || 1.1;
-		goalFormatted = parseInt(dailyGoal * cfiGoalMultiplier).toFixed(0);
+		goalFormatted = Math.round(parseInt(dailyGoal * cfiGoalMultiplier));
 		goal = [goalFormatted];
 		var max = goal[0];
 		var formatPercent = d3.format(".4r");
-		var current = data.currentRevenue;
-		var currentPercent = (goal != 0) ? Math.ceil((current/goalFormatted)*100) : 0;
+		var current = Math.round(parseInt(data.currentRevenue));
+		var currentPercent = (goal != 0) ? Math.round((current/goalFormatted)*100) : 0;
 		var introMessage = ""
 		var currentProfit = goalFormatted - 710; 
-		$('#currentProfit').text('$'+currentProfit);
+		$('#currentProfit').text('$'+Math.round(parseInt(currentProfit)));
 		if(currentPercent > 100) {
 			introMessage = "<br/><strong>Congratulations!</strong><br/>you have reached your daily goal."
 		} else if(currentPercent >= 60) {
 			introMessage = "You're getting close to your goal! Check our suggestions for how to get that final boost!"
 		} else {
-			introMessage = "Reach $" + goal + " today to extend your streak to 4 days. That's about 45 more customers&mdash;Good luck!"  
+			introMessage = "Make $" + (goalFormatted-current) + " more today to extend your streak to 4 days."  
 		}
 
 		$('#intro-message').html(introMessage); 
@@ -151,7 +160,7 @@ function buildBar() {
 		        var self = this;
 		        var i = d3.interpolate(0, d);
 		        return function(t) {
-		            d3.select(self).text('$' + formatPercent(i(t)));
+		            d3.select(self).text('$' + Math.round(formatPercent(i(t))));
 		        };
 		    })
 		    .duration(1500);
